@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148AF27270FB40073EB7B /* AppDelegate.swift */; };
 		A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B127270FB40073EB7B /* SceneDelegate.swift */; };
-		A85148B427270FB40073EB7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B327270FB40073EB7B /* ViewController.swift */; };
-		A85148B727270FB40073EB7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85148B527270FB40073EB7B /* Main.storyboard */; };
+		A85148B427270FB40073EB7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B327270FB40073EB7B /* MainViewController.swift */; };
 		A85148B927270FB60073EB7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85148B827270FB60073EB7B /* Assets.xcassets */; };
-		A85148BC27270FB60073EB7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85148BA27270FB60073EB7B /* LaunchScreen.storyboard */; };
+		A85148C527274CB90073EB7B /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A85148C427274CB90073EB7B /* PinLayout */; };
+		A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148C62727558E0073EB7B /* MainPresenter.swift */; };
+		A8BDE1E0272CA297007018E2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BDE1DF272CA297007018E2 /* CollectionViewCell.swift */; };
+		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
+		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A85148AC27270FB40073EB7B /* KinoLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85148AF27270FB40073EB7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A85148B127270FB40073EB7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A85148B327270FB40073EB7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A85148B627270FB40073EB7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A85148B327270FB40073EB7B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A85148B827270FB60073EB7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A85148BB27270FB60073EB7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A85148BD27270FB60073EB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A85148C62727558E0073EB7B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		A8BDE1DF272CA297007018E2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85148C527274CB90073EB7B /* PinLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +62,49 @@
 		A85148AE27270FB40073EB7B /* KinoLib */ = {
 			isa = PBXGroup;
 			children = (
+				A8E2DEDE272C37FF00810C11 /* Service */,
+				A8E2DEDB272C2C0000810C11 /* Presenter */,
+				A8E2DEDA272C2BF900810C11 /* View */,
+				A8E2DED9272C2BEB00810C11 /* Model */,
 				A85148AF27270FB40073EB7B /* AppDelegate.swift */,
 				A85148B127270FB40073EB7B /* SceneDelegate.swift */,
-				A85148B327270FB40073EB7B /* ViewController.swift */,
-				A85148B527270FB40073EB7B /* Main.storyboard */,
 				A85148B827270FB60073EB7B /* Assets.xcassets */,
-				A85148BA27270FB60073EB7B /* LaunchScreen.storyboard */,
 				A85148BD27270FB60073EB7B /* Info.plist */,
 			);
 			path = KinoLib;
+			sourceTree = "<group>";
+		};
+		A8E2DED9272C2BEB00810C11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8E2DEDC272C2CA100810C11 /* Film.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A8E2DEDA272C2BF900810C11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A85148B327270FB40073EB7B /* MainViewController.swift */,
+				A8BDE1DF272CA297007018E2 /* CollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A8E2DEDB272C2C0000810C11 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A85148C62727558E0073EB7B /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A8E2DEDE272C37FF00810C11 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A8E2DEDF272C381100810C11 /* NetworkManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +123,9 @@
 			dependencies = (
 			);
 			name = KinoLib;
+			packageProductDependencies = (
+				A85148C427274CB90073EB7B /* PinLayout */,
+			);
 			productName = KinoLib;
 			productReference = A85148AC27270FB40073EB7B /* KinoLib.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +154,9 @@
 				Base,
 			);
 			mainGroup = A85148A327270FB40073EB7B;
+			packageReferences = (
+				A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */,
+			);
 			productRefGroup = A85148AD27270FB40073EB7B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85148BC27270FB60073EB7B /* LaunchScreen.storyboard in Resources */,
 				A85148B927270FB60073EB7B /* Assets.xcassets in Resources */,
-				A85148B727270FB40073EB7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +182,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85148B427270FB40073EB7B /* ViewController.swift in Sources */,
+				A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */,
+				A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */,
+				A85148B427270FB40073EB7B /* MainViewController.swift in Sources */,
+				A8BDE1E0272CA297007018E2 /* CollectionViewCell.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
+				A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A85148B527270FB40073EB7B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A85148B627270FB40073EB7B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A85148BA27270FB60073EB7B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A85148BB27270FB60073EB7B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A85148BE27270FB60073EB7B /* Debug */ = {
@@ -360,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A85148C427274CB90073EB7B /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A85148A427270FB40073EB7B /* Project object */;
 }
