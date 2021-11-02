@@ -7,11 +7,24 @@
 
 import Foundation
 
+struct Films: Codable{
+    let pagesCount: Int
+    let films: [Film]
+}
+
 struct Film: Codable {
-    let title: String
+    let nameRu: String
     let year: String
-    let image: String
-    let rank: String?
-    let genres: String?
-    let release: String?
+    let posterUrlPreview: String
+    let rating: String
+    let genres: [Genre]
+    let countries: [Country]
+}
+
+struct Genre: Codable {
+    let genre: String
+}
+
+struct Country: Codable {
+    let country: String
 }

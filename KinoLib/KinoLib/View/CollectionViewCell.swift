@@ -15,7 +15,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     }()
     
     let poster: UIImageView! = {
-       let imageView = UIImageView()
-        imageView.image
+        let imageView = UIImageView()
+        return imageView
     }()
 }

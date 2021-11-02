@@ -16,8 +16,8 @@ protocol MainPresenterProtocol: AnyObject {
 
 
 final class MainPresenter: MainPresenterProtocol {
-    weak var view: MainViewControllerProtocol?
-    let networkManager: NetworkManagerProtocol?
+    weak var view: MainViewControllerProtocol!
+    let networkManager: NetworkManagerProtocol!
     var films: [Film]?
     init(view: MainViewControllerProtocol, networkManager: NetworkManagerProtocol) {
         self.view = view
@@ -29,12 +29,12 @@ final class MainPresenter: MainPresenterProtocol {
     }
     
     func getFilms() {
-        networkManager?.getFilms{ [weak self] result in
+        networkManager.getFilms(ofType: Films.self){[weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else {return}
                 switch result{
                 case .success(let films):
-                    self.films = films
+                    self.films = films?.films
                     self.view?.success()
                 case .failure(let error):
                     self.view?.failure(error: error)
