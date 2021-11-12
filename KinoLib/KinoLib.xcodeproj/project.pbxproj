@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A801AC86273D814300962793 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801AC85273D814300962793 /* FilmManager.swift */; };
+		A801AC89273D8B4300962793 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801AC88273D8B4300962793 /* NetworkImageView.swift */; };
+		A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */; };
 		A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148AF27270FB40073EB7B /* AppDelegate.swift */; };
 		A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B127270FB40073EB7B /* SceneDelegate.swift */; };
 		A85148B427270FB40073EB7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B327270FB40073EB7B /* MainViewController.swift */; };
@@ -14,12 +17,15 @@
 		A85148C527274CB90073EB7B /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A85148C427274CB90073EB7B /* PinLayout */; };
 		A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148C62727558E0073EB7B /* MainPresenter.swift */; };
 		A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A88FC7B92730623700DF7C4A /* Kingfisher */; };
-		A8BDE1E0272CA297007018E2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BDE1DF272CA297007018E2 /* CollectionViewCell.swift */; };
+		A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */; };
 		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
 		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A801AC85273D814300962793 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
+		A801AC88273D8B4300962793 /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
+		A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		A85148AC27270FB40073EB7B /* KinoLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85148AF27270FB40073EB7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A85148B127270FB40073EB7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +33,7 @@
 		A85148B827270FB60073EB7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A85148BD27270FB60073EB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85148C62727558E0073EB7B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		A8BDE1DF272CA297007018E2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +76,7 @@
 				A8E2DED9272C2BEB00810C11 /* Model */,
 				A85148AF27270FB40073EB7B /* AppDelegate.swift */,
 				A85148B127270FB40073EB7B /* SceneDelegate.swift */,
+				A801AC88273D8B4300962793 /* NetworkImageView.swift */,
 				A85148B827270FB60073EB7B /* Assets.xcassets */,
 				A85148BD27270FB60073EB7B /* Info.plist */,
 			);
@@ -80,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E2DEDC272C2CA100810C11 /* Film.swift */,
+				A801AC85273D814300962793 /* FilmManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,7 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				A85148B327270FB40073EB7B /* MainViewController.swift */,
-				A8BDE1DF272CA297007018E2 /* CollectionViewCell.swift */,
+				A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */,
+				A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,8 +197,11 @@
 			files = (
 				A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */,
 				A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */,
+				A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */,
 				A85148B427270FB40073EB7B /* MainViewController.swift in Sources */,
-				A8BDE1E0272CA297007018E2 /* CollectionViewCell.swift in Sources */,
+				A801AC86273D814300962793 /* FilmManager.swift in Sources */,
+				A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */,
+				A801AC89273D8B4300962793 /* NetworkImageView.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
 				A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */,

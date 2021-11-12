@@ -8,23 +8,25 @@
 import Foundation
 
 struct Films: Codable{
-    let pagesCount: Int
-    let films: [Film]
+    let page: Int
+    let totalPages: Int
+    let results: [Film]?
 }
 
 struct Film: Codable {
-    let nameRu: String
-    let year: String
-    let posterUrlPreview: String
-    let rating: String
-    let genres: [Genre]
-    let countries: [Country]
+    let id: Int
+    let title: String
+    let releaseDate: String
+    let posterPath: String
+    let overview: String
+    let genreIds: [Int]
+    let popularity: Double
+    let voteAverage: Double
 }
-
+struct Genres: Codable {
+    let genres: [Genre]?
+}
 struct Genre: Codable {
-    let genre: String
-}
-
-struct Country: Codable {
-    let country: String
+    let id: Int
+    let name: String
 }
