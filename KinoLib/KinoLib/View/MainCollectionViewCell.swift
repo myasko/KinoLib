@@ -29,7 +29,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
         //        $0.backgroundColor = .white
         return $0
     }(UILabel())
-    
+
     let date: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 12)
         $0.textColor = .black
@@ -174,11 +174,17 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         printDateFormatter.dateFormat = "dd MMMM"
         printDateFormatter.locale = Locale(identifier: "ru_RU")
         printDateFormatter.timeZone = TimeZone(secondsFromGMT: 10800)
-        if collectionView.tag == 0{
+        if collectionView.tag == 0 {
             let date = getDateFormatter.date(from: film?.releaseDate ?? "2000-10-21")
             cell.date.text = printDateFormatter.string(from: date!)
 //            date(from: "2021-11-11")
         }
+        else {
+            cell.date.text = nil
+        }
+        /*
+         Дает странную дичь, если выключить интернет, а потом даже если включить (прописывает даты в коллекции, у которой должен быть тэг 1, если указать else, то он передумает так делать)
+        */
         //        cell.poster.image
         return cell
     }

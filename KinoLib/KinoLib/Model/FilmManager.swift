@@ -34,7 +34,6 @@ class FilmManager: FilmManagerProtocol {
             guard let self = self else {return}
             switch result{
             case .success(let items):
-                    
                 if let genresArray = items as? Genres {
                     var genres = [Int:String]()
                     genresArray.genres!.forEach(){

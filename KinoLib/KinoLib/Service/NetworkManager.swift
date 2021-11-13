@@ -40,6 +40,8 @@ final class NetworkManager: NetworkManagerProtocol {
             return nil
         }
         var request = URLRequest(url: url)
+//        request.cachePolicy = .returnCacheDataDontLoad
+        request.cachePolicy = .reloadIgnoringCacheData
         request.httpMethod = "GET"
         return request
     }
