@@ -1,24 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Film Details View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FilmDetailsViewController" customModule="KinoLib" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EB0-FE-Ncl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pM-a6-HV3" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ajh-et-Zpe">
+                                                <rect key="frame" x="60" y="8" width="255" height="260"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="260" id="bf7-Ls-gNB"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Very very big film name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPc-Ru-aWW">
+                                                <rect key="frame" x="60" y="288" width="255" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="S0O-b3-Gzi">
+                                                <rect key="frame" x="16" y="318.5" width="343" height="85.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detective, drama, comedy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTg-c6-iS8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCI-zI-793">
+                                                        <rect key="frame" x="0.0" y="25.5" width="343" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZP-da-Stb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="283" height="60"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeK-9h-oBE">
+                                                                <rect key="frame" x="283" y="0.0" width="60" height="60"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="iao-G2-kfF"/>
+                                                                    <constraint firstAttribute="height" constant="60" id="nhW-7y-qPn"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title=" ">
+                                                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                                <buttonConfiguration key="configuration" style="gray" title=" ">
+                                                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                                                </buttonConfiguration>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEo-MX-OKg">
+                                                <rect key="frame" x="16" y="424" width="343" height="446.5"/>
+                                                <mutableString key="text">Traveling merchant Kraft Lawrence continues his northward journey with wolf goddess Holo, in search of her lost home of Yoitsu. Lawrence and his sharp-witted partner continue to make some small profits along the way, while slowly uncovering more information about Holo's hometown. However, the road to Yoitsu is a bumpy one filled with many troubles—Lawrence runs into a charming young fellow merchant who has his eyes set on the female wolf companion, and he begins to doubt if Holo will remain by his side; he and the goddess will also have to consider precarious and risky business deals as Lawrence strives to achieve his dream of becoming a shopowner. All the while, with his determination tested at every turn during his journey, Lawrence must question his relationship with Holo, take on business ventures, and ask himself whether it is time for him and Holo to go their separate ways.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="S0O-b3-Gzi" secondAttribute="trailing" constant="16" id="G8r-t5-CM5"/>
+                                            <constraint firstItem="S0O-b3-Gzi" firstAttribute="leading" secondItem="8pM-a6-HV3" secondAttribute="leading" constant="16" id="HxN-nq-Jdc"/>
+                                            <constraint firstAttribute="trailing" secondItem="LEo-MX-OKg" secondAttribute="trailing" constant="16" id="JBD-ZW-dHg"/>
+                                            <constraint firstItem="BPc-Ru-aWW" firstAttribute="top" secondItem="Ajh-et-Zpe" secondAttribute="bottom" constant="20" id="KWX-ad-z1t"/>
+                                            <constraint firstItem="S0O-b3-Gzi" firstAttribute="top" secondItem="BPc-Ru-aWW" secondAttribute="bottom" constant="10" id="LPa-Ne-gXn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ajh-et-Zpe" secondAttribute="trailing" constant="60" id="MNB-ac-cQq"/>
+                                            <constraint firstItem="BPc-Ru-aWW" firstAttribute="leading" secondItem="8pM-a6-HV3" secondAttribute="leading" constant="60" id="O5M-Yr-8iP"/>
+                                            <constraint firstAttribute="trailing" secondItem="BPc-Ru-aWW" secondAttribute="trailing" constant="60" id="O7y-ca-KQl"/>
+                                            <constraint firstAttribute="height" constant="1000" id="TTG-ML-o5h"/>
+                                            <constraint firstItem="LEo-MX-OKg" firstAttribute="leading" secondItem="8pM-a6-HV3" secondAttribute="leading" constant="16" id="oWy-SN-Cbs"/>
+                                            <constraint firstItem="LEo-MX-OKg" firstAttribute="top" secondItem="S0O-b3-Gzi" secondAttribute="bottom" constant="20" id="plS-C1-sRb"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LEo-MX-OKg" secondAttribute="bottom" id="rDJ-Un-PIv"/>
+                                            <constraint firstItem="Ajh-et-Zpe" firstAttribute="top" secondItem="8pM-a6-HV3" secondAttribute="top" constant="8" id="rDb-2v-wd1"/>
+                                            <constraint firstItem="Ajh-et-Zpe" firstAttribute="leading" secondItem="8pM-a6-HV3" secondAttribute="leading" constant="60" id="ygP-I2-PBm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8pM-a6-HV3" firstAttribute="leading" secondItem="EB0-FE-Ncl" secondAttribute="leading" id="2hv-fk-DHZ"/>
+                                    <constraint firstItem="8pM-a6-HV3" firstAttribute="top" secondItem="EB0-FE-Ncl" secondAttribute="top" id="5HS-Ow-s23"/>
+                                    <constraint firstAttribute="bottom" secondItem="8pM-a6-HV3" secondAttribute="bottom" id="6E7-hP-hOD"/>
+                                    <constraint firstAttribute="trailing" secondItem="8pM-a6-HV3" secondAttribute="trailing" id="gQO-82-C2Y"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EB0-FE-Ncl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="I0c-Sa-pVu"/>
+                            <constraint firstItem="EB0-FE-Ncl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IV6-II-lST"/>
+                            <constraint firstItem="EB0-FE-Ncl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Mto-rE-hwi"/>
+                            <constraint firstItem="8pM-a6-HV3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cg8-pV-15H"/>
+                            <constraint firstItem="EB0-FE-Ncl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zG4-pt-F9d"/>
+                        </constraints>
                     </view>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="favoriteButton" destination="xeK-9h-oBE" id="N6l-nA-Mej"/>
+                        <outlet property="genresLable" destination="RTg-c6-iS8" id="Pjk-Lu-6eC"/>
+                        <outlet property="grades" destination="CZP-da-Stb" id="Bbc-LG-lNK"/>
+                        <outlet property="image" destination="Ajh-et-Zpe" id="vts-iT-e7J"/>
+                        <outlet property="nameLabel" destination="BPc-Ru-aWW" id="d7D-cs-KMF"/>
+                        <outlet property="plotLabel" destination="LEo-MX-OKg" id="ZVi-uv-9ah"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="76.911544227886068"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
