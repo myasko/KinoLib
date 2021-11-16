@@ -20,6 +20,12 @@
 		A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */; };
 		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
 		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
+		C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ECE27441AB6004EF682 /* AuthViewController.swift */; };
+		C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED027441AC8004EF682 /* SignupViewController.swift */; };
+		C34C5ED327441AD5004EF682 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED227441AD5004EF682 /* User.swift */; };
+		C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED427441AE2004EF682 /* AuthPresenter.swift */; };
+		C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED627441AF2004EF682 /* SignupPresenter.swift */; };
+		C34C5ED927441B0C004EF682 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED827441B0C004EF682 /* FormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C34C5ECE27441AB6004EF682 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		C34C5ED027441AC8004EF682 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		C34C5ED227441AD5004EF682 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C34C5ED427441AE2004EF682 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		C34C5ED627441AF2004EF682 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		C34C5ED827441B0C004EF682 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				A8E2DEDE272C37FF00810C11 /* Service */,
-				A8E2DEDB272C2C0000810C11 /* Presenter */,
-				A8E2DEDA272C2BF900810C11 /* View */,
-				A8E2DED9272C2BEB00810C11 /* Model */,
+				A8E2DEDB272C2C0000810C11 /* Presenters */,
+				A8E2DEDA272C2BF900810C11 /* Views */,
+				A8E2DED9272C2BEB00810C11 /* Models */,
 				A85148AF27270FB40073EB7B /* AppDelegate.swift */,
 				A85148B127270FB40073EB7B /* SceneDelegate.swift */,
 				A801AC88273D8B4300962793 /* NetworkImageView.swift */,
@@ -83,31 +95,33 @@
 			path = KinoLib;
 			sourceTree = "<group>";
 		};
-		A8E2DED9272C2BEB00810C11 /* Model */ = {
+		A8E2DED9272C2BEB00810C11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A8E2DEDC272C2CA100810C11 /* Film.swift */,
 				A801AC85273D814300962793 /* FilmManager.swift */,
+				C34C5ED227441AD5004EF682 /* User.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		A8E2DEDA272C2BF900810C11 /* View */ = {
+		A8E2DEDA272C2BF900810C11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A85148B327270FB40073EB7B /* MainViewController.swift */,
-				A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */,
-				A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */,
+				C34C5EDB27442F06004EF682 /* AuthAndSignupViews */,
+				C34C5EDA27442EF0004EF682 /* MainView */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		A8E2DEDB272C2C0000810C11 /* Presenter */ = {
+		A8E2DEDB272C2C0000810C11 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
 				A85148C62727558E0073EB7B /* MainPresenter.swift */,
+				C34C5ED627441AF2004EF682 /* SignupPresenter.swift */,
+				C34C5ED427441AE2004EF682 /* AuthPresenter.swift */,
 			);
-			path = Presenter;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		A8E2DEDE272C37FF00810C11 /* Service */ = {
@@ -116,6 +130,26 @@
 				A8E2DEDF272C381100810C11 /* NetworkManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C34C5EDA27442EF0004EF682 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				A85148B327270FB40073EB7B /* MainViewController.swift */,
+				A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */,
+				A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		C34C5EDB27442F06004EF682 /* AuthAndSignupViews */ = {
+			isa = PBXGroup;
+			children = (
+				C34C5ED827441B0C004EF682 /* FormViewController.swift */,
+				C34C5ED027441AC8004EF682 /* SignupViewController.swift */,
+				C34C5ECE27441AB6004EF682 /* AuthViewController.swift */,
+			);
+			path = AuthAndSignupViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,11 +229,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34C5ED327441AD5004EF682 /* User.swift in Sources */,
+				C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */,
+				C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */,
 				A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */,
 				A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */,
 				A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */,
+				C34C5ED927441B0C004EF682 /* FormViewController.swift in Sources */,
 				A85148B427270FB40073EB7B /* MainViewController.swift in Sources */,
 				A801AC86273D814300962793 /* FilmManager.swift in Sources */,
+				C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */,
+				C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */,
 				A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */,
 				A801AC89273D8B4300962793 /* NetworkImageView.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
@@ -334,7 +374,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 26B3X9QZVZ;
+				DEVELOPMENT_TEAM = 4RL6CGM93L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KinoLib/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -346,7 +386,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.YaroslavFomenko.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -361,7 +401,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 26B3X9QZVZ;
+				DEVELOPMENT_TEAM = 4RL6CGM93L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KinoLib/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -373,7 +413,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.YaroslavFomenko.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

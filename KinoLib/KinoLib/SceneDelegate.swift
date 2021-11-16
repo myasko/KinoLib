@@ -14,24 +14,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        let nav = UINavigationController()
-        let rc = MainViewController()
-        let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = nav
-            self.window = window
-            window.makeKeyAndVisible()
-        if #available(iOS 13.0, *){
+        guard let scene = (scene as? UIWindowScene) else { return }
+    
+        let window = UIWindow(windowScene: scene)
+                
+        let authViewController = AuthViewController()
+        let nav = UINavigationController(rootViewController: authViewController)
+        
+        window.rootViewController = nav
+        if #available(iOS 13.0, *) {
             window.overrideUserInterfaceStyle = .light
         }
-        nav.viewControllers = [rc]
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let rc = MainViewController()
-//        let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = rc
-//            self.window = window
-//            window.makeKeyAndVisible()
-      }
+        
+        self.window = window
+        window.makeKeyAndVisible()
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
