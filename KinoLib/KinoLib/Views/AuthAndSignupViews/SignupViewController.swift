@@ -12,8 +12,8 @@ class SignupViewController: FormViewController {
     
     var titleLabel: UILabel!
     
-    var usernameLabel: UILabel!
-    var usernameInput: UITextField!
+    var emailLabel: UILabel!
+    var emailInput: UITextField!
     
     var passwordLabel: UILabel!
     var passwordInput: UITextField!
@@ -42,11 +42,11 @@ class SignupViewController: FormViewController {
         titleLabel.font = titleLabel.font.withSize(titleLabel.font.pointSize * 1.25)
         contentView.addSubview(titleLabel)
         
-        usernameLabel = createLabel(text: "Логин:")
-        contentView.addSubview(usernameLabel)
+        emailLabel = createLabel(text: "EMail:")
+        contentView.addSubview(emailLabel)
         
-        usernameInput = createTextField(placeholder: "логин")
-        contentView.addSubview(usernameInput)
+        emailInput = createTextField(placeholder: "email")
+        contentView.addSubview(emailInput)
         
         passwordLabel = createLabel(text: "Пароль:")
         contentView.addSubview(passwordLabel)
@@ -72,15 +72,15 @@ class SignupViewController: FormViewController {
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.topAnchor, constant: topMargin),
             
-            usernameLabel.leftAnchor.constraint(equalTo: usernameInput.leftAnchor),
-            usernameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin * 2),
+            emailLabel.leftAnchor.constraint(equalTo: emailInput.leftAnchor),
+            emailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin * 2),
             
-            usernameInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            usernameInput.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: margin),
-            usernameInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.75),
+            emailInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            emailInput.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: margin),
+            emailInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.75),
             
             passwordLabel.leftAnchor.constraint(equalTo: passwordInput.leftAnchor),
-            passwordLabel.topAnchor.constraint(equalTo: usernameInput.bottomAnchor, constant: margin * 1.25),
+            passwordLabel.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: margin * 1.25),
             
             passwordInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             passwordInput.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: margin),
@@ -105,20 +105,34 @@ class SignupViewController: FormViewController {
     }
     
     @objc func authenticateAction(sender: UIButton!) {
+        submitButton.isEnabled = false
+        
         let user = UserSignup(
-            username: usernameInput.text ?? "",
+            email: emailInput.text ?? "",
             password: passwordInput.text ?? "",
-            passwordConfirm: passwordInput.text ?? ""
+            passwordConfirm: passwordConfirmInput.text ?? ""
         )
         
-        let err = presenter.signup(user)
-        if (err.count > 0) {
-            let alert = createAlert(title: "Регистрация", message: err)
-            showAlert(alert)
-            return
-        }
-        
-        dismiss(animated: true, completion: nil)
+        presenter.signup(user, callback: {
+            err in
+            
+            self.submitButton.isEnabled = true
+            
+            if (err.count > 0) {
+                let alert = self.createAlert(title: "Регистрация", message: err)
+                self.showAlert(alert)
+                return
+            }
+            
+            let alert = self.createAlert(title: "Регистрация", message: "Пользователь успешно зарегистрирован", handler: {
+                self.emailInput.text = ""
+                self.passwordInput.text = ""
+                self.passwordConfirmInput.text = ""
+                
+                self.dismiss(animated: true, completion: nil)
+            })
+            self.showAlert(alert)
+        })
     }
     
     @objc func navigateToSignupAction(sender: UIButton!) {

@@ -77,13 +77,23 @@ class FormViewController: UIViewController {
         return btn
     }
     
-    func createAlert(title: String, message: String, buttonTitle: String = "OK") -> UIAlertController {
+    func createAlert(title: String, message: String, buttonTitle: String = "OK", handler: (() -> ())? = nil) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: .default))
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: {
+            _ in
+            if (handler != nil) {
+                handler!()
+            }
+        }))
         return alert
     }
     
     func showAlert(_ alert: UIAlertController) {
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func navigateToMain() {
+        let mainViewController = MainViewController()
+        self.navigationController?.pushViewController(mainViewController, animated: true)
     }
 }

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         let window = UIWindow(windowScene: scene)
                 
-        let authViewController = MainViewController()
+        let authViewController = AuthViewController()
         let nav = UINavigationController(rootViewController: authViewController)
         window.rootViewController = nav
         if #available(iOS 13.0, *) {

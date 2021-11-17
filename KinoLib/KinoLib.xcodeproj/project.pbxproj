@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57C2EC6062B1D320315BB10C /* Pods_KinoLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */; };
 		A801AC86273D814300962793 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801AC85273D814300962793 /* FilmManager.swift */; };
 		A801AC89273D8B4300962793 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801AC88273D8B4300962793 /* NetworkImageView.swift */; };
 		A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */; };
@@ -30,9 +31,13 @@
 		C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED427441AE2004EF682 /* AuthPresenter.swift */; };
 		C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED627441AF2004EF682 /* SignupPresenter.swift */; };
 		C34C5ED927441B0C004EF682 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED827441B0C004EF682 /* FormViewController.swift */; };
+		C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoLib.release.xcconfig"; path = "Target Support Files/Pods-KinoLib/Pods-KinoLib.release.xcconfig"; sourceTree = "<group>"; };
+		9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoLib.debug.xcconfig"; path = "Target Support Files/Pods-KinoLib/Pods-KinoLib.debug.xcconfig"; sourceTree = "<group>"; };
 		A801AC85273D814300962793 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
 		A801AC88273D8B4300962793 /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 		A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -56,6 +61,7 @@
 		C34C5ED427441AE2004EF682 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		C34C5ED627441AF2004EF682 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		C34C5ED827441B0C004EF682 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,17 +71,38 @@
 			files = (
 				A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */,
 				A85148C527274CB90073EB7B /* PinLayout in Frameworks */,
+				57C2EC6062B1D320315BB10C /* Pods_KinoLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17D85453C7D0B1D5C3F47DE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37E8BF4305176C9E5FD35677 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */,
+				3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A85148A327270FB40073EB7B = {
 			isa = PBXGroup;
 			children = (
 				A85148AE27270FB40073EB7B /* KinoLib */,
 				A85148AD27270FB40073EB7B /* Products */,
+				37E8BF4305176C9E5FD35677 /* Pods */,
+				17D85453C7D0B1D5C3F47DE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +124,7 @@
 				A85148AF27270FB40073EB7B /* AppDelegate.swift */,
 				A85148B127270FB40073EB7B /* SceneDelegate.swift */,
 				A801AC88273D8B4300962793 /* NetworkImageView.swift */,
+				C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */,
 				A85148B827270FB60073EB7B /* Assets.xcassets */,
 				A85148BD27270FB60073EB7B /* Info.plist */,
 			);
@@ -179,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A85148C027270FB60073EB7B /* Build configuration list for PBXNativeTarget "KinoLib" */;
 			buildPhases = (
+				19EB143545A9B0B152A84F1B /* [CP] Check Pods Manifest.lock */,
 				A85148A827270FB40073EB7B /* Sources */,
 				A85148A927270FB40073EB7B /* Frameworks */,
 				A85148AA27270FB40073EB7B /* Resources */,
+				115D85D8AFA683985752AC40 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,10 +270,53 @@
 			files = (
 				A85148B927270FB60073EB7B /* Assets.xcassets in Resources */,
 				A8CDC93327457B5600331E9B /* Main.storyboard in Resources */,
+				C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		115D85D8AFA683985752AC40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KinoLib/Pods-KinoLib-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KinoLib/Pods-KinoLib-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KinoLib/Pods-KinoLib-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19EB143545A9B0B152A84F1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KinoLib-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A85148A827270FB40073EB7B /* Sources */ = {
@@ -393,6 +466,7 @@
 		};
 		A85148C127270FB60073EB7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -420,6 +494,7 @@
 		};
 		A85148C227270FB60073EB7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

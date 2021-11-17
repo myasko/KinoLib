@@ -12,8 +12,8 @@ class AuthViewController: FormViewController {
     
     var titleLabel: UILabel!
     
-    var usernameLabel: UILabel!
-    var usernameInput: UITextField!
+    var emailLabel: UILabel!
+    var emailInput: UITextField!
     
     var passwordLabel: UILabel!
     var passwordInput: UITextField!
@@ -39,11 +39,11 @@ class AuthViewController: FormViewController {
         titleLabel.font = titleLabel.font.withSize(titleLabel.font.pointSize * 1.25)
         contentView.addSubview(titleLabel)
         
-        usernameLabel = createLabel(text: "Логин:")
-        contentView.addSubview(usernameLabel)
+        emailLabel = createLabel(text: "EMail:")
+        contentView.addSubview(emailLabel)
         
-        usernameInput = createTextField(placeholder: "логин")
-        contentView.addSubview(usernameInput)
+        emailInput = createTextField(placeholder: "email")
+        contentView.addSubview(emailInput)
         
         passwordLabel = createLabel(text: "Пароль:")
         contentView.addSubview(passwordLabel)
@@ -63,15 +63,15 @@ class AuthViewController: FormViewController {
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topMargin),
             
-            usernameLabel.leftAnchor.constraint(equalTo: usernameInput.leftAnchor),
-            usernameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin * 2),
+            emailLabel.leftAnchor.constraint(equalTo: emailInput.leftAnchor),
+            emailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin * 2),
             
-            usernameInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            usernameInput.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: margin),
-            usernameInput.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
+            emailInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emailInput.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: margin),
+            emailInput.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
             
             passwordLabel.leftAnchor.constraint(equalTo: passwordInput.leftAnchor),
-            passwordLabel.topAnchor.constraint(equalTo: usernameInput.bottomAnchor, constant: margin * 1.25),
+            passwordLabel.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: margin * 1.25),
             
             passwordInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             passwordInput.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: margin),
@@ -89,20 +89,27 @@ class AuthViewController: FormViewController {
     }
     
     @objc func submitButtonAction(sender: UIButton!) {
+        submitButton.isEnabled = false
+        
         let user = UserAuth(
-            username: usernameInput.text ?? "",
+            email: emailInput.text ?? "",
             password: passwordInput.text ?? ""
         )
         
-        let err = presenter.authenticate(user)
-        if (err.count > 0) {
-            let alert = createAlert(title: "Авторизация", message: "Неверный логин или пароль!")
-            showAlert(alert)
-            return
-        }
-        
-        let mainViewController = MainViewController()
-        self.navigationController?.pushViewController(mainViewController, animated: true)
+        presenter.authenticate(user, callback: {
+            err in
+            
+            self.submitButton.isEnabled = true
+          
+            if (err.count > 0) {
+                let alert = self.createAlert(title: "Авторизация", message: err)
+                self.showAlert(alert)
+                return
+            }
+            
+            self.passwordInput.text = ""
+            self.navigateToMain()
+        })
     }
     
     @objc func signupButtonAction(sender: UIButton!) {

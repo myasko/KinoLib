@@ -8,12 +8,12 @@
 import Foundation
 
 struct UserAuth {
-    let username: String
+    let email: String
     let password: String
 }
 
 struct UserSignup {
-    let username: String
+    let email: String
     let password: String
     let passwordConfirm: String
 }
