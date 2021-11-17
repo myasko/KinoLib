@@ -54,7 +54,7 @@ class SignupViewController: FormViewController {
         passwordInput = createTextField(placeholder: "пароль", secure: true)
         contentView.addSubview(passwordInput)
         
-        passwordConfirmLabel = createLabel(text: "Подвтерждение:")
+        passwordConfirmLabel = createLabel(text: "Подтверждение:")
         contentView.addSubview(passwordConfirmLabel)
         
         passwordConfirmInput = createTextField(placeholder: "подтверждение", secure: true)
