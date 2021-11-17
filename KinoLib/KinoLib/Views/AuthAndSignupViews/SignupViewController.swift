@@ -35,6 +35,7 @@ class SignupViewController: FormViewController {
     }
     
     func setupView() {
+        scrollView.backgroundColor = .white
         contentView.backgroundColor = .white
         
         titleLabel = createLabel(text: "Регистрация")
@@ -68,36 +69,36 @@ class SignupViewController: FormViewController {
         contentView.addSubview(submitButton)
         
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.topAnchor, constant: topMargin),
             
             usernameLabel.leftAnchor.constraint(equalTo: usernameInput.leftAnchor),
             usernameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin * 2),
             
-            usernameInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            usernameInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             usernameInput.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: margin),
-            usernameInput.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
+            usernameInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.75),
             
             passwordLabel.leftAnchor.constraint(equalTo: passwordInput.leftAnchor),
             passwordLabel.topAnchor.constraint(equalTo: usernameInput.bottomAnchor, constant: margin * 1.25),
             
-            passwordInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            passwordInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             passwordInput.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: margin),
-            passwordInput.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
+            passwordInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.75),
             
             passwordConfirmLabel.leftAnchor.constraint(equalTo: passwordConfirmInput.leftAnchor),
             passwordConfirmLabel.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: margin * 1.25),
             
-            passwordConfirmInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            passwordConfirmInput.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             passwordConfirmInput.topAnchor.constraint(equalTo: passwordConfirmLabel.bottomAnchor, constant: margin),
-            passwordConfirmInput.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
+            passwordConfirmInput.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.75),
             
             authButton.leftAnchor.constraint(equalTo: passwordConfirmInput.leftAnchor),
             authButton.topAnchor.constraint(equalTo: passwordConfirmInput.bottomAnchor, constant: margin * 1.25),
             
-            submitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            submitButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             submitButton.topAnchor.constraint(equalTo: authButton.bottomAnchor, constant: margin),
-            submitButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            submitButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
             
             submitButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -bottomMargin),
         ])
