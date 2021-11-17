@@ -34,13 +34,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         configure()
         presenter = MainPresenter(view: self)
         self.presenter.loadData()
         presenter.output = self
-//        self.presenter.genresDictfunc()
-        
     }
     
     override func viewDidLayoutSubviews() {

@@ -48,7 +48,6 @@ final class MainTableViewCell: UITableViewCell, CellProtocol {
             layout.minimumInteritemSpacing = 0
             layout.itemSize = CGSize(width: 150.5, height: collectionView.frame.height)
             }
-//        collectionView.reloadData()
     }
     
     func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forSection section: Int) {
@@ -64,8 +63,6 @@ final class MainTableViewCell: UITableViewCell, CellProtocol {
         
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -103,7 +100,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
         view.backgroundColor =  UIColor(red: 0.1507387459, green: 0.3653766513, blue: 1, alpha: 1)
         let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 40))
-        lbl.font = UIFont.systemFont(ofSize: 20)
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        lbl.textColor = .white
         switch section{
         case 0:
             lbl.text = Headers.upcoming.rawValue
@@ -130,16 +128,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forSection: indexPath.section)
             tableViewCell.collectionViewOffset = self.storedOffsets[indexPath.section] ?? 0
         }
-//        print(tableViewCell.collectionView.contentSize)
-        
-//        print("now offset \(tableViewCell.collectionViewOffset)")
     }
     
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let tableViewCell = cell as? MainTableViewCell else { return }
         storedOffsets[indexPath.section] = tableViewCell.collectionViewOffset
-//        print("will offset \(tableViewCell.collectionViewOffset)")
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

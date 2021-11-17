@@ -8,8 +8,6 @@
 import Foundation
 
 protocol MainPresenterProtocol: AnyObject {
-//    func getFilms(url: String)
-//    func getGenres ()
     var output: MainPresenterOutput? { get set }
     func loadData ()
     var films: [[Film]?] {get set}
@@ -33,7 +31,6 @@ final class MainPresenter: MainPresenterProtocol {
         case popularNow = "https://api.themoviedb.org/3/movie/popular?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=1&region=ru"
         case bestFilms = "https://api.themoviedb.org/3/movie/top_rated?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=1&region=ru"
         case genres = "https://api.themoviedb.org/3/genre/movie/list?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru"
-//        static let allValues = [upcoming, inCinema, popularNow, bestFilms, genres]
     }
     
     private var filmManager: FilmManagerProtocol = FilmManager.shared
@@ -49,13 +46,11 @@ final class MainPresenter: MainPresenterProtocol {
     func getFilms(url: String, iter: Int) {
         filmManager.load(ofType: Films.self, url: url, iter: iter)
         filmManager.output = self
-        
     }
     
     func getGenres() {
         filmManager.load(ofType: Genres.self, url: Url.genres.rawValue, iter: 0)
         filmManager.output = self
-//        print("[DEBUG] \(Url.allCases[3].rawValue)")
     }
     
     func loadData() {
@@ -82,7 +77,6 @@ extension MainPresenter: FilmManagerOutput{
         }
         else if let result = result as? [Int:String] {
             genres = result
-//            print(result)
         }
     }
     func failure(error: Error) {

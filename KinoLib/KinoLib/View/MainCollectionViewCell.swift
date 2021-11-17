@@ -26,7 +26,6 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
         $0.textColor = .black
         $0.textAlignment = .left
         $0.numberOfLines = 2
-        //        $0.backgroundColor = .white
         return $0
     }(UILabel())
 
@@ -114,9 +113,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
 extension UIView {
     public func pin(to addView: UIView) -> PinLayout<UIView> {
         if !addView.subviews.contains(self) {
-            //                DispatchQueue.main.async {
             addView.addSubview(self)
-            //                }
         }
         return self.pin
     }
@@ -189,10 +186,3 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         return cell
     }
 }
-
-//extension MainViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 150.5, height: collectionView.frame.height)
-//        //        return CGSize(width: self.view.frame.width/2 - 40, height: collectionView.frame.height)
-//    }
-//}
