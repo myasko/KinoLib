@@ -17,3 +17,8 @@ struct UserSignup {
     let password: String
     let passwordConfirm: String
 }
+
+struct User {
+    let login: String
+    let favoriteFilms: [String]
+}

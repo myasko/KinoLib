@@ -188,11 +188,17 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         //        cell.poster.image
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailcVC = FilmDetailsViewController()
+        print(collectionView.tag)
+        let presenter = FilmDetailsPresenter(view: detailcVC)
+        detailcVC.presenter = presenter
+        detailcVC.presenter.film = self.presenter.films[collectionView.tag]![indexPath.row]
+        detailcVC.presenter.genres = self.presenter.genres
+        self.navigationController?.pushViewController(detailcVC, animated: true)
+        
+        
+    }
 }
 
-//extension MainViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 150.5, height: collectionView.frame.height)
-//        //        return CGSize(width: self.view.frame.width/2 - 40, height: collectionView.frame.height)
-//    }
-//}

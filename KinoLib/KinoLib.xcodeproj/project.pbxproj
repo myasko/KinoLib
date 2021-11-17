@@ -18,6 +18,10 @@
 		A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148C62727558E0073EB7B /* MainPresenter.swift */; };
 		A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A88FC7B92730623700DF7C4A /* Kingfisher */; };
 		A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */; };
+		A8CDC93327457B5600331E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDC93227457B5600331E9B /* Main.storyboard */; };
+		A8CDC93527457B6A00331E9B /* FilmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93427457B6A00331E9B /* FilmDetailsViewController.swift */; };
+		A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */; };
+		A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93927457C6D00331E9B /* DataManager.swift */; };
 		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
 		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
 		C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ECE27441AB6004EF682 /* AuthViewController.swift */; };
@@ -40,6 +44,10 @@
 		A85148BD27270FB60073EB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85148C62727558E0073EB7B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8CDC93227457B5600331E9B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A8CDC93427457B6A00331E9B /* FilmDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailsViewController.swift; sourceTree = "<group>"; };
+		A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailsPresenter.swift; sourceTree = "<group>"; };
+		A8CDC93927457C6D00331E9B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C34C5ECE27441AB6004EF682 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,15 @@
 			path = KinoLib;
 			sourceTree = "<group>";
 		};
+		A8CDC93627457B7200331E9B /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				A8CDC93227457B5600331E9B /* Main.storyboard */,
+				A8CDC93427457B6A00331E9B /* FilmDetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		A8E2DED9272C2BEB00810C11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +125,7 @@
 		A8E2DEDA272C2BF900810C11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A8CDC93627457B7200331E9B /* Details */,
 				C34C5EDB27442F06004EF682 /* AuthAndSignupViews */,
 				C34C5EDA27442EF0004EF682 /* MainView */,
 			);
@@ -119,6 +137,7 @@
 			children = (
 				A85148C62727558E0073EB7B /* MainPresenter.swift */,
 				C34C5ED627441AF2004EF682 /* SignupPresenter.swift */,
+				A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */,
 				C34C5ED427441AE2004EF682 /* AuthPresenter.swift */,
 			);
 			path = Presenters;
@@ -127,6 +146,7 @@
 		A8E2DEDE272C37FF00810C11 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A8CDC93927457C6D00331E9B /* DataManager.swift */,
 				A8E2DEDF272C381100810C11 /* NetworkManager.swift */,
 			);
 			path = Service;
@@ -219,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A85148B927270FB60073EB7B /* Assets.xcassets in Resources */,
+				A8CDC93327457B5600331E9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,10 +261,13 @@
 				A801AC86273D814300962793 /* FilmManager.swift in Sources */,
 				C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */,
 				C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */,
+				A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */,
 				A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */,
 				A801AC89273D8B4300962793 /* NetworkImageView.swift in Sources */,
+				A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
+				A8CDC93527457B6A00331E9B /* FilmDetailsViewController.swift in Sources */,
 				A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +414,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -417,7 +441,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

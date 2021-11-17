@@ -18,9 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         let window = UIWindow(windowScene: scene)
                 
-        let authViewController = AuthViewController()
+        let authViewController = MainViewController()
         let nav = UINavigationController(rootViewController: authViewController)
-        
         window.rootViewController = nav
         if #available(iOS 13.0, *) {
             window.overrideUserInterfaceStyle = .light
