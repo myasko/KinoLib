@@ -28,10 +28,10 @@ class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
     
     func showDetsils() {
         //view.nameLabel.text = film.name
-        view.plotLabel.text = film.plot
-        film.genres.forEach { genre in
-            view.genresLable.text?.append(genre)
-        }
+        //view.plotLabel.text = film.plot
+//        film.genres.forEach { genre in
+//            view.genresLable.text?.append(genre)
+//        }
     }
     
     var isFavorite: Bool {
