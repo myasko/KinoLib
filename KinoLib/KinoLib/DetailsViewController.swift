@@ -54,7 +54,7 @@ class DetailsViewController: UIViewController {
     
     var scoreLabel: UILabel = {
        let label = UILabel()
-        label.text = "score: 10"
+        label.text = "Score: 10"
         label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
         return label
     }()
@@ -64,8 +64,13 @@ class DetailsViewController: UIViewController {
     
     var favoriteButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.text = ""
-        button.setImage(UIImage(named: "heart.fill"), for: .normal)
+        button.backgroundColor = .white
+        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        button.tintColor = .gray
+        button.contentHorizontalAlignment = .fill
+        button.contentVerticalAlignment = .fill
+        button.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 10, right: 10)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -135,13 +140,14 @@ class DetailsViewController: UIViewController {
         hStack.addArrangedSubview(scoreLabel)
         hStack.addArrangedSubview(favoriteButton)
         favoriteButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        favoriteButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        favoriteButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
         vStack.addArrangedSubview(genresLabel)
         vStack.addArrangedSubview(hStack)
         
+        
         vStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
         vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
-        vStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 16).isActive = true
+        vStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
         
         plotLabel.topAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 8).isActive = true
         
