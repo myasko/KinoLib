@@ -7,5 +7,6 @@ target 'KinoLib' do
 
   # Pods for KinoLib
   pod 'Firebase/Auth'
+  pod 'Hex'
 
 end

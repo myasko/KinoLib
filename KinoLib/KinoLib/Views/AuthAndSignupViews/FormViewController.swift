@@ -7,18 +7,53 @@
 
 import UIKit
 
+class CustomTextField: UITextField {
+    struct Constants {
+        static let sidePadding: CGFloat = 10
+        static let topPadding: CGFloat = 8
+    }
+
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return CGRect(
+            x: bounds.origin.x + Constants.sidePadding,
+            y: bounds.origin.y + Constants.topPadding,
+            width: bounds.size.width - Constants.sidePadding * 2,
+            height: bounds.size.height - Constants.topPadding * 2
+        )
+    }
+
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return self.textRect(forBounds: bounds)
+    }
+}
+
 class FormViewController: UIViewController {
+    var backgroundColor1: UIColor!
+    var backgroundColor2: UIColor!
+    var highlightColor: UIColor!
+    var textColor: UIColor!
+    var placeholderColor: UIColor!
+    
     var scrollView: UIScrollView!
     var contentView: UIView!
     
     override func loadView() {
         super.loadView()
         
+        let c = Colors()
+        backgroundColor1 = c.background1
+        backgroundColor2 = c.background2
+        highlightColor =  c.highlight
+        textColor = c.text
+        placeholderColor = c.placeholder
+        
         scrollView = UIScrollView()
+        scrollView.backgroundColor = backgroundColor1
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         
         contentView = UIView()
+        contentView.backgroundColor = backgroundColor1
         contentView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(contentView)
         
@@ -39,20 +74,32 @@ class FormViewController: UIViewController {
     func createLabel(text: String) -> UILabel {
         let label = UILabel()
         label.text = text
+        label.textColor = textColor
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }
     
     func createTextField(placeholder: String, secure: Bool = false) -> UITextField {
-        let field = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        field.placeholder = placeholder
+        let field = CustomTextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
-        field.borderStyle = UITextField.BorderStyle.roundedRect
         field.keyboardType = UIKeyboardType.default
         field.isUserInteractionEnabled = true
         field.translatesAutoresizingMaskIntoConstraints = false
+        
+        field.textColor = textColor
+        
+        field.layer.borderWidth = 1.0
+        field.layer.masksToBounds = true
+        field.layer.cornerRadius = 4.0
+        field.layer.borderColor = highlightColor.cgColor
+        
+        field.backgroundColor = backgroundColor2
+        field.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: placeholderColor]
+        )
         
         if (secure) {
             field.isSecureTextEntry = true
@@ -65,13 +112,15 @@ class FormViewController: UIViewController {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle(title, for: .normal)
-        btn.setTitleColor(.gray, for: .normal)
-        btn.setTitleColor(.orange, for: .highlighted)
+        btn.setTitleColor(highlightColor, for: .normal)
+        btn.setTitleColor(textColor, for: .highlighted)
         
         if (!asLabel) {
-            btn.setTitleColor(.black, for: .normal)
+            btn.setTitleColor(textColor, for: .normal)
+            btn.backgroundColor = highlightColor
             btn.layer.borderWidth = 1.0
             btn.layer.cornerRadius = 4.0
+            btn.layer.borderColor = highlightColor.cgColor
         }
         
         return btn

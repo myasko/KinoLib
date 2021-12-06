@@ -25,6 +25,7 @@
 		A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93927457C6D00331E9B /* DataManager.swift */; };
 		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
 		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
+		C3417C38275E702D00D0763A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3417C37275E702D00D0763A /* Colors.swift */; };
 		C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ECE27441AB6004EF682 /* AuthViewController.swift */; };
 		C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED027441AC8004EF682 /* SignupViewController.swift */; };
 		C34C5ED327441AD5004EF682 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED227441AD5004EF682 /* User.swift */; };
@@ -55,6 +56,7 @@
 		A8CDC93927457C6D00331E9B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C3417C37275E702D00D0763A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C34C5ECE27441AB6004EF682 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C34C5ED027441AC8004EF682 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C34C5ED227441AD5004EF682 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 				9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */,
 				3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -117,6 +118,7 @@
 		A85148AE27270FB40073EB7B /* KinoLib */ = {
 			isa = PBXGroup;
 			children = (
+				C3417C36275E701B00D0763A /* Constants */,
 				A8E2DEDE272C37FF00810C11 /* Service */,
 				A8E2DEDB272C2C0000810C11 /* Presenters */,
 				A8E2DEDA272C2BF900810C11 /* Views */,
@@ -178,6 +180,14 @@
 				A8E2DEDF272C381100810C11 /* NetworkManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C3417C36275E701B00D0763A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C3417C37275E702D00D0763A /* Colors.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		C34C5EDA27442EF0004EF682 /* MainView */ = {
@@ -324,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C34C5ED327441AD5004EF682 /* User.swift in Sources */,
+				C3417C38275E702D00D0763A /* Colors.swift in Sources */,
 				C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */,
 				C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */,
 				A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */,

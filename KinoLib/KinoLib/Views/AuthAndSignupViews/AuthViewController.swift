@@ -27,13 +27,17 @@ class AuthViewController: FormViewController {
     let margin = 15.0
     
     override func loadView() {
+        /*backgroundColor1 = .black
+        backgroundColor2 = .darkGray
+        highlightColor = .orange
+        textColor = .white*/
+        
         super.loadView()
         setupView()
     }
     
     func setupView() {
         title = "KinoLib"
-        scrollView.backgroundColor = .white
         
         titleLabel = createLabel(text: "Авторизация")
         titleLabel.font = titleLabel.font.withSize(titleLabel.font.pointSize * 1.25)
@@ -51,7 +55,7 @@ class AuthViewController: FormViewController {
         passwordInput = createTextField(placeholder: "пароль", secure: true)
         contentView.addSubview(passwordInput)
         
-        signupButton = createButton(title: "Впервые здесь? К регистрации...", asLabel: true)
+        signupButton = createButton(title: "Впервые здесь? К регистрации", asLabel: true)
         signupButton.addTarget(self, action: #selector(signupButtonAction), for: .touchUpInside)
         contentView.addSubview(signupButton)
         
