@@ -17,7 +17,7 @@ protocol FilmDetailsPresenterProtocol: AnyObject {
 
 final class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
     let view: FilmDetailsViewController!
-    let user: User = User(login: "wolf", favoriteFilms: [""])
+    let user: User = User(email: "wolf", favoriteFilms: [""])
     var film: Film = Film(id: 0, title: "", releaseDate: "", posterPath: "", overview: "", genreIds: [], popularity: 0, voteAverage: 0)
     var genres: [Int:String] = [Int:String] ()
     

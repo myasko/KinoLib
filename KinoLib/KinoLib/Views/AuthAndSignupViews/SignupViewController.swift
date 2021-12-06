@@ -28,11 +28,6 @@ class SignupViewController: FormViewController {
     let margin = 10.0
     
     override func loadView() {
-        /*backgroundColor1 = .black
-        backgroundColor2 = .darkGray
-        highlightColor = .orange
-        textColor = .white*/
-        
         super.loadView()
         setupView()
     }

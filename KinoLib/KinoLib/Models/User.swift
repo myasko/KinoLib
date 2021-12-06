@@ -19,6 +19,7 @@ struct UserSignup {
 }
 
 struct User {
-    let login: String
+    let email: String
+    
     let favoriteFilms: [String]
 }
