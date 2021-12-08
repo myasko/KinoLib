@@ -17,6 +17,9 @@
 		A85148C527274CB90073EB7B /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A85148C427274CB90073EB7B /* PinLayout */; };
 		A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148C62727558E0073EB7B /* MainPresenter.swift */; };
 		A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A88FC7B92730623700DF7C4A /* Kingfisher */; };
+		A8B6CE382760D39200783832 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6CE372760D39200783832 /* ListViewController.swift */; };
+		A8B6CE3A2760D3B100783832 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6CE392760D3B100783832 /* ListPresenter.swift */; };
+		A8B6CE3C2760E02C00783832 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6CE3B2760E02C00783832 /* ListTableViewCell.swift */; };
 		A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */; };
 		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
 		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
@@ -33,6 +36,9 @@
 		A85148B827270FB60073EB7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A85148BD27270FB60073EB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85148C62727558E0073EB7B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		A8B6CE372760D39200783832 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		A8B6CE392760D3B100783832 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		A8B6CE3B2760E02C00783832 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -83,6 +89,25 @@
 			path = KinoLib;
 			sourceTree = "<group>";
 		};
+		A8B6CE342760D31C00783832 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A85148B327270FB40073EB7B /* MainViewController.swift */,
+				A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */,
+				A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A8B6CE362760D34E00783832 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A8B6CE372760D39200783832 /* ListViewController.swift */,
+				A8B6CE3B2760E02C00783832 /* ListTableViewCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		A8E2DED9272C2BEB00810C11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +120,8 @@
 		A8E2DEDA272C2BF900810C11 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A85148B327270FB40073EB7B /* MainViewController.swift */,
-				A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */,
-				A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */,
+				A8B6CE362760D34E00783832 /* List */,
+				A8B6CE342760D31C00783832 /* Main */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A85148C62727558E0073EB7B /* MainPresenter.swift */,
+				A8B6CE392760D3B100783832 /* ListPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -200,10 +225,13 @@
 				A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */,
 				A85148B427270FB40073EB7B /* MainViewController.swift in Sources */,
 				A801AC86273D814300962793 /* FilmManager.swift in Sources */,
+				A8B6CE382760D39200783832 /* ListViewController.swift in Sources */,
 				A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */,
 				A801AC89273D8B4300962793 /* NetworkImageView.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
+				A8B6CE3A2760D3B100783832 /* ListPresenter.swift in Sources */,
+				A8B6CE3C2760E02C00783832 /* ListTableViewCell.swift in Sources */,
 				A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

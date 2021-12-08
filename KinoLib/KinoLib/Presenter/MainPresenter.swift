@@ -12,6 +12,7 @@ protocol MainPresenterProtocol: AnyObject {
     func loadData ()
     var films: [[Film]?] {get set}
     var genres: [Int:String] {get set}
+    func didTapButton(tag: Int)
 }
 
 protocol MainPresenterOutput: AnyObject {
@@ -37,7 +38,6 @@ final class MainPresenter: MainPresenterProtocol {
     weak var view: MainViewControllerProtocol!
     weak var output: MainPresenterOutput?
     var films: [[Film]?] = Array(repeating: [Film.init(id: 0, title: "", releaseDate: "", posterPath: "", overview: "", genreIds: [0], popularity: 0, voteAverage: 0)], count: 4)
-//    var films = [[Film]?]()
     var genres = [Int:String]()
     init(view: MainViewControllerProtocol) {
         self.view = view
@@ -54,10 +54,15 @@ final class MainPresenter: MainPresenterProtocol {
     }
     
     func loadData() {
+        
         self.getGenres()
         for i in 0..<(Url.allCases.count - 1){
             self.getFilms(url: Url.allCases[i].rawValue, iter: i)
         }
+    }
+    
+    func didTapButton(tag: Int){
+        view.showVC(tag: tag)
     }
 }
 
@@ -67,12 +72,16 @@ extension MainPresenter: FilmManagerOutput{
         if let result = result as? Films{
             self.films[iter] = result.results
             if iter == 0{
+                let index = self.films[0]!.firstIndex(where: {$0.releaseDate < result.dates!.minimum})
+                self.films[0]![index!].releaseDate = result.dates!.minimum
                 self.films[iter]?.sort {
                     $0.releaseDate < $1.releaseDate
                 }
             }
-            self.output?.success()
-            print("Кинцо \(self.films.count)")
+            if self.films[0]!.count > 1{
+                self.output?.success()
+            }
+//            print("Кинцо \(self.films.count)")
             
         }
         else if let result = result as? [Int:String] {
@@ -80,9 +89,12 @@ extension MainPresenter: FilmManagerOutput{
         }
     }
     func failure(error: Error) {
-        self.output?.failure()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            self.output?.failure()
+            }
         print("Ашибка брат")
-        print(error)
     }
+        
+//        print(error)
 }
     

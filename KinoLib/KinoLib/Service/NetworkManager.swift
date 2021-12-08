@@ -18,9 +18,9 @@ final class NetworkManager: NetworkManagerProtocol {
     func get<T:Codable>(ofType: T.Type, url: String, completion: @escaping (Result<T?, Error>) -> Void){
         guard let request = formRequest(url: url) else {return}
         URLSession.shared.dataTask(with: request) {data, response, error in
-            if let response = response as? HTTPURLResponse{
-                print ("[Debug] \(response.statusCode)")
-            }
+//            if let response = response as? HTTPURLResponse{
+//                print ("[Debug] \(response.statusCode)")
+//            }
             if let error = error {
                 completion(.failure(error))
                 return

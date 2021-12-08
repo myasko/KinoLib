@@ -37,7 +37,7 @@ class FilmManager: FilmManagerProtocol {
                 if let genresArray = items as? Genres {
                     var genres = [Int:String]()
                     genresArray.genres!.forEach(){
-                        print($0)
+//                        print($0)
                         genres[$0.id] = $0.name
                     }
                     self.output?.success(result: genres, iter: iter)

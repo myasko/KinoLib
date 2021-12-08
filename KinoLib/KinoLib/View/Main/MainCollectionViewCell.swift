@@ -22,7 +22,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     }(NetworkImageView())
     
     let title: UILabel = {
-        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.font = UIFont(name: "Helvetica Neue", size: 12)
         $0.textColor = .black
         $0.textAlignment = .left
         $0.numberOfLines = 2
@@ -30,7 +30,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     }(UILabel())
 
     let date: UILabel = {
-        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.font = UIFont(name: "Helvetica Neue", size: 12)
         $0.textColor = .black
         $0.textAlignment = .left
         $0.numberOfLines = 1
@@ -38,7 +38,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     }(UILabel())
     
     let genres: UILabel = {
-        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.font = UIFont(name: "Helvetica Neue", size: 12)
         $0.textColor = .gray
         $0.textAlignment = .left
         $0.numberOfLines = 1
@@ -149,40 +149,46 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.create(cell: MainCollectionViewCell.self, at: indexPath)
-        //        print("[DEBUG] index path \(indexPath.row)")
         let film = presenter.films[collectionView.tag]?[indexPath.row]
         var genres = ""
         film?.genreIds.forEach{
             genres += "\(presenter.genres[$0] ?? ""), "
         }
         genres = genres.trimmingCharacters(in: [" ", ","])
-        //        print(type(of: film))
-        //self.films
-        //        print(self.presenter.films[collectionView.tag])
-        cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(film?.posterPath ?? "")"))
         cell.genres.text = genres
+        cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(film?.posterPath ?? "")"))
         cell.title.text = film?.title
+        
+        
+        if collectionView.tag == 0 {
+            let date = DateFormatter.formDate(text: film?.releaseDate ?? "2000-10-21")
+            cell.date.text = DateFormatter.formString(date: date!)
+        }
+        
+        else {
+            cell.date.text = nil
+        }
+        
+        return cell
+    }
+}
+
+extension DateFormatter{
+    static func formDate (text: String) -> Date? {
         let getDateFormatter = DateFormatter()
         getDateFormatter.dateFormat = "yyyy-MM-dd"
         getDateFormatter.calendar = .current
         getDateFormatter.locale = Locale(identifier: "ru_RU")
         getDateFormatter.timeZone = TimeZone(abbreviation: "MSK")
+        return getDateFormatter.date(from: text)
+    }
+    
+    static func formString (date: Date) -> String?{
         let printDateFormatter = DateFormatter()
-        printDateFormatter.dateFormat = "dd MMMM"
+        printDateFormatter.dateFormat = "dd MMMM yyyy"
         printDateFormatter.locale = Locale(identifier: "ru_RU")
         printDateFormatter.timeZone = TimeZone(secondsFromGMT: 10800)
-        if collectionView.tag == 0 {
-            let date = getDateFormatter.date(from: film?.releaseDate ?? "2000-10-21")
-            cell.date.text = printDateFormatter.string(from: date!)
-//            date(from: "2021-11-11")
-        }
-        else {
-            cell.date.text = nil
-        }
-        /*
-         Дает странную дичь, если выключить интернет, а потом даже если включить (прописывает даты в коллекции, у которой должен быть тэг 1, если указать else, то он передумает так делать)
-        */
-        //        cell.poster.image
-        return cell
+        return printDateFormatter.string(from: date)
     }
 }
+

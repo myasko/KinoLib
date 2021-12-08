@@ -50,10 +50,10 @@ final class MainTableViewCell: UITableViewCell, CellProtocol {
             }
     }
     
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forSection section: Int) {
+    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate
+    ) {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
-        collectionView.tag = section
         collectionView.reloadData()
     }
     
@@ -99,9 +99,15 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
         view.backgroundColor =  UIColor(red: 0.1507387459, green: 0.3653766513, blue: 1, alpha: 1)
-        let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 40))
-        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 55, height: 40))
+        let btn = UIButton(frame: CGRect(x: view.frame.width - 50, y: 0, width: 45, height: 40))
+        lbl.font = UIFont(name: "Helvetica Neue Bold", size: 20)
         lbl.textColor = .white
+        btn.setTitle("Все", for: .normal)
+        btn.tag = section
+        btn.addTarget(self, action: #selector(didTapBuuton(sender:)), for: .touchUpInside)
+        btn.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
+        btn.setTitleColor(.lightGray, for: .normal)
         switch section{
         case 0:
             lbl.text = Headers.upcoming.rawValue
@@ -113,6 +119,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             lbl.text = Headers.bestFilms.rawValue
         }
         view.addSubview(lbl)
+        view.addSubview(btn)
         return view
      }
         
@@ -124,10 +131,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
 
         guard let tableViewCell = cell as? MainTableViewCell else { return }
         
-        DispatchQueue.main.async {
-            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forSection: indexPath.section)
-            tableViewCell.collectionViewOffset = self.storedOffsets[indexPath.section] ?? 0
-        }
+        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self)
+        tableViewCell.collectionViewOffset = self.storedOffsets[indexPath.section] ?? 0
     }
     
 
@@ -138,8 +143,31 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.create(cell: MainTableViewCell.self, at: indexPath)
+        cell.collectionView.tag = indexPath.section
         return cell
     }
     
-
+    @objc func didTapBuuton (sender: UIButton){
+        self.presenter.didTapButton(tag: sender.tag)
+    }
+    
+    func showVC (tag: Int){
+        
+        let listView = ListViewController()
+        let presenter = ListPresenter(view: listView, tag: tag)
+        presenter.films = self.presenter.films[tag]
+        presenter.genres = self.presenter.genres
+        listView.presenter = presenter
+        switch tag{
+        case 0:
+            listView.title = Headers.upcoming.rawValue
+        case 1:
+            listView.title = Headers.inCinema.rawValue
+        case 2:
+            listView.title = Headers.popularNow.rawValue
+        default:
+            listView.title = Headers.bestFilms.rawValue
+        }
+        self.navigationController?.pushViewController(listView, animated: true)
+    }
 }

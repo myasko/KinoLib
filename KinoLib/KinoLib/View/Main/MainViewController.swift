@@ -11,6 +11,7 @@ import PinLayout
 protocol MainViewControllerProtocol: AnyObject{
     var tableView: UITableView {get}
     var presenter: MainPresenterProtocol! { get set }
+    func showVC(tag: Int)
 }
 
 class MainViewController: UIViewController, UINavigationControllerDelegate, MainViewControllerProtocol  {
@@ -21,19 +22,29 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
         case popularNow = "Популярно сейчас"
         case bestFilms = "Лучшие фильмы"
     }
-    
+    let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        return refreshControl
+    }()
+
     var storedOffsets = [Int: CGFloat]()
     var presenter: MainPresenterProtocol!
-    var mostPopularCollectionView: UICollectionView!
-    var comingSoomCollectionView: UICollectionView!
     
     let tableView: UITableView = {
         $0.register(classCell: MainTableViewCell.self)
         return $0
     }(UITableView(frame: CGRect.zero, style: .grouped))
     
+    @objc private func refresh(sender: UIRefreshControl){
+        sender.endRefreshing()
+        self.presenter.loadData()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.refreshControl = refreshControl
         configure()
         presenter = MainPresenter(view: self)
         self.presenter.loadData()
@@ -80,9 +91,10 @@ extension MainViewController: MainPresenterOutput{
     }
     
     func failure() {
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
+        let alert = UIAlertController(title: "Ошибка", message: "Произошла сетевая ошибка во время загрузки данных. Повторите позже", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default))
+        present(alert, animated: true, completion: nil)
+        
     }
     
     
