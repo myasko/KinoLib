@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
     func configure(){
         self.navigationController?.delegate = self
         self.title = "Главная"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        // navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         tableView.isScrollEnabled = true
         tableView.delegate = self
         tableView.dataSource = self

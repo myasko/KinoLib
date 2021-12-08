@@ -190,13 +190,23 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailcVC = FilmDetailsViewController()
+        let clickedFilm = self.presenter.films[collectionView.tag]![indexPath.row]
+        print(clickedFilm.posterPath)
+        print(clickedFilm.overview)
+        
+        let detailsVC = DetailsViewController(film: clickedFilm)
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+        
+        /*let detailcVC = FilmDetailsViewController()
         print(collectionView.tag)
-        let presenter = FilmDetailsPresenter(view: detailcVC)
+        
+        let user = User(email: "wolf@wolf.wolf", favoriteFilms: [])
+        let film = FilmDetails(name: "test", genres: [], plot: "wolf", image: "")
+        let presenter = FilmDetailsPresenter(view: detailcVC, user: user, film: film)
         detailcVC.presenter = presenter
-        detailcVC.presenter.film = self.presenter.films[collectionView.tag]![indexPath.row]
-        detailcVC.presenter.genres = self.presenter.genres
-        self.navigationController?.pushViewController(detailcVC, animated: true)
+        //detailcVC.presenter.film = self.presenter.films[collectionView.tag]![indexPath.row]
+        //detailcVC.presenter.genres = self.presenter.genres
+        self.navigationController?.pushViewController(detailcVC, animated: true)*/
         
         
     }

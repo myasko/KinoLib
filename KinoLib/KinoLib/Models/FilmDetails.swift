@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Film {
+struct FilmDetails {
     let name: String
     let genres: [String]
     let plot: String

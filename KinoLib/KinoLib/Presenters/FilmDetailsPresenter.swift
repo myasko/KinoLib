@@ -8,36 +8,39 @@
 import Foundation
 
 protocol FilmDetailsPresenterProtocol: AnyObject {
-    func showDetsils()
+    init(view: DetailsViewController/*, user: User, film: FilmDetails*/)
+    
+    func showDetails()
     func toggleFavoriteStatus()
-    var film: Film {get set}
     var isFavorite: Bool { get set }
-    var genres: [Int:String] {get set}
 }
 
-final class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
-    let view: FilmDetailsViewController!
-    let user: User = User(email: "wolf", favoriteFilms: [""])
-    var film: Film = Film(id: 0, title: "", releaseDate: "", posterPath: "", overview: "", genreIds: [], popularity: 0, voteAverage: 0)
-    var genres: [Int:String] = [Int:String] ()
+class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
     
-    init(view: FilmDetailsViewController) {
+    let view: DetailsViewController!
+    //let user: User
+    // let film: FilmDetails
+    
+    required init(view: DetailsViewController) {
         self.view = view
+        //self.user = user
+        // self.film = film
     }
     
-    func showDetsils() {
-        //view.nameLabel.text = film.name
-        view.plotLabel.text = film.overview
-        film.genreIds.forEach { genre in
-            view.genresLable.text?.append(genres[genre]!)
-        }
+    func showDetails() {
+        // view.nameLabel.text = film.name
+        //view.plotLabel.text = film.plot
+//        film.genres.forEach { genre in
+//            view.genresLable.text?.append(genre)
+//        }
     }
     
     var isFavorite: Bool {
         get {
-            DataManager.shared.getFavoriteStatus(for: film.title)
+            false
+            // DataManager.shared.getFavoriteStatus(for: film.name)
         } set {
-            DataManager.shared.setFavoriteStatus(for: film.title, with: newValue)
+            // DataManager.shared.setFavoriteStatus(for: film.name, with: newValue)
         }
     }
     
