@@ -7,102 +7,254 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68DB555927305A5C00C75935 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB555827305A5C00C75935 /* AppDelegate.swift */; };
-		68DB555B27305A5C00C75935 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB555A27305A5C00C75935 /* SceneDelegate.swift */; };
-		68DB555D27305A5C00C75935 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB555C27305A5C00C75935 /* ViewController.swift */; };
-		68DB556027305A5C00C75935 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DB555E27305A5C00C75935 /* Main.storyboard */; };
-		68DB556227305A6200C75935 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68DB556127305A6200C75935 /* Assets.xcassets */; };
-		68DB556527305A6200C75935 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DB556327305A6200C75935 /* LaunchScreen.storyboard */; };
+		57C2EC6062B1D320315BB10C /* Pods_KinoLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */; };
+		A801AC86273D814300962793 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801AC85273D814300962793 /* FilmManager.swift */; };
+		A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */; };
+		A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148AF27270FB40073EB7B /* AppDelegate.swift */; };
+		A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B127270FB40073EB7B /* SceneDelegate.swift */; };
+		A85148B427270FB40073EB7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B327270FB40073EB7B /* MainViewController.swift */; };
+		A85148B927270FB60073EB7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85148B827270FB60073EB7B /* Assets.xcassets */; };
+		A85148C527274CB90073EB7B /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A85148C427274CB90073EB7B /* PinLayout */; };
+		A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148C62727558E0073EB7B /* MainPresenter.swift */; };
+		A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A88FC7B92730623700DF7C4A /* Kingfisher */; };
+		A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */; };
+		A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */; };
+		A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93927457C6D00331E9B /* DataManager.swift */; };
+		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
+		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
+		C3417C38275E702D00D0763A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3417C37275E702D00D0763A /* Colors.swift */; };
+		C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ECE27441AB6004EF682 /* AuthViewController.swift */; };
+		C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED027441AC8004EF682 /* SignupViewController.swift */; };
+		C34C5ED327441AD5004EF682 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED227441AD5004EF682 /* User.swift */; };
+		C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED427441AE2004EF682 /* AuthPresenter.swift */; };
+		C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED627441AF2004EF682 /* SignupPresenter.swift */; };
+		C34C5ED927441B0C004EF682 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED827441B0C004EF682 /* FormViewController.swift */; };
+		C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */; };
+		C3A65BCB2761612900A51675 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BC72761612900A51675 /* DetailsViewController.swift */; };
+		C3A65BCC2761612900A51675 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BC82761612900A51675 /* ViewController.swift */; };
+		C3A65BD02761637500A51675 /* FilmDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BCF2761637500A51675 /* FilmDetails.swift */; };
+		C3A65BD2276164B600A51675 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BD1276164B600A51675 /* NetworkImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		68DB555527305A5C00C75935 /* KinoLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		68DB555827305A5C00C75935 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68DB555A27305A5C00C75935 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		68DB555C27305A5C00C75935 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		68DB555F27305A5C00C75935 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		68DB556127305A6200C75935 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		68DB556427305A6200C75935 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		68DB556627305A6200C75935 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoLib.release.xcconfig"; path = "Target Support Files/Pods-KinoLib/Pods-KinoLib.release.xcconfig"; sourceTree = "<group>"; };
+		9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoLib.debug.xcconfig"; path = "Target Support Files/Pods-KinoLib/Pods-KinoLib.debug.xcconfig"; sourceTree = "<group>"; };
+		A801AC85273D814300962793 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
+		A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		A85148AC27270FB40073EB7B /* KinoLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85148AF27270FB40073EB7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A85148B127270FB40073EB7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A85148B327270FB40073EB7B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A85148B827270FB60073EB7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A85148BD27270FB60073EB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A85148C62727558E0073EB7B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailsPresenter.swift; sourceTree = "<group>"; };
+		A8CDC93927457C6D00331E9B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C3417C37275E702D00D0763A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C34C5ECE27441AB6004EF682 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		C34C5ED027441AC8004EF682 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		C34C5ED227441AD5004EF682 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C34C5ED427441AE2004EF682 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		C34C5ED627441AF2004EF682 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		C34C5ED827441B0C004EF682 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3A65BC72761612900A51675 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C3A65BC82761612900A51675 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3A65BCF2761637500A51675 /* FilmDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetails.swift; sourceTree = "<group>"; };
+		C3A65BD1276164B600A51675 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		68DB555227305A5C00C75935 /* Frameworks */ = {
+		A85148A927270FB40073EB7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */,
+				A85148C527274CB90073EB7B /* PinLayout in Frameworks */,
+				57C2EC6062B1D320315BB10C /* Pods_KinoLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		68DB554C27305A5C00C75935 = {
+		17D85453C7D0B1D5C3F47DE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				68DB555727305A5C00C75935 /* KinoLib */,
-				68DB555627305A5C00C75935 /* Products */,
+				3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37E8BF4305176C9E5FD35677 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */,
+				3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A85148A327270FB40073EB7B = {
+			isa = PBXGroup;
+			children = (
+				A85148AE27270FB40073EB7B /* KinoLib */,
+				A85148AD27270FB40073EB7B /* Products */,
+				37E8BF4305176C9E5FD35677 /* Pods */,
+				17D85453C7D0B1D5C3F47DE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		68DB555627305A5C00C75935 /* Products */ = {
+		A85148AD27270FB40073EB7B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				68DB555527305A5C00C75935 /* KinoLib.app */,
+				A85148AC27270FB40073EB7B /* KinoLib.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		68DB555727305A5C00C75935 /* KinoLib */ = {
+		A85148AE27270FB40073EB7B /* KinoLib */ = {
 			isa = PBXGroup;
 			children = (
-				68DB555827305A5C00C75935 /* AppDelegate.swift */,
-				68DB555A27305A5C00C75935 /* SceneDelegate.swift */,
-				68DB555C27305A5C00C75935 /* ViewController.swift */,
-				68DB555E27305A5C00C75935 /* Main.storyboard */,
-				68DB556127305A6200C75935 /* Assets.xcassets */,
-				68DB556327305A6200C75935 /* LaunchScreen.storyboard */,
-				68DB556627305A6200C75935 /* Info.plist */,
+				C3417C36275E701B00D0763A /* Constants */,
+				A8E2DEDE272C37FF00810C11 /* Service */,
+				A8E2DEDB272C2C0000810C11 /* Presenters */,
+				A8E2DEDA272C2BF900810C11 /* Views */,
+				A8E2DED9272C2BEB00810C11 /* Models */,
+				A85148AF27270FB40073EB7B /* AppDelegate.swift */,
+				A85148B127270FB40073EB7B /* SceneDelegate.swift */,
+				C3A65BC82761612900A51675 /* ViewController.swift */,
+				C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */,
+				A85148B827270FB60073EB7B /* Assets.xcassets */,
+				A85148BD27270FB60073EB7B /* Info.plist */,
 			);
 			path = KinoLib;
+			sourceTree = "<group>";
+		};
+		A8E2DED9272C2BEB00810C11 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3A65BCF2761637500A51675 /* FilmDetails.swift */,
+				A8E2DEDC272C2CA100810C11 /* Film.swift */,
+				A801AC85273D814300962793 /* FilmManager.swift */,
+				C34C5ED227441AD5004EF682 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A8E2DEDA272C2BF900810C11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3A65BD1276164B600A51675 /* NetworkImageView.swift */,
+				C3A65BCE2761632000A51675 /* Details */,
+				C34C5EDB27442F06004EF682 /* AuthAndSignupViews */,
+				C34C5EDA27442EF0004EF682 /* MainView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8E2DEDB272C2C0000810C11 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A85148C62727558E0073EB7B /* MainPresenter.swift */,
+				C34C5ED627441AF2004EF682 /* SignupPresenter.swift */,
+				A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */,
+				C34C5ED427441AE2004EF682 /* AuthPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		A8E2DEDE272C37FF00810C11 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A8CDC93927457C6D00331E9B /* DataManager.swift */,
+				A8E2DEDF272C381100810C11 /* NetworkManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3417C36275E701B00D0763A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C3417C37275E702D00D0763A /* Colors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C34C5EDA27442EF0004EF682 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				A85148B327270FB40073EB7B /* MainViewController.swift */,
+				A8BDE1DF272CA297007018E2 /* MainCollectionViewCell.swift */,
+				A839199B273AA4BE00B834C3 /* MainTableViewCell.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		C34C5EDB27442F06004EF682 /* AuthAndSignupViews */ = {
+			isa = PBXGroup;
+			children = (
+				C34C5ED827441B0C004EF682 /* FormViewController.swift */,
+				C34C5ED027441AC8004EF682 /* SignupViewController.swift */,
+				C34C5ECE27441AB6004EF682 /* AuthViewController.swift */,
+			);
+			path = AuthAndSignupViews;
+			sourceTree = "<group>";
+		};
+		C3A65BCE2761632000A51675 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C3A65BC72761612900A51675 /* DetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		68DB555427305A5C00C75935 /* KinoLib */ = {
+		A85148AB27270FB40073EB7B /* KinoLib */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 68DB556927305A6200C75935 /* Build configuration list for PBXNativeTarget "KinoLib" */;
+			buildConfigurationList = A85148C027270FB60073EB7B /* Build configuration list for PBXNativeTarget "KinoLib" */;
 			buildPhases = (
-				68DB555127305A5C00C75935 /* Sources */,
-				68DB555227305A5C00C75935 /* Frameworks */,
-				68DB555327305A5C00C75935 /* Resources */,
+				19EB143545A9B0B152A84F1B /* [CP] Check Pods Manifest.lock */,
+				A85148A827270FB40073EB7B /* Sources */,
+				A85148A927270FB40073EB7B /* Frameworks */,
+				A85148AA27270FB40073EB7B /* Resources */,
+				115D85D8AFA683985752AC40 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = KinoLib;
+			packageProductDependencies = (
+				A85148C427274CB90073EB7B /* PinLayout */,
+				A88FC7B92730623700DF7C4A /* Kingfisher */,
+			);
 			productName = KinoLib;
-			productReference = 68DB555527305A5C00C75935 /* KinoLib.app */;
+			productReference = A85148AC27270FB40073EB7B /* KinoLib.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		68DB554D27305A5C00C75935 /* Project object */ = {
+		A85148A427270FB40073EB7B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
-					68DB555427305A5C00C75935 = {
-						CreatedOnToolsVersion = 13.1;
+					A85148AB27270FB40073EB7B = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
-			buildConfigurationList = 68DB555027305A5C00C75935 /* Build configuration list for PBXProject "KinoLib" */;
+			buildConfigurationList = A85148A727270FB40073EB7B /* Build configuration list for PBXProject "KinoLib" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,63 +262,108 @@
 				en,
 				Base,
 			);
-			mainGroup = 68DB554C27305A5C00C75935;
-			productRefGroup = 68DB555627305A5C00C75935 /* Products */;
+			mainGroup = A85148A327270FB40073EB7B;
+			packageReferences = (
+				A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */,
+				A88FC7B82730623700DF7C4A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
+			productRefGroup = A85148AD27270FB40073EB7B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				68DB555427305A5C00C75935 /* KinoLib */,
+				A85148AB27270FB40073EB7B /* KinoLib */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		68DB555327305A5C00C75935 /* Resources */ = {
+		A85148AA27270FB40073EB7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68DB556527305A6200C75935 /* LaunchScreen.storyboard in Resources */,
-				68DB556227305A6200C75935 /* Assets.xcassets in Resources */,
-				68DB556027305A5C00C75935 /* Main.storyboard in Resources */,
+				A85148B927270FB60073EB7B /* Assets.xcassets in Resources */,
+				C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		115D85D8AFA683985752AC40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KinoLib/Pods-KinoLib-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KinoLib/Pods-KinoLib-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KinoLib/Pods-KinoLib-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19EB143545A9B0B152A84F1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KinoLib-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		68DB555127305A5C00C75935 /* Sources */ = {
+		A85148A827270FB40073EB7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68DB555D27305A5C00C75935 /* ViewController.swift in Sources */,
-				68DB555927305A5C00C75935 /* AppDelegate.swift in Sources */,
-				68DB555B27305A5C00C75935 /* SceneDelegate.swift in Sources */,
+				C34C5ED327441AD5004EF682 /* User.swift in Sources */,
+				C3A65BD2276164B600A51675 /* NetworkImageView.swift in Sources */,
+				C3417C38275E702D00D0763A /* Colors.swift in Sources */,
+				C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */,
+				C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */,
+				A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */,
+				C3A65BD02761637500A51675 /* FilmDetails.swift in Sources */,
+				A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */,
+				A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */,
+				C3A65BCC2761612900A51675 /* ViewController.swift in Sources */,
+				C34C5ED927441B0C004EF682 /* FormViewController.swift in Sources */,
+				A85148B427270FB40073EB7B /* MainViewController.swift in Sources */,
+				A801AC86273D814300962793 /* FilmManager.swift in Sources */,
+				C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */,
+				C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */,
+				A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */,
+				A8BDE1E0272CA297007018E2 /* MainCollectionViewCell.swift in Sources */,
+				A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */,
+				C3A65BCB2761612900A51675 /* DetailsViewController.swift in Sources */,
+				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
+				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
+				A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		68DB555E27305A5C00C75935 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				68DB555F27305A5C00C75935 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		68DB556327305A6200C75935 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				68DB556427305A6200C75935 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		68DB556727305A6200C75935 /* Debug */ = {
+		A85148BE27270FB60073EB7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -217,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -227,7 +424,7 @@
 			};
 			name = Debug;
 		};
-		68DB556827305A6200C75935 /* Release */ = {
+		A85148BF27270FB60073EB7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,29 +479,27 @@
 			};
 			name = Release;
 		};
-		68DB556A27305A6200C75935 /* Debug */ = {
+		A85148C127270FB60073EB7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YQ54UGV57U;
+				DEVELOPMENT_TEAM = 4RL6CGM93L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KinoLib/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = myco.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -312,29 +507,27 @@
 			};
 			name = Debug;
 		};
-		68DB556B27305A6200C75935 /* Release */ = {
+		A85148C227270FB60073EB7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YQ54UGV57U;
+				DEVELOPMENT_TEAM = 4RL6CGM93L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KinoLib/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = myco.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -345,25 +538,57 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		68DB555027305A5C00C75935 /* Build configuration list for PBXProject "KinoLib" */ = {
+		A85148A727270FB40073EB7B /* Build configuration list for PBXProject "KinoLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				68DB556727305A6200C75935 /* Debug */,
-				68DB556827305A6200C75935 /* Release */,
+				A85148BE27270FB60073EB7B /* Debug */,
+				A85148BF27270FB60073EB7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		68DB556927305A6200C75935 /* Build configuration list for PBXNativeTarget "KinoLib" */ = {
+		A85148C027270FB60073EB7B /* Build configuration list for PBXNativeTarget "KinoLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				68DB556A27305A6200C75935 /* Debug */,
-				68DB556B27305A6200C75935 /* Release */,
+				A85148C127270FB60073EB7B /* Debug */,
+				A85148C227270FB60073EB7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A88FC7B82730623700DF7C4A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A85148C427274CB90073EB7B /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+		A88FC7B92730623700DF7C4A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A88FC7B82730623700DF7C4A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 68DB554D27305A5C00C75935 /* Project object */;
+	rootObject = A85148A427270FB40073EB7B /* Project object */;
 }
