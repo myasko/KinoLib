@@ -8,10 +8,6 @@
 import UIKit
 import Hex
 
-/*func hextToUIColor(_ r: Int, _ g: Int, _ b: Int) {
-    return UIColor(r / 255.0 green: g / 255.0 blue: b / 255.0 alpha: 1]
-}*/
-
 class Colors {
     let background1 = UIColor(hex: "0C2129")
     let background2 = UIColor(hex: "1A3640")
