@@ -79,7 +79,12 @@ class DetailsViewController: UIViewController {
         
         self.scoreLabel = {
            let label = UILabel()
-            label.text = "Рейтинг: 10"
+            var rating = "недостаточно оценок"
+            if (self.film.voteCount >= 100) {
+                rating = "\(self.film.voteAverage) (\(self.film.voteCount) оценок)"
+            }
+                
+            label.text = "Рейтинг: \(rating)"
             label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
             label.textColor = .black
             return label

@@ -22,6 +22,7 @@ struct Film: Codable {
     let genreIds: [Int]
     let popularity: Double
     let voteAverage: Double
+    let voteCount: Int
 }
 struct Genres: Codable {
     let genres: [Genre]?
