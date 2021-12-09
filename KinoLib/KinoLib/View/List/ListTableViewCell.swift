@@ -20,7 +20,7 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
     
     let title: UILabel = {
         $0.font = UIFont(name: "Helvetica Neue Bold", size: 18)
-        $0.textColor = .black
+        $0.textColor = Colors.text
         $0.textAlignment = .left
         $0.numberOfLines = 2
         return $0
@@ -28,7 +28,7 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
 
     let date: UILabel = {
         $0.font = UIFont(name: "Helvetica Neue", size: 14)
-        $0.textColor = .black
+        $0.textColor = Colors.text
         $0.textAlignment = .left
         $0.numberOfLines = 1
         return $0
@@ -36,7 +36,7 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
     
     let genres: UILabel = {
         $0.font = UIFont(name: "Helvetica Neue", size: 14)
-        $0.textColor = .gray
+        $0.textColor = Colors.text
         $0.textAlignment = .left
         $0.numberOfLines = 1
         return $0
@@ -44,7 +44,7 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .white
+        backgroundColor = Colors.background2
     }
     
     required init?(coder: NSCoder) {
@@ -53,7 +53,7 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = .white
+        self.backgroundColor = Colors.background2
         layout()
     }
     

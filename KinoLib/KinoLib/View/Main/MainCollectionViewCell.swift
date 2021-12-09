@@ -23,7 +23,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     
     let title: UILabel = {
         $0.font = UIFont(name: "Helvetica Neue", size: 12)
-        $0.textColor = .black
+        $0.textColor = Colors.text
         $0.textAlignment = .left
         $0.numberOfLines = 2
         return $0
@@ -31,7 +31,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
 
     let date: UILabel = {
         $0.font = UIFont(name: "Helvetica Neue", size: 12)
-        $0.textColor = .black
+        $0.textColor = Colors.text
         $0.textAlignment = .left
         $0.numberOfLines = 1
         return $0
@@ -39,7 +39,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     
     let genres: UILabel = {
         $0.font = UIFont(name: "Helvetica Neue", size: 12)
-        $0.textColor = .gray
+        $0.textColor = Colors.placeholder
         $0.textAlignment = .left
         $0.numberOfLines = 1
         return $0
@@ -55,7 +55,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = .white
+        self.backgroundColor = Colors.background2
         layout()
     }
     
@@ -151,7 +151,7 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         let cell = collectionView.create(cell: MainCollectionViewCell.self, at: indexPath)
         let film = presenter.films[collectionView.tag]?[indexPath.row]
         var genres = ""
-        film?.genreIds.forEach{
+        film?.genreIds?.forEach{
             genres += "\(presenter.genres[$0] ?? ""), "
         }
         genres = genres.trimmingCharacters(in: [" ", ","])
@@ -170,6 +170,17 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         }
         
         return cell
+    }
+}
+
+extension MainViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if self.presenter.films[collectionView.tag]!.count > 1 {
+            return CGSize(width: 150.5, height: collectionView.frame.height)
+        }
+        else {
+            return CGSize(width: self.tableView.frame.width, height: self.tableView.rowHeight)
+        }
     }
 }
 

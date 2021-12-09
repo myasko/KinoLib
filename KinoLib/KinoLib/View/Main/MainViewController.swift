@@ -36,8 +36,13 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
         return $0
     }(UITableView(frame: CGRect.zero, style: .grouped))
     
-    @objc private func refresh(sender: UIRefreshControl){
-        sender.endRefreshing()
+    @objc func refresh(sender: Any){
+        if let sender = sender as? UIRefreshControl {
+            sender.endRefreshing()
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         self.presenter.loadData()
         
     }
@@ -54,19 +59,21 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.pin.width(self.view.frame.width).all(self.view.pin.safeArea)
+        self.view.backgroundColor = Colors.background2
+        tableView.backgroundColor = Colors.background2
     }
     
     func configure(){
         self.navigationController?.delegate = self
         self.title = "Главная"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Colors.text]
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.isScrollEnabled = true
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInsetAdjustmentBehavior = .never
+//        tableView.contentInsetAdjustmentBehavior = .never
         self.view.addSubview(tableView)
-        self.view.backgroundColor = .white
-        tableView.backgroundColor = .white
+        
         self.tableView.separatorStyle = .none
     }
     
@@ -86,14 +93,21 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
 extension MainViewController: MainPresenterOutput{
     func success() {
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            UIView.transition(with: self.tableView,
+                              duration: 0.35,
+                              options: .transitionCrossDissolve,
+                              animations: { self.tableView.reloadData() })
         }
+        
     }
     
     func failure() {
         let alert = UIAlertController(title: "Ошибка", message: "Произошла сетевая ошибка во время загрузки данных. Повторите позже", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок", style: .default))
         present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         
     }
     

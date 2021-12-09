@@ -16,13 +16,13 @@ struct Films: Codable{
 
 struct Film: Codable {
     let id: Int
-    let title: String
-    var releaseDate: String
-    let posterPath: String
-    let overview: String
-    let genreIds: [Int]
-    let popularity: Double
-    let voteAverage: Double
+    let title: String?
+    var releaseDate: String?
+    let posterPath: String?
+    let overview: String?
+    let genreIds: [Int]?
+    let popularity: Double?
+    let voteAverage: Double?
 }
 
 struct Genres: Codable {

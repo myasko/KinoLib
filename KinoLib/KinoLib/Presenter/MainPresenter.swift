@@ -13,6 +13,8 @@ protocol MainPresenterProtocol: AnyObject {
     var films: [[Film]?] {get set}
     var genres: [Int:String] {get set}
     func didTapButton(tag: Int)
+    var loadIndicator: [Int] {get set}
+    var totalPages: [Int] {get set}
 }
 
 protocol MainPresenterOutput: AnyObject {
@@ -33,11 +35,12 @@ final class MainPresenter: MainPresenterProtocol {
         case bestFilms = "https://api.themoviedb.org/3/movie/top_rated?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=1&region=ru"
         case genres = "https://api.themoviedb.org/3/genre/movie/list?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru"
     }
-    
+    var totalPages: [Int] = Array(repeating: 0, count: 4)
     private var filmManager: FilmManagerProtocol = FilmManager.shared
     weak var view: MainViewControllerProtocol!
     weak var output: MainPresenterOutput?
     var films: [[Film]?] = Array(repeating: [Film.init(id: 0, title: "", releaseDate: "", posterPath: "", overview: "", genreIds: [0], popularity: 0, voteAverage: 0)], count: 4)
+    var loadIndicator: [Int] = Array(repeating: 0, count: 4)
     var genres = [Int:String]()
     init(view: MainViewControllerProtocol) {
         self.view = view
@@ -57,6 +60,7 @@ final class MainPresenter: MainPresenterProtocol {
         
         self.getGenres()
         for i in 0..<(Url.allCases.count - 1){
+            loadIndicator[i] = 0
             self.getFilms(url: Url.allCases[i].rawValue, iter: i)
         }
     }
@@ -69,16 +73,19 @@ final class MainPresenter: MainPresenterProtocol {
 extension MainPresenter: FilmManagerOutput{
     
     func success<T>(result: T, iter: Int) {
+        loadIndicator[iter] = 1
         if let result = result as? Films{
             self.films[iter] = result.results
+            self.totalPages[iter] = result.totalPages
             if iter == 0{
-                let index = self.films[0]!.firstIndex(where: {$0.releaseDate < result.dates!.minimum})
-                self.films[0]![index!].releaseDate = result.dates!.minimum
+                if let index = self.films[0]!.firstIndex(where: {$0.releaseDate ?? "" < result.dates!.minimum}) {
+                    self.films[0]![index].releaseDate = result.dates!.minimum
+                }
                 self.films[iter]?.sort {
-                    $0.releaseDate < $1.releaseDate
+                    $0.releaseDate ?? "" < $1.releaseDate ?? ""
                 }
             }
-            if self.films[0]!.count > 1{
+            if iter == 0{
                 self.output?.success()
             }
 //            print("Кинцо \(self.films.count)")
@@ -88,7 +95,8 @@ extension MainPresenter: FilmManagerOutput{
             genres = result
         }
     }
-    func failure(error: Error) {
+    func failure(error: Error, iter: Int) {
+        loadIndicator[iter] = 1
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             self.output?.failure()
             }
