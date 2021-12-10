@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
     }
     let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = Colors.highlight
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
         return refreshControl
     }()
@@ -61,6 +62,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
         tableView.pin.width(self.view.frame.width).all(self.view.pin.safeArea)
         self.view.backgroundColor = Colors.background2
         tableView.backgroundColor = Colors.background2
+        self.navigationController?.navigationBar.barTintColor = Colors.background2
     }
     
     func configure(){
@@ -95,7 +97,7 @@ extension MainViewController: MainPresenterOutput{
         DispatchQueue.main.async {
             UIView.transition(with: self.tableView,
                               duration: 0.35,
-                              options: .transitionCrossDissolve,
+                              options: .beginFromCurrentState,
                               animations: { self.tableView.reloadData() })
         }
         

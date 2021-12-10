@@ -49,6 +49,7 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
     }
     func configure(){
         checkLabel()
+        navigationController?.navigationBar.tintColor = Colors.highlight
         presenter.output = self
         tableView.isScrollEnabled = true
         tableView.delegate = self
@@ -58,7 +59,7 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
         self.view.addSubview(label)
         self.view.backgroundColor = Colors.background2
         tableView.backgroundColor = Colors.background2
-        tableView.separatorColor = Colors.highlight
+        tableView.separatorColor = Colors.highlight 
     }
     
     override func viewDidLayoutSubviews() {
