@@ -39,7 +39,7 @@ final class MainPresenter: MainPresenterProtocol {
     private var filmManager: FilmManagerProtocol = FilmManager.shared
     weak var view: MainViewControllerProtocol!
     weak var output: MainPresenterOutput?
-    var films: [[Film]?] = Array(repeating: [Film.init(id: 0, title: "", releaseDate: "", posterPath: "", overview: "", genreIds: [0], popularity: 0, voteAverage: 0)], count: 4)
+    var films: [[Film]?] = Array(repeating: [Film.init(id: 0, title: "", releaseDate: "", posterPath: "", overview: "", genreIds: [0], popularity: 0, voteAverage: 0, voteCount: 0)], count: 4)
     var loadIndicator: [Int] = Array(repeating: 0, count: 4)
     var genres = [Int:String]()
     init(view: MainViewControllerProtocol) {

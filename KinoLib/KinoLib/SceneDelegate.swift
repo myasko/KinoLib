@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         let authViewController = AuthViewController()
         let nav = UINavigationController(rootViewController: authViewController)
+        nav.navigationBar.tintColor = Colors.highlight
         window.rootViewController = nav
         if #available(iOS 13.0, *) {
             window.overrideUserInterfaceStyle = .dark

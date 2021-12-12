@@ -25,23 +25,23 @@ class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
     }
     
     func getFilmDetails() -> FilmDetails {
-        let genresArray = items as? Genres {
+        /*let genresArray = items as? Genres {
             var genres = [Int:String]()
             genresArray.genres!.forEach(){
                 print($0)
                 genres[$0.id] = $0.name
             }
             self.output?.success(result: genres, iter: iter)
-        }
+        }*/
         
         return FilmDetails(
-            posterPath: film.posterPath,
-            title: film.title,
-            genres: <#T##[String]#>,
-            voteAverage: film.voteAverage,
-            voteCount: film.voteCount,
+            posterPath: film.posterPath!,
+            title: film.title!,
+            genres: [],
+            voteAverage: film.voteAverage!,
+            voteCount: film.voteCount!,
             favorite: false,
-            overview: film.overview
+            overview: film.overview!
         )
     }
     

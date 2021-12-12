@@ -171,6 +171,12 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let clickedFilm = self.presenter.films[collectionView.tag]![indexPath.row]
+        let detailsVC = DetailsViewController(film: clickedFilm)
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout{
@@ -200,25 +206,6 @@ extension DateFormatter{
         printDateFormatter.locale = Locale(identifier: "ru_RU")
         printDateFormatter.timeZone = TimeZone(secondsFromGMT: 10800)
         return printDateFormatter.string(from: date)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let clickedFilm = self.presenter.films[collectionView.tag]![indexPath.row]
-        print(clickedFilm.posterPath)
-        print(clickedFilm.overview)
-        
-        let detailsVC = DetailsViewController(film: clickedFilm)
-        self.navigationController?.pushViewController(detailsVC, animated: true)
-        
-        /*let detailcVC = FilmDetailsViewController()
-        print(collectionView.tag)
-        
-        let user = User(email: "wolf@wolf.wolf", favoriteFilms: [])
-        let film = FilmDetails(name: "test", genres: [], plot: "wolf", image: "")
-        let presenter = FilmDetailsPresenter(view: detailcVC, user: user, film: film)
-        detailcVC.presenter = presenter
-        //detailcVC.presenter.film = self.presenter.films[collectionView.tag]![indexPath.row]
-        //detailcVC.presenter.genres = self.presenter.genres
     }
 }
 

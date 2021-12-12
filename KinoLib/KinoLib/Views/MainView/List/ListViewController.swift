@@ -49,7 +49,6 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
     }
     func configure(){
         checkLabel()
-        navigationController?.navigationBar.tintColor = Colors.highlight
         presenter.output = self
         tableView.isScrollEnabled = true
         tableView.delegate = self
@@ -103,6 +102,12 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let clickedFilm = self.presenter.films[indexPath.row]
+        let detailsVC = DetailsViewController(film: clickedFilm)
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

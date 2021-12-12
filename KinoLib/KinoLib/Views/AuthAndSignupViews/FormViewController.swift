@@ -40,12 +40,11 @@ class FormViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        let c = Colors()
-        backgroundColor1 = c.background1
-        backgroundColor2 = c.background2
-        highlightColor =  c.highlight
-        textColor = c.text
-        placeholderColor = c.placeholder
+        backgroundColor1 = Colors.background1
+        backgroundColor2 = Colors.background2
+        highlightColor =  Colors.highlight
+        textColor = Colors.text
+        placeholderColor = Colors.placeholder
         
         scrollView = UIScrollView()
         scrollView.backgroundColor = backgroundColor1
