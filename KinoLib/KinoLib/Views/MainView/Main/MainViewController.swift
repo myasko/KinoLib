@@ -75,10 +75,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
         tableView.dataSource = self
 //        tableView.contentInsetAdjustmentBehavior = .never
         self.view.addSubview(tableView)
-        
+
         self.tableView.separatorStyle = .none
     }
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
     }
