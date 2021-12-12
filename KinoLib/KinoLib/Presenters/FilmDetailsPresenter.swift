@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FilmDetailsPresenterProtocol: AnyObject {
-    init(view: DetailsViewController/*, user: User, film: FilmDetails*/)
+    init(view: DetailsViewController, film: Film)
     
     func showDetails()
     func toggleFavoriteStatus()
@@ -16,15 +16,33 @@ protocol FilmDetailsPresenterProtocol: AnyObject {
 }
 
 class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
-    
     let view: DetailsViewController!
-    //let user: User
-    // let film: FilmDetails
+    let film: Film
     
-    required init(view: DetailsViewController) {
+    required init(view: DetailsViewController, film: Film) {
         self.view = view
-        //self.user = user
-        // self.film = film
+        self.film = film
+    }
+    
+    func getFilmDetails() -> FilmDetails {
+        /*let genresArray = items as? Genres {
+            var genres = [Int:String]()
+            genresArray.genres!.forEach(){
+                print($0)
+                genres[$0.id] = $0.name
+            }
+            self.output?.success(result: genres, iter: iter)
+        }*/
+        
+        return FilmDetails(
+            posterPath: film.posterPath!,
+            title: film.title!,
+            genres: [],
+            voteAverage: film.voteAverage!,
+            voteCount: film.voteCount!,
+            favorite: false,
+            overview: film.overview!
+        )
     }
     
     func showDetails() {

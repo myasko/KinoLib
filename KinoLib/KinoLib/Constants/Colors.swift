@@ -9,11 +9,11 @@ import UIKit
 import Hex
 
 class Colors {
-    let background1 = UIColor(hex: "0C2129")
-    let background2 = UIColor(hex: "1A3640")
+    static let background1 = UIColor(hex: "0C2129")
+    static let background2 = UIColor(hex: "1A3640")
     
-    let highlight = UIColor(hex: "EF9900")
+    static let highlight = UIColor(hex: "EF9900")
     
-    let text = UIColor(hex: "F5F5F5");
-    let placeholder = UIColor(hex: "C5C5C5");
+    static let text = UIColor(hex: "F5F5F5");
+    static let placeholder = UIColor(hex: "C5C5C5");
 }

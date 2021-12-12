@@ -15,7 +15,7 @@ protocol FilmManagerProtocol {
 
 protocol FilmManagerOutput: AnyObject {
     func success<T>(result: T, iter: Int)
-    func failure(error: Error)
+    func failure(error: Error, iter: Int)
     
 }
 
@@ -29,7 +29,7 @@ class FilmManager: FilmManagerProtocol {
         self.networkManager = networkManager
     }
     
-    func load<T:Codable>(ofType: T.Type, url: String, iter: Int) {
+    func load<T:Codable>(ofType: T.Type, url: String, iter: Int = 0) {
         self.networkManager.get(ofType: T.self, url: url){[weak self] result in
             guard let self = self else {return}
             switch result{
@@ -37,7 +37,7 @@ class FilmManager: FilmManagerProtocol {
                 if let genresArray = items as? Genres {
                     var genres = [Int:String]()
                     genresArray.genres!.forEach(){
-                        print($0)
+//                        print($0)
                         genres[$0.id] = $0.name
                     }
                     self.output?.success(result: genres, iter: iter)
@@ -47,7 +47,7 @@ class FilmManager: FilmManagerProtocol {
 //                    self.
                 }
             case .failure(let error):
-                self.output?.failure(error: error)
+                self.output?.failure(error: error, iter: iter)
             }
         }
     }

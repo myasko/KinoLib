@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     var presenter: FilmDetailsPresenter!
-    var film: Film!
+    var film: FilmDetails!
     
     var titleLabel: UILabel!
     var genresLabel: UILabel!
@@ -24,9 +24,9 @@ class DetailsViewController: UIViewController {
     required init(film: Film) {
         super.init(nibName: nil, bundle: nil)
         
-        self.presenter = FilmDetailsPresenter(view: self)
+        self.presenter = FilmDetailsPresenter(view: self, film: film)
         
-        self.film = film
+        self.film = self.presenter.getFilmDetails()
         
         self.createElements()
     }
@@ -48,7 +48,7 @@ class DetailsViewController: UIViewController {
         }()
         
         self.genresLabel = {
-           let label = UILabel()
+            let label = UILabel()
             label.text = "Жанры: "
             label.numberOfLines = 0
             label.sizeToFit()
@@ -78,8 +78,13 @@ class DetailsViewController: UIViewController {
         }()
         
         self.scoreLabel = {
-           let label = UILabel()
-            label.text = "Рейтинг: 10"
+            var rating = "недостаточно оценок"
+            if (self.film.voteCount >= 100) {
+                rating = "\(self.film.voteAverage) (\(self.film.voteCount) оценок)"
+            }
+            
+            let label = UILabel()
+            label.text = "Рейтинг: \(rating)"
             label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
             label.textColor = .black
             return label

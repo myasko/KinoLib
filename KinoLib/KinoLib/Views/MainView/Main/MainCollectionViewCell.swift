@@ -22,25 +22,24 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     }(NetworkImageView())
     
     let title: UILabel = {
-        $0.font = UIFont.systemFont(ofSize: 12)
-        $0.textColor = .black
+        $0.font = UIFont(name: "Helvetica Neue", size: 12)
+        $0.textColor = Colors.text
         $0.textAlignment = .left
         $0.numberOfLines = 2
-        //        $0.backgroundColor = .white
         return $0
     }(UILabel())
 
     let date: UILabel = {
-        $0.font = UIFont.systemFont(ofSize: 12)
-        $0.textColor = .black
+        $0.font = UIFont(name: "Helvetica Neue", size: 12)
+        $0.textColor = Colors.text
         $0.textAlignment = .left
         $0.numberOfLines = 1
         return $0
     }(UILabel())
     
     let genres: UILabel = {
-        $0.font = UIFont.systemFont(ofSize: 12)
-        $0.textColor = .gray
+        $0.font = UIFont(name: "Helvetica Neue", size: 12)
+        $0.textColor = Colors.placeholder
         $0.textAlignment = .left
         $0.numberOfLines = 1
         return $0
@@ -56,7 +55,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = .white
+        self.backgroundColor = Colors.background2
         layout()
     }
     
@@ -114,9 +113,7 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
 extension UIView {
     public func pin(to addView: UIView) -> PinLayout<UIView> {
         if !addView.subviews.contains(self) {
-            //                DispatchQueue.main.async {
             addView.addSubview(self)
-            //                }
         }
         return self.pin
     }
@@ -152,63 +149,63 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.create(cell: MainCollectionViewCell.self, at: indexPath)
-        //        print("[DEBUG] index path \(indexPath.row)")
         let film = presenter.films[collectionView.tag]?[indexPath.row]
         var genres = ""
-        film?.genreIds.forEach{
+        film?.genreIds?.forEach{
             genres += "\(presenter.genres[$0] ?? ""), "
         }
         genres = genres.trimmingCharacters(in: [" ", ","])
-        //        print(type(of: film))
-        //self.films
-        //        print(self.presenter.films[collectionView.tag])
-        cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(film?.posterPath ?? "")"))
         cell.genres.text = genres
+        cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(film?.posterPath ?? "")"))
         cell.title.text = film?.title
-        let getDateFormatter = DateFormatter()
-        getDateFormatter.dateFormat = "yyyy-MM-dd"
-        getDateFormatter.calendar = .current
-        getDateFormatter.locale = Locale(identifier: "ru_RU")
-        getDateFormatter.timeZone = TimeZone(abbreviation: "MSK")
-        let printDateFormatter = DateFormatter()
-        printDateFormatter.dateFormat = "dd MMMM"
-        printDateFormatter.locale = Locale(identifier: "ru_RU")
-        printDateFormatter.timeZone = TimeZone(secondsFromGMT: 10800)
+        
+        
         if collectionView.tag == 0 {
-            let date = getDateFormatter.date(from: film?.releaseDate ?? "2000-10-21")
-            cell.date.text = printDateFormatter.string(from: date!)
-//            date(from: "2021-11-11")
+            let date = DateFormatter.formDate(text: film?.releaseDate ?? "2000-10-21")
+            cell.date.text = DateFormatter.formString(date: date!)
         }
+        
         else {
             cell.date.text = nil
         }
-        /*
-         Дает странную дичь, если выключить интернет, а потом даже если включить (прописывает даты в коллекции, у которой должен быть тэг 1, если указать else, то он передумает так делать)
-        */
-        //        cell.poster.image
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let clickedFilm = self.presenter.films[collectionView.tag]![indexPath.row]
-        print(clickedFilm.posterPath)
-        print(clickedFilm.overview)
-        
         let detailsVC = DetailsViewController(film: clickedFilm)
         self.navigationController?.pushViewController(detailsVC, animated: true)
-        
-        /*let detailcVC = FilmDetailsViewController()
-        print(collectionView.tag)
-        
-        let user = User(email: "wolf@wolf.wolf", favoriteFilms: [])
-        let film = FilmDetails(name: "test", genres: [], plot: "wolf", image: "")
-        let presenter = FilmDetailsPresenter(view: detailcVC, user: user, film: film)
-        detailcVC.presenter = presenter
-        //detailcVC.presenter.film = self.presenter.films[collectionView.tag]![indexPath.row]
-        //detailcVC.presenter.genres = self.presenter.genres
-        self.navigationController?.pushViewController(detailcVC, animated: true)*/
-        
-        
+    }
+}
+
+extension MainViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if self.presenter.films[collectionView.tag]!.count > 1 {
+            return CGSize(width: 150.5, height: collectionView.frame.height)
+        }
+        else {
+            return CGSize(width: self.tableView.frame.width, height: self.tableView.rowHeight)
+        }
+    }
+}
+
+extension DateFormatter{
+    static func formDate (text: String) -> Date? {
+        let getDateFormatter = DateFormatter()
+        getDateFormatter.dateFormat = "yyyy-MM-dd"
+        getDateFormatter.calendar = .current
+        getDateFormatter.locale = Locale(identifier: "ru_RU")
+        getDateFormatter.timeZone = TimeZone(abbreviation: "MSK")
+        return getDateFormatter.date(from: text)
+    }
+    
+    static func formString (date: Date) -> String?{
+        let printDateFormatter = DateFormatter()
+        printDateFormatter.dateFormat = "dd MMMM yyyy"
+        printDateFormatter.locale = Locale(identifier: "ru_RU")
+        printDateFormatter.timeZone = TimeZone(secondsFromGMT: 10800)
+        return printDateFormatter.string(from: date)
     }
 }
 
