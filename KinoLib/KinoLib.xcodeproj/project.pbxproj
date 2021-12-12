@@ -32,7 +32,6 @@
 		C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */; };
 		C3A65BCB2761612900A51675 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BC72761612900A51675 /* DetailsViewController.swift */; };
 		C3A65BCC2761612900A51675 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BC82761612900A51675 /* ViewController.swift */; };
-		C3A65BD02761637500A51675 /* FilmDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BCF2761637500A51675 /* FilmDetails.swift */; };
 		C3A65BD2276164B600A51675 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BD1276164B600A51675 /* NetworkImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3A65BC72761612900A51675 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C3A65BC82761612900A51675 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C3A65BCF2761637500A51675 /* FilmDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetails.swift; sourceTree = "<group>"; };
 		C3A65BD1276164B600A51675 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +136,6 @@
 		A8E2DED9272C2BEB00810C11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C3A65BCF2761637500A51675 /* FilmDetails.swift */,
 				A8E2DEDC272C2CA100810C11 /* Film.swift */,
 				A801AC85273D814300962793 /* FilmManager.swift */,
 				C34C5ED227441AD5004EF682 /* User.swift */,
@@ -341,7 +338,6 @@
 				C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */,
 				C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */,
 				A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */,
-				C3A65BD02761637500A51675 /* FilmDetails.swift in Sources */,
 				A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */,
 				A839199C273AA4BE00B834C3 /* MainTableViewCell.swift in Sources */,
 				C3A65BCC2761612900A51675 /* ViewController.swift in Sources */,

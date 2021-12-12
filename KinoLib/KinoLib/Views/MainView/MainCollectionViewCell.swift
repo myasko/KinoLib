@@ -206,9 +206,6 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         detailcVC.presenter = presenter
         //detailcVC.presenter.film = self.presenter.films[collectionView.tag]![indexPath.row]
         //detailcVC.presenter.genres = self.presenter.genres
-        self.navigationController?.pushViewController(detailcVC, animated: true)*/
-        
-        
     }
 }
 
