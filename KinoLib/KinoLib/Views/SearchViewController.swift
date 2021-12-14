@@ -39,6 +39,8 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         $0.backgroundColor = .gray
         $0.textColor = Colors.text
         $0.font = UIFont(name: "Helvetica Neue", size: 18)
+//        $0.clearsOnBeginEditing = true
+        $0.clearButtonMode = .whileEditing
         return $0
     }(CustomTextField())
     
@@ -70,8 +72,18 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         self.view.backgroundColor = Colors.background2
         tableView.backgroundColor = Colors.background2
         tableView.separatorColor = Colors.highlight
+        tableView.isHidden = true
+        tableView.keyboardDismissMode = .onDrag
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         search.pin.width(self.view.frame.width - 20).height(35).top(self.view.pin.safeArea).left().right().margin(10)
@@ -119,9 +131,11 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         if searchString.count == 0{
             presenter.films.removeAll()
             tableView.reloadData()
+            tableView.isHidden = true
         }
         else {
             presenter.getFilms(query: searchString, scroll: false)
+            
         }
     }
 }
@@ -129,6 +143,7 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
 extension SearchViewController: SearchPresenterOutput{
     func success() {
         DispatchQueue.main.async {
+            self.tableView.isHidden = false
             UIView.transition(with: self.tableView,
                               duration: 0.35,
                               options: .beginFromCurrentState,
