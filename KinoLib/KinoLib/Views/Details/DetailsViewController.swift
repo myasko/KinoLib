@@ -107,7 +107,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = self.film.title
-        
+        self.tabBarController?.tabBar.isHidden = true
         setUpScrollView()
         setUpPoster()
         setUpViews()

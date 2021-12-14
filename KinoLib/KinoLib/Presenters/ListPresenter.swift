@@ -20,7 +20,7 @@ protocol ListPresenterOutput: AnyObject {
     func success()
     func failure()
 }
-final class ListPresenter: ListPresenterProtocol, FilmManagerOutput{
+class ListPresenter: ListPresenterProtocol, FilmManagerOutput{
     func success<T>(result: T, iter: Int) {
         if let result = result as? Films{
             page += 1
@@ -44,7 +44,7 @@ final class ListPresenter: ListPresenterProtocol, FilmManagerOutput{
     var totalPages: Int!
     var page = 2
     var loadNow = false
-    private var filmManager: FilmManagerProtocol = FilmManager.shared
+    var filmManager: FilmManagerProtocol = FilmManager.shared
     weak var view: ListViewControllerProtocol!
     weak var output: ListPresenterOutput?
     var films = [Film]()
@@ -67,13 +67,13 @@ final class ListPresenter: ListPresenterProtocol, FilmManagerOutput{
                 let url: String
                 switch self.tag{
                 case 0:
-                    url="https://api.themoviedb.org/3/movie/upcoming?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=\(self.page)&region=ru"
+                    url="https://api.themoviedb.org/3/movie/upcoming?language=ru&page=\(self.page)&region=ru"
                 case 1:
-                    url = "https://api.themoviedb.org/3/movie/now_playing?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=\(self.page)&region=ru"
+                    url = "https://api.themoviedb.org/3/movie/now_playing?language=ru&page=\(self.page)&region=ru"
                 case 2:
-                    url = "https://api.themoviedb.org/3/movie/popular?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=\(self.page)&region=ru"
+                    url = "https://api.themoviedb.org/3/movie/popular?language=ru&page=\(self.page)&region=ru"
                 case 3:
-                    url = "https://api.themoviedb.org/3/movie/top_rated?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=\(self.page)&region=ru"
+                    url = "https://api.themoviedb.org/3/movie/top_rated?language=ru&page=\(self.page)&region=ru"
                 default:
                     url = ""
                 }

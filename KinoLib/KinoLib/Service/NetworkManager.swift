@@ -14,9 +14,9 @@ protocol NetworkManagerProtocol {
 
 final class NetworkManager: NetworkManagerProtocol {
     private var url: String!
-    private let token = "3eb9f76abfcf6dfa4ac87f43b1f2bdb9"
+    private let token = "&api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9"
     func get<T:Codable>(ofType: T.Type, url: String, completion: @escaping (Result<T?, Error>) -> Void){
-        guard let request = formRequest(url: url) else {return}
+        guard let request = formRequest(url: url + token) else {return}
         URLSession.shared.dataTask(with: request) {data, response, error in
 //            if let response = response as? HTTPURLResponse{
 //                print ("[Debug] \(response.statusCode)")

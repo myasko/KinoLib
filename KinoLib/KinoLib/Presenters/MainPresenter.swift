@@ -29,11 +29,11 @@ extension MainPresenter.Url: CaseIterable{
 final class MainPresenter: MainPresenterProtocol {
 
     enum Url: String {
-        case upcoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=1&region=ru"
-        case inCinema = "https://api.themoviedb.org/3/movie/now_playing?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=1&region=ru"
-        case popularNow = "https://api.themoviedb.org/3/movie/popular?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=1&region=ru"
-        case bestFilms = "https://api.themoviedb.org/3/movie/top_rated?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru&page=1&region=ru"
-        case genres = "https://api.themoviedb.org/3/genre/movie/list?api_key=3eb9f76abfcf6dfa4ac87f43b1f2bdb9&language=ru"
+        case upcoming = "https://api.themoviedb.org/3/movie/upcoming?language=ru&page=1&region=ru"
+        case inCinema = "https://api.themoviedb.org/3/movie/now_playing?language=ru&page=1&region=ru"
+        case popularNow = "https://api.themoviedb.org/3/movie/popular?language=ru&page=1&region=ru"
+        case bestFilms = "https://api.themoviedb.org/3/movie/top_rated?language=ru&page=1&region=ru"
+        case genres = "https://api.themoviedb.org/3/genre/movie/list?language=ru"
     }
     var totalPages: [Int] = Array(repeating: 0, count: 4)
     private var filmManager: FilmManagerProtocol = FilmManager.shared

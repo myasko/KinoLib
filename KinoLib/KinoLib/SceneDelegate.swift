@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,17 +17,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
     
         let window = UIWindow(windowScene: scene)
-                
-        let authViewController = AuthViewController()
-        let nav = UINavigationController(rootViewController: authViewController)
-        nav.navigationBar.tintColor = Colors.highlight
-        window.rootViewController = nav
+        let rootVC: UIViewController!
+        if Auth.auth().currentUser == nil {
+            rootVC = AuthViewController()
+            
+        }
+        else {
+            rootVC = MainViewController()
+        }
+        let tabBar = UITabBarController()
+        let nav1 = UINavigationController(rootViewController: rootVC)
+        nav1.navigationBar.tintColor = Colors.highlight
+        
         if #available(iOS 13.0, *) {
             window.overrideUserInterfaceStyle = .dark
         }
         
+        let iconMain = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+        nav1.tabBarItem = iconMain
+        let searchVC = SearchViewController()
+        let nav2 = UINavigationController(rootViewController: searchVC)
+        let iconSearch = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        nav2.tabBarItem = iconSearch
+        tabBar.viewControllers = [nav1,nav2]
         self.window = window
         window.makeKeyAndVisible()
+        window.rootViewController = tabBar
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
