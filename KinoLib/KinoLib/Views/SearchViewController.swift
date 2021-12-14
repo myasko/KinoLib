@@ -76,7 +76,6 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         super.viewDidLayoutSubviews()
         search.pin.width(self.view.frame.width - 20).height(35).top(self.view.pin.safeArea).left().right().margin(10)
         tableView.pin.below(of: search).marginTop(5).width(self.view.frame.width).bottom(self.view.pin.safeArea)
-        print(self.view.pin.safeArea)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -106,15 +105,22 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let clickedFilm = self.presenter.films[indexPath.row]
+        let detailsVC = DetailsViewController(film: clickedFilm)
+        let backItem = UIBarButtonItem()
+        backItem.title = "Назад"
+        navigationItem.backBarButtonItem = backItem
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
     @objc func search(sender: UITextField) {
         searchString = sender.text
         if searchString.count == 0{
             presenter.films.removeAll()
             tableView.reloadData()
-            print("reload")
         }
         else {
-            print("load")
             presenter.getFilms(query: searchString, scroll: false)
         }
     }
