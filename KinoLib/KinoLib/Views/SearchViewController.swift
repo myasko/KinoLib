@@ -120,9 +120,12 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let clickedFilm = self.presenter.films[indexPath.row]
         let detailsVC = DetailsViewController(film: clickedFilm)
+        
         let backItem = UIBarButtonItem()
         backItem.title = "Назад"
+        backItem.tintColor = Colors.highlight
         navigationItem.backBarButtonItem = backItem
+        
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
