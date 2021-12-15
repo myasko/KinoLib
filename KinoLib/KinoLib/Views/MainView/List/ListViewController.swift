@@ -13,9 +13,11 @@ protocol ListViewControllerProtocol: AnyObject{
 
 final class ListViewController: UIViewController, ListViewControllerProtocol, UITableViewDataSource, UITableViewDelegate {
     var presenter: ListPresenterProtocol!
+    
     func initPresenter(tag: Int){
         presenter = ListPresenter(view: self, tag: tag)
     }
+    
     let tableView: UITableView = {
         $0.register(classCell: MainTableViewCell.self)
         return $0
@@ -34,6 +36,10 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
     }
     override func viewDidDisappear(_ animated: Bool) {
         self.dismiss(animated: false, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func checkLabel (){
@@ -58,13 +64,12 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
         self.view.addSubview(label)
         self.view.backgroundColor = Colors.background2
         tableView.backgroundColor = Colors.background2
-        tableView.separatorColor = Colors.highlight 
+        tableView.separatorColor = Colors.highlight
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.pin.width(self.view.frame.width).all(self.view.pin.safeArea)
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,6 +83,7 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.create(cell: ListTableViewCell.self, at: indexPath)
+        cell.selectionStyle = .none
         let film = presenter.films[indexPath.row]
         var genres = ""
         film.genreIds?.forEach{
@@ -90,8 +96,10 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
         
         
         if presenter.tag == 0 {
-            let date = DateFormatter.formDate(text: film.releaseDate ?? "")
-            cell.date.text = DateFormatter.formString(date: date!)
+            if film.releaseDate != ""{
+                let date = DateFormatter.formDate(text: film.releaseDate!)
+                cell.date.text = DateFormatter.formString(date: date!)
+            }
         }
         
         else {
@@ -107,18 +115,17 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let clickedFilm = self.presenter.films[indexPath.row]
         let detailsVC = DetailsViewController(film: clickedFilm)
+        let backItem = UIBarButtonItem()
+        backItem.title = "Назад"
+        navigationItem.backBarButtonItem = backItem
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-//        print("DEBUG OFFSET \(offsetY)")
-//        print("DEBUG height \(contentHeight)")
-//        print(scrollView.frame.size.height)
         if offsetY > (contentHeight - scrollView.frame.size.height) {
             presenter.getFilms()
-//            print("LOAD")
         }
     }
             

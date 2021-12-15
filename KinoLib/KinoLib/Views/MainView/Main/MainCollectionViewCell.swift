@@ -161,8 +161,10 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         
         
         if collectionView.tag == 0 {
-            let date = DateFormatter.formDate(text: film?.releaseDate ?? "2000-10-21")
-            cell.date.text = DateFormatter.formString(date: date!)
+            if film?.releaseDate != ""{
+                let date = DateFormatter.formDate(text: film!.releaseDate!)
+                cell.date.text = DateFormatter.formString(date: date!)
+            }
         }
         
         else {

@@ -142,6 +142,7 @@ class FormViewController: UIViewController {
     
     func navigateToMain() {
         let mainViewController = MainViewController()
-        self.navigationController?.pushViewController(mainViewController, animated: true)
+        self.navigationController?.setViewControllers([mainViewController], animated: true)
+//        self.navigationController?.pushViewController(mainViewController, animated: true)
     }
 }
