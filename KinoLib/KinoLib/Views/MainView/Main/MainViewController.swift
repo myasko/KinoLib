@@ -66,7 +66,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
     }
 
     func configure(){
-        self.navigationController?.delegate = self
+        
+//        self.navigationController?.delegate = self
         self.title = "Главная"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Colors.text]
 //        self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -74,10 +75,15 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
         tableView.delegate = self
         tableView.dataSource = self
 //        tableView.contentInsetAdjustmentBehavior = .never
+        self.navigationItem.hidesBackButton = true
         self.view.addSubview(tableView)
 
         self.tableView.separatorStyle = .none
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
