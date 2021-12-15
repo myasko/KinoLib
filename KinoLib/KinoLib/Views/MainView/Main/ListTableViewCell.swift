@@ -90,6 +90,10 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.poster.image = nil
+        self.title.text = nil
+        self.genres.text = nil
+        self.date.text = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

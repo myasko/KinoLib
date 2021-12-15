@@ -107,6 +107,10 @@ final class MainCollectionViewCell: UICollectionViewCell, CellProtocol {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.poster.image = nil
+        self.title.text = nil
+        self.genres.text = nil
+        self.date.text = nil
     }
 }
 
@@ -156,7 +160,12 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         }
         genres = genres.trimmingCharacters(in: [" ", ","])
         cell.genres.text = genres
-        cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(film?.posterPath ?? "")"))
+        if let poster = film?.posterPath {
+            cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(poster)"))
+        }
+        else {
+            cell.poster.image = UIImage(named: "noPoster.jpeg")
+        }
         cell.title.text = film?.title
         
         
