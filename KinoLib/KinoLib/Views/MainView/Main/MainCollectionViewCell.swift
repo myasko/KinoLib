@@ -177,6 +177,9 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let clickedFilm = self.presenter.films[collectionView.tag]![indexPath.row]
         let detailsVC = DetailsViewController(film: clickedFilm)
+        let backItem = UIBarButtonItem()
+        backItem.title = "Назад"
+        navigationItem.backBarButtonItem = backItem
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

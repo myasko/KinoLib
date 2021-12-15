@@ -37,15 +37,17 @@ class SearchPresenter: SearchPresenterProtocol, FilmManagerOutput{
         }
         else if let result = result as? [Int:String] {
             genres = result
+//            self.output?.success()
         }
     }
     
     func failure(error: Error, iter: Int) {
         loadNow = false
-        print(error)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            self.output?.failure()
-            }
+        if iter != -1{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.output?.failure()
+                }
+        }
     }
     
     var totalPages = 1
@@ -63,10 +65,12 @@ class SearchPresenter: SearchPresenterProtocol, FilmManagerOutput{
     }
     
     func getFilms(query: String, scroll: Bool) {
+        if genres == nil {
+            self.getGenres()
+        }
         if scroll == false{
             page = 1
             totalPages = 1
-            films.removeAll()
         }
         if self.loadNow == false && self.page <= self.totalPages{
             guard let query = (query as NSString).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
@@ -79,7 +83,7 @@ class SearchPresenter: SearchPresenterProtocol, FilmManagerOutput{
     
     func getGenres() {
         let url: String = "https://api.themoviedb.org/3/genre/movie/list?language=ru"
-        filmManager.load(ofType: Genres.self, url: url, iter: 0)
+        filmManager.load(ofType: Genres.self, url: url, iter: -1)
         filmManager.output = self
     }
 }
