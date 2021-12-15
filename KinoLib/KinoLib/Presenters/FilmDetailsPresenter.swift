@@ -7,15 +7,18 @@
 
 import Foundation
 
-protocol FilmDetailsPresenterProtocol: AnyObject {
+import Firebase
+import FirebaseFirestore
+
+
+/*protocol FilmDetailsPresenterProtocol: AnyObject {
     init(view: DetailsViewController, film: Film)
     
     func showDetails()
     func toggleFavoriteStatus()
-    var isFavorite: Bool { get set }
-}
+}*/
 
-class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
+class FilmDetailsPresenter/*: FilmDetailsPresenterProtocol*/ {
     let view: DetailsViewController!
     let film: Film
     
@@ -35,13 +38,13 @@ class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
         }*/
         
         return FilmDetails(
-            posterPath: film.posterPath!,
-            title: film.title!,
+            posterPath: film.posterPath ?? "",
+            title: film.title ?? "",
             genres: [],
-            voteAverage: film.voteAverage!,
-            voteCount: film.voteCount!,
+            voteAverage: film.voteAverage ?? 0,
+            voteCount: film.voteCount ?? 0,
             favorite: false,
-            overview: film.overview!
+            overview: film.overview ?? ""
         )
     }
     
@@ -53,17 +56,30 @@ class FilmDetailsPresenter: FilmDetailsPresenterProtocol {
 //        }
     }
     
-    var isFavorite: Bool {
-        get {
-            false
-            // DataManager.shared.getFavoriteStatus(for: film.name)
-        } set {
-            // DataManager.shared.setFavoriteStatus(for: film.name, with: newValue)
+    func isFavorite(_ callback: @escaping(Bool) -> ()) {
+        guard let user = Auth.auth().currentUser else {
+            callback(false)
+            return
+        }
+        
+        DB.getFavoritesArr(user.uid) {
+            (film_ids, err) in
+            
+            if (err != nil) {
+                callback(false)
+                return
+            }
+            
+            callback(film_ids.contains(self.film.id))
         }
     }
     
-    func toggleFavoriteStatus() {
-        isFavorite.toggle()
+    func toggleFavoriteStatus(_ callback: @escaping(Bool, String?) -> ()) {
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        
+        DB.toggleFavorite(user.uid, self.film.id, callback)
     }
     
 }

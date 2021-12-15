@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailsViewController: UIViewController {
     var presenter: FilmDetailsPresenter!
@@ -33,6 +34,14 @@ class DetailsViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    func setFavorite(_ favorite: Bool) {
+        if (favorite) {
+            self.favoriteButton.tintColor = .red
+        } else {
+            self.favoriteButton.tintColor = .gray
+        }
     }
     
     func createElements() {
@@ -94,13 +103,22 @@ class DetailsViewController: UIViewController {
             let button = UIButton()
             // button.backgroundColor = .white
             button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            button.tintColor = .gray
             button.contentHorizontalAlignment = .fill
             button.contentVerticalAlignment = .fill
             button.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 10, right: 10)
             button.translatesAutoresizingMaskIntoConstraints = false
+            button.addTarget(self, action: #selector(favoriteButtonAction), for: .touchUpInside)
+            button.isHidden = true
             return button
         }()
+        
+        self.presenter.isFavorite() {
+            (favorite) in
+            
+            self.setFavorite(favorite)
+            
+            self.favoriteButton.isHidden = false
+        }
     }
     
     override func viewDidLoad() {
@@ -184,12 +202,20 @@ class DetailsViewController: UIViewController {
         plotLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -60).isActive = true
     }
     
-    
-    /*func toggleFavorite(_ sender: UIButton) {
-        presenter.toggleFavoriteStatus()
+    @objc func favoriteButtonAction(sender: UIButton!) {
+        self.favoriteButton.isEnabled = false
+        
+        presenter.toggleFavoriteStatus() {
+            (favorite, err) in
+            
+            self.favoriteButton.isEnabled = true
+            
+            if (err != nil) {
+                print(err!)
+                return
+            }
+            
+            self.setFavorite(favorite)
+        }
     }
-    
-    private func setStatusForFavoriteButton() {
-        favoriteButton.tintColor = presenter.isFavorite ? .red : .gray
-    }*/
 }
