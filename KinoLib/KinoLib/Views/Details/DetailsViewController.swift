@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailsViewController: UIViewController {
     var presenter: FilmDetailsPresenter!
     var film: FilmDetails!
     
-    var titleLabel: UILabel!
+    // var titleLabel: UILabel!
     var genresLabel: UILabel!
     var plotLabel: UILabel!
     var poster: UIImageView!
@@ -35,17 +36,25 @@ class DetailsViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    func setFavorite(_ favorite: Bool) {
+        if (favorite) {
+            self.favoriteButton.tintColor = .red
+        } else {
+            self.favoriteButton.tintColor = .gray
+        }
+    }
+    
     func createElements() {
-        self.titleLabel = {
+        /*self.titleLabel = {
             let label = UILabel()
             label.text = film.title
             label.sizeToFit()
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             label.font = UIFont(name: "HelveticaNeue-Bold", size: label.font.pointSize)
-            label.textColor = .black
+            label.textColor = Colors.text
             return label
-        }()
+        }()*/
         
         self.genresLabel = {
             let label = UILabel()
@@ -54,7 +63,7 @@ class DetailsViewController: UIViewController {
             label.sizeToFit()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
-            label.textColor = .black
+            label.textColor = Colors.text
             return label
         }()
         
@@ -64,7 +73,7 @@ class DetailsViewController: UIViewController {
             label.numberOfLines = 0
             label.sizeToFit()
             label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
-            label.textColor = .black
+            label.textColor = Colors.text
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -86,25 +95,36 @@ class DetailsViewController: UIViewController {
             let label = UILabel()
             label.text = "Рейтинг: \(rating)"
             label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
-            label.textColor = .black
+            label.textColor = Colors.text
             return label
         }()
         
         self.favoriteButton = {
             let button = UIButton()
-            button.backgroundColor = .white
+            // button.backgroundColor = .white
             button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            button.tintColor = .gray
             button.contentHorizontalAlignment = .fill
             button.contentVerticalAlignment = .fill
             button.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 10, right: 10)
             button.translatesAutoresizingMaskIntoConstraints = false
+            button.addTarget(self, action: #selector(favoriteButtonAction), for: .touchUpInside)
+            button.isHidden = true
             return button
         }()
+        
+        self.presenter.isFavorite() {
+            (favorite) in
+            
+            self.setFavorite(favorite)
+            
+            self.favoriteButton.isHidden = false
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = self.film.title
         
         setUpScrollView()
         setUpPoster()
@@ -113,6 +133,9 @@ class DetailsViewController: UIViewController {
     }
     
     func setUpScrollView() {
+        contentView.backgroundColor = Colors.background1
+        scrollView.backgroundColor = Colors.background1
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
@@ -127,16 +150,14 @@ class DetailsViewController: UIViewController {
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        
-        scrollView.backgroundColor = .white
     }
     
     func setUpViews() {
-        contentView.addSubview(titleLabel)
+        /*contentView.addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 16).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 40).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40).isActive = true*/
         
         contentView.addSubview(plotLabel)
         plotLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -148,7 +169,7 @@ class DetailsViewController: UIViewController {
     
     func setUpPoster() {
         contentView.addSubview(poster)
-        poster.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        poster.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
         poster.heightAnchor.constraint(equalToConstant: 260).isActive = true
         poster.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 60).isActive = true
         poster.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -60).isActive = true
@@ -173,7 +194,7 @@ class DetailsViewController: UIViewController {
         vStack.addArrangedSubview(hStack)
         
         
-        vStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
+        vStack.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 8).isActive = true
         vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
         vStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
         
@@ -181,12 +202,20 @@ class DetailsViewController: UIViewController {
         plotLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -60).isActive = true
     }
     
-    
-    /*func toggleFavorite(_ sender: UIButton) {
-        presenter.toggleFavoriteStatus()
+    @objc func favoriteButtonAction(sender: UIButton!) {
+        self.favoriteButton.isEnabled = false
+        
+        presenter.toggleFavoriteStatus() {
+            (favorite, err) in
+            
+            self.favoriteButton.isEnabled = true
+            
+            if (err != nil) {
+                print(err!)
+                return
+            }
+            
+            self.setFavorite(favorite)
+        }
     }
-    
-    private func setStatusForFavoriteButton() {
-        favoriteButton.tintColor = presenter.isFavorite ? .red : .gray
-    }*/
 }

@@ -36,6 +36,7 @@
 		C3A8C8752766312200506276 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C8732766312200506276 /* ListViewController.swift */; };
 		C3A8C8762766312200506276 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C8742766312200506276 /* ListTableViewCell.swift */; };
 		C3A8C8782766319500506276 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C8772766319500506276 /* ListPresenter.swift */; };
+		C3A8C87C276972DD00506276 /* Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C87B276972DD00506276 /* Firestore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		C3A8C8732766312200506276 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C3A8C8742766312200506276 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		C3A8C8772766319500506276 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		C3A8C87B276972DD00506276 /* Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				C3417C37275E702D00D0763A /* Colors.swift */,
+				C3A8C87B276972DD00506276 /* Firestore.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */,
 				A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */,
 				C3A8C8752766312200506276 /* ListViewController.swift in Sources */,
+				C3A8C87C276972DD00506276 /* Firestore.swift in Sources */,
 				C3A65BCB2761612900A51675 /* DetailsViewController.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
@@ -523,7 +527,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KoroLion.KinoLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -551,7 +555,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KoroLion.KinoLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
