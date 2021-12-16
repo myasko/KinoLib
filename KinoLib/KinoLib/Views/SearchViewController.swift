@@ -49,6 +49,20 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         return $0
     }(UITableView(frame: CGRect.zero, style: .plain))
     
+    let indicator: UIActivityIndicatorView = {
+        $0.hidesWhenStopped = true
+        $0.color = Colors.highlight
+        return $0
+    }(UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40)))
+    
+    let label: UILabel = {
+        $0.text = "Произошла ошибка во время загрузки данных"
+        $0.font = UIFont(name: "Helvetica Neue Bold", size: 14)
+        $0.textColor = Colors.text
+        $0.isHidden = true
+        return $0
+    }(UILabel())
+    
     var presenter: SearchPresenterProtocol!
     var searchString: String!
     
@@ -88,12 +102,15 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         super.viewDidLayoutSubviews()
         search.pin.width(self.view.frame.width - 20).height(35).top(self.view.pin.safeArea).left().right().margin(10)
         tableView.pin.below(of: search).marginTop(5).width(self.view.frame.width).bottom(self.view.pin.safeArea)
+        indicator.pin(to: self.view).center()
+        label.pin(to: self.view).center().sizeToFit()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         if offsetY > (contentHeight - scrollView.frame.size.height) {
+            self.label.isHidden = true
             presenter.getFilms(query: searchString, scroll: true)
         }
     }
@@ -104,11 +121,18 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         let film = presenter.films[indexPath.row]
         var genres = ""
         film.genreIds?.forEach{
-            genres += "\(presenter.genres[$0] ?? ""), "
+            if presenter.genres != nil{
+                genres += "\(presenter.genres[$0] ?? ""), "
+            }
         }
         genres = genres.trimmingCharacters(in: [" ", ","])
         cell.genres.text = genres
-        cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(film.posterPath ?? "")"))
+        if let poster = film.posterPath {
+            cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(poster)"))
+        }
+        else {
+            cell.poster.image = UIImage(named: "noPoster.jpeg")
+        }
         cell.title.text = film.title
         if film.releaseDate != ""{
             let date = DateFormatter.formDate(text: film.releaseDate!)
@@ -131,13 +155,21 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
     
     @objc func search(sender: UITextField) {
         searchString = sender.text
+        presenter.films.removeAll()
+        self.label.isHidden = true
         if searchString.count == 0{
             presenter.films.removeAll()
-            tableView.reloadData()
+            DispatchQueue.main.async{
+                self.tableView.reloadData()
+            }
             tableView.isHidden = true
         }
         else {
             presenter.getFilms(query: searchString, scroll: false)
+            DispatchQueue.main.async{
+                self.tableView.reloadData()
+            }
+            indicator.startAnimating()
             
         }
     }
@@ -145,7 +177,8 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
 
 extension SearchViewController: SearchPresenterOutput{
     func success() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async{
+            self.indicator.stopAnimating()
             self.tableView.isHidden = false
             UIView.transition(with: self.tableView,
                               duration: 0.35,
@@ -156,7 +189,11 @@ extension SearchViewController: SearchPresenterOutput{
     
     func failure() {
         DispatchQueue.main.async {
+            self.presenter.films.removeAll()
+            self.indicator.stopAnimating()
             self.tableView.reloadData()
+            self.tableView.isHidden = true
+            self.label.isHidden = false
         }
     }
 }
