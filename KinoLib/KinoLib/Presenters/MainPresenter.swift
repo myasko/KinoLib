@@ -39,7 +39,21 @@ final class MainPresenter: MainPresenterProtocol {
     private var filmManager: FilmManagerProtocol = FilmManager.shared
     weak var view: MainViewControllerProtocol!
     weak var output: MainPresenterOutput?
-    var films: [[Film]?] = Array(repeating: [Film.init(id: 0, title: "", releaseDate: "", posterPath: "", overview: "", genreIds: [0], popularity: 0, voteAverage: 0, voteCount: 0)], count: 4)
+    
+    var films: [[Film]?] = Array(repeating: [
+        Film.init(
+            id: 0,
+            title: "",
+            releaseDate: "",
+            posterPath: "",
+            overview: "",
+            genreIds: [0],
+            popularity: 0,
+            voteAverage: 0,
+            voteCount: 0
+        )
+    ], count: 4)
+    
     var loadIndicator: [Int] = Array(repeating: 0, count: 4)
     var genres = [Int:String]()
     init(view: MainViewControllerProtocol) {
@@ -71,7 +85,6 @@ final class MainPresenter: MainPresenterProtocol {
 }
 
 extension MainPresenter: FilmManagerOutput{
-
     func success<T>(result: T, iter: Int) {
         loadIndicator[iter] = 1
         if let result = result as? Films{
@@ -88,20 +101,16 @@ extension MainPresenter: FilmManagerOutput{
             if iter == 0{
                 self.output?.success()
             }
-//            print("Кинцо \(self.films.count)")
-
         }
         else if let result = result as? [Int:String] {
             genres = result
         }
     }
+    
     func failure(error: Error, iter: Int) {
         loadIndicator[iter] = 1
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.output?.failure()
-            }
-        print("Ашибка брат")
+        }
     }
-
-//        print(error)
 }
