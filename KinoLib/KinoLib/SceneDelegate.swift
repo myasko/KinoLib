@@ -28,6 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             rootVC = MainViewController()
         }
         
+        UITabBar.appearance().tintColor = Colors.highlight
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Colors.highlight], for: .normal)
+        
         let tabBar = UITabBarController()
         let nav1 = UINavigationController(rootViewController: rootVC)
         nav1.navigationBar.tintColor = Colors.highlight

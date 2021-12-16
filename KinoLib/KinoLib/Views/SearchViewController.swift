@@ -131,7 +131,7 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
             cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(poster)"))
         }
         else {
-            cell.poster.image = UIImage(named: "noPoster.jpeg")
+            cell.poster.image = UIImage(named: "noposter")
         }
         cell.title.text = film.title
         if film.releaseDate != ""{
