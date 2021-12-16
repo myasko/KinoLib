@@ -29,7 +29,7 @@
 		C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED627441AF2004EF682 /* SignupPresenter.swift */; };
 		C34C5ED927441B0C004EF682 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED827441B0C004EF682 /* FormViewController.swift */; };
 		C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */; };
-		C3A65BCB2761612900A51675 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BC72761612900A51675 /* DetailsViewController.swift */; };
+		C3A65BCB2761612900A51675 /* FilmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BC72761612900A51675 /* FilmDetailsViewController.swift */; };
 		C3A65BD2276164B600A51675 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BD1276164B600A51675 /* NetworkImageView.swift */; };
 		C3A8C86F27662F8B00506276 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C86C27662F8B00506276 /* MainCollectionViewCell.swift */; };
 		C3A8C87027662F8B00506276 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C86D27662F8B00506276 /* MainViewController.swift */; };
@@ -65,7 +65,7 @@
 		C34C5ED627441AF2004EF682 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		C34C5ED827441B0C004EF682 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C3A65BC72761612900A51675 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C3A65BC72761612900A51675 /* FilmDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailsViewController.swift; sourceTree = "<group>"; };
 		C3A65BD1276164B600A51675 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 		C3A8C86C27662F8B00506276 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3A8C86D27662F8B00506276 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -156,10 +156,10 @@
 			isa = PBXGroup;
 			children = (
 				C3A65BD1276164B600A51675 /* NetworkImageView.swift */,
-				C3A65BCE2761632000A51675 /* Details */,
 				C34C5EDB27442F06004EF682 /* AuthAndSignupViews */,
 				C34C5EDA27442EF0004EF682 /* MainView */,
 				A879414C2768E31A00D1012C /* SearchViewController.swift */,
+				C3A65BC72761612900A51675 /* FilmDetailsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,14 +212,6 @@
 				C34C5ECE27441AB6004EF682 /* AuthViewController.swift */,
 			);
 			path = AuthAndSignupViews;
-			sourceTree = "<group>";
-		};
-		C3A65BCE2761632000A51675 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				C3A65BC72761612900A51675 /* DetailsViewController.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		C3A8C86B27662F8B00506276 /* Main */ = {
@@ -384,7 +376,7 @@
 				A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */,
 				C3A8C8752766312200506276 /* ListViewController.swift in Sources */,
 				C3A8C87C276972DD00506276 /* Firestore.swift in Sources */,
-				C3A65BCB2761612900A51675 /* DetailsViewController.swift in Sources */,
+				C3A65BCB2761612900A51675 /* FilmDetailsViewController.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
 				A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */,

@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     var film: FilmDetails!
     
     var genresLabel: UILabel!
+    var descrLabel: UILabel!
     var plotLabel: UILabel!
     var poster: UIImageView!
     var scoreLabel: UILabel!
@@ -21,10 +22,10 @@ class DetailsViewController: UIViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     
-    required init(film: Film) {
+    required init(film: Film, genres: [Int:String]) {
         super.init(nibName: nil, bundle: nil)
         
-        self.presenter = FilmDetailsPresenter(view: self, film: film)
+        self.presenter = FilmDetailsPresenter(view: self, film: film, genres: genres)
         
         self.film = self.presenter.getFilmDetails()
         
@@ -46,11 +47,26 @@ class DetailsViewController: UIViewController {
     func createElements() {
         self.genresLabel = {
             let label = UILabel()
-            label.text = "Жанры: "
+            
+            var genresStr = ""
+            for genre in self.film.genres {
+                genresStr += genre + ", "
+            }
+            genresStr = String(genresStr.dropLast(2))
+            
+            label.text = "Жанры: \(genresStr)"
             label.numberOfLines = 0
             label.sizeToFit()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
+            label.textColor = Colors.text
+            return label
+        }()
+        
+        self.descrLabel = {
+            let label = UILabel()
+            label.text = "Описание"
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: label.font.pointSize * 1.1)
             label.textColor = Colors.text
             return label
         }()
@@ -163,6 +179,7 @@ class DetailsViewController: UIViewController {
     func setUpStacks() {
         let vStack = UIStackView()
         vStack.axis = .vertical
+        vStack.spacing = 25
         vStack.translatesAutoresizingMaskIntoConstraints = false
         let hStack = UIStackView()
         hStack.axis = .horizontal
@@ -175,9 +192,11 @@ class DetailsViewController: UIViewController {
         hStack.addArrangedSubview(favoriteButton)
         favoriteButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         favoriteButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        vStack.addArrangedSubview(genresLabel)
         vStack.addArrangedSubview(hStack)
         
+        vStack.addArrangedSubview(genresLabel)
+        vStack.addArrangedSubview(descrLabel)
+        // descrLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         vStack.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 8).isActive = true
         vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true

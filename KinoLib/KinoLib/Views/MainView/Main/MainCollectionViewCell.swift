@@ -164,7 +164,7 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
             cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(poster)"))
         }
         else {
-            cell.poster.image = UIImage(named: "noPoster.jpeg")
+            cell.poster.image = UIImage(named: "noposter")
         }
         cell.title.text = film?.title
         
@@ -185,7 +185,8 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let clickedFilm = self.presenter.films[collectionView.tag]![indexPath.row]
-        let detailsVC = DetailsViewController(film: clickedFilm)
+        print(self.presenter.genres)
+        let detailsVC = DetailsViewController(film: clickedFilm, genres: self.presenter.genres)
         let backItem = UIBarButtonItem()
         backItem.title = "Назад"
         navigationItem.backBarButtonItem = backItem

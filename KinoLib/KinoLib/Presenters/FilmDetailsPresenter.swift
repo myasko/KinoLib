@@ -20,27 +20,34 @@ import FirebaseFirestore
 
 class FilmDetailsPresenter/*: FilmDetailsPresenterProtocol*/ {
     let view: DetailsViewController!
-    let film: Film
+    let film: Film!
+    let genres: [Int:String]!
     
-    required init(view: DetailsViewController, film: Film) {
+    required init(view: DetailsViewController, film: Film, genres: [Int:String]) {
         self.view = view
         self.film = film
+        self.genres = genres
     }
     
     func getFilmDetails() -> FilmDetails {
-        /*let genresArray = items as? Genres {
-            var genres = [Int:String]()
-            genresArray.genres!.forEach(){
-                print($0)
-                genres[$0.id] = $0.name
+        var genresArr: [String] = []
+        var amount = self.genres.count
+        if (amount > 5) {
+            amount = 5
+        }
+        
+        for (_, genre) in self.genres {
+            genresArr.append(genre)
+            amount -= 1
+            if (amount == 0) {
+                break
             }
-            self.output?.success(result: genres, iter: iter)
-        }*/
+        }
         
         return FilmDetails(
             posterPath: film.posterPath ?? "",
             title: film.title ?? "",
-            genres: [],
+            genres: genresArr,
             voteAverage: film.voteAverage ?? 0,
             voteCount: film.voteCount ?? 0,
             favorite: false,
