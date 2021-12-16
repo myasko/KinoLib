@@ -22,7 +22,7 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
         $0.font = UIFont(name: "Helvetica Neue Bold", size: 18)
         $0.textColor = Colors.text
         $0.textAlignment = .left
-        $0.numberOfLines = 2
+        $0.numberOfLines = 1
         return $0
     }(UILabel())
 
@@ -69,12 +69,12 @@ final class ListTableViewCell: UITableViewCell, CellProtocol {
             .right(of: poster)
             .marginHorizontal(10)
             .top(20)
-            .width(contentView.frame.width - poster.frame.width - 5)
+            .width(contentView.frame.width - poster.frame.width - 20)
             .height(20)
         genres.pin(to: contentView)
             .below(of: title, aligned: .left)
             .marginTop(1.0)
-            .width(contentView.frame.width - poster.frame.width - 5)
+            .width(contentView.frame.width - poster.frame.width - 20)
             .height(15)
         date.pin(to: contentView)
             .below(of: genres, aligned: .left)

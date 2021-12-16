@@ -77,7 +77,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, Main
 //        tableView.contentInsetAdjustmentBehavior = .never
         self.navigationItem.hidesBackButton = true
         self.view.addSubview(tableView)
-
         self.tableView.separatorStyle = .none
     }
     override func viewWillAppear(_ animated: Bool) {

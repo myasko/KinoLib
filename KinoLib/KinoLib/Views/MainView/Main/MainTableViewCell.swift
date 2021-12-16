@@ -122,11 +122,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
         view.backgroundColor =  Colors.background1
-        let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 55, height: 40))
-        let btn = UIButton(frame: CGRect(x: view.frame.width - 50, y: 0, width: 45, height: 40))
+        let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
         lbl.font = UIFont(name: "Helvetica Neue Bold", size: 20)
         lbl.textColor = Colors.text
         btn.setTitle("Все", for: .normal)
+        
         btn.tag = section
         btn.addTarget(self, action: #selector(didTapBuuton(sender:)), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
@@ -141,6 +143,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         default:
             lbl.text = Headers.bestFilms.rawValue
         }
+        lbl.pin(to: view).left(10).vCenter().sizeToFit()
+        btn.pin(to: view).right(10).vCenter().sizeToFit()
         view.addSubview(lbl)
         view.addSubview(btn)
         return view

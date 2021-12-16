@@ -120,8 +120,9 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
         cell.selectionStyle = .none
         let film = presenter.films[indexPath.row]
         var genres = ""
-        film.genreIds?.forEach{
-            if presenter.genres != nil{
+        if presenter.genres != nil
+        {
+            film.genreIds?.forEach{
                 genres += "\(presenter.genres[$0] ?? ""), "
             }
         }
@@ -134,9 +135,11 @@ final class SearchViewController: UIViewController, SearchViewControllerProtocol
             cell.poster.image = UIImage(named: "noPoster.jpeg")
         }
         cell.title.text = film.title
-        if film.releaseDate != ""{
-            let date = DateFormatter.formDate(text: film.releaseDate!)
-            cell.date.text = DateFormatter.formString(date: date!)
+        if let release = film.releaseDate{
+            if release != ""{
+                let date = DateFormatter.formDate(text: release)!
+                cell.date.text = DateFormatter.formString(date: date)
+            }
         }
         return cell
     }

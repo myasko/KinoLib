@@ -101,9 +101,11 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
         
         
         if presenter.tag == 0 {
-            if film.releaseDate != ""{
-                let date = DateFormatter.formDate(text: film.releaseDate!)
-                cell.date.text = DateFormatter.formString(date: date!)
+            if let release = film.releaseDate{
+                if release != ""{
+                    let date = DateFormatter.formDate(text: release)!
+                    cell.date.text = DateFormatter.formString(date: date)
+                }
             }
         }
         
