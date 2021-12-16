@@ -12,7 +12,6 @@ class DetailsViewController: UIViewController {
     var presenter: FilmDetailsPresenter!
     var film: FilmDetails!
     
-    // var titleLabel: UILabel!
     var genresLabel: UILabel!
     var plotLabel: UILabel!
     var poster: UIImageView!
@@ -45,17 +44,6 @@ class DetailsViewController: UIViewController {
     }
     
     func createElements() {
-        /*self.titleLabel = {
-            let label = UILabel()
-            label.text = film.title
-            label.sizeToFit()
-            label.textAlignment = .center
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.font = UIFont(name: "HelveticaNeue-Bold", size: label.font.pointSize)
-            label.textColor = Colors.text
-            return label
-        }()*/
-        
         self.genresLabel = {
             let label = UILabel()
             label.text = "Жанры: "
@@ -82,7 +70,11 @@ class DetailsViewController: UIViewController {
             let imageT = NetworkImageView()
             imageT.contentMode = UIView.ContentMode.scaleAspectFit
             imageT.translatesAutoresizingMaskIntoConstraints = false
-            imageT.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(self.film.posterPath)"))
+            if (self.film.posterPath.isEmpty) {
+                imageT.image = UIImage(named: "noposter")
+            } else {
+                imageT.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(self.film.posterPath)"))
+            }
             return imageT
         }()
         
@@ -101,7 +93,6 @@ class DetailsViewController: UIViewController {
         
         self.favoriteButton = {
             let button = UIButton()
-            // button.backgroundColor = .white
             button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             button.contentHorizontalAlignment = .fill
             button.contentVerticalAlignment = .fill
@@ -153,12 +144,6 @@ class DetailsViewController: UIViewController {
     }
     
     func setUpViews() {
-        /*contentView.addSubview(titleLabel)
-        titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 16).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 40).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40).isActive = true*/
-        
         contentView.addSubview(plotLabel)
         plotLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         

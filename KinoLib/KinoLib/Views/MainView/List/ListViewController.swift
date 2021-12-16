@@ -91,7 +91,12 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
         }
         genres = genres.trimmingCharacters(in: [" ", ","])
         cell.genres.text = genres
-        cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(film.posterPath ?? "")"))
+        if let poster = film.posterPath {
+            cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(poster)"))
+        }
+        else {
+            cell.poster.image = UIImage(named: "noPoster.jpeg")
+        }
         cell.title.text = film.title
         
         

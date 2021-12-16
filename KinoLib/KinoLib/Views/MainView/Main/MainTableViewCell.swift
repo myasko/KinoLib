@@ -26,6 +26,7 @@ final class MainTableViewCell: UITableViewCell, CellProtocol {
     }(UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init()))
     
     let errorLabel: UILabel = {
+        $0.text = "Произошла ошибка"
         $0.font = UIFont(name: "Helvetica Neue", size: 14)
         $0.textColor = Colors.text
         return $0
@@ -33,6 +34,7 @@ final class MainTableViewCell: UITableViewCell, CellProtocol {
     
     let refreshButton: UIButton = {
         $0.isHidden = true
+        $0.setTitle("Обновить", for: .normal)
         $0.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
         $0.setTitleColor(Colors.highlight, for: .normal)
         return $0
@@ -62,7 +64,7 @@ final class MainTableViewCell: UITableViewCell, CellProtocol {
         
         collectionView.pin(to: contentView).height(of: self.contentView).all()
         errorLabel.pin(to: contentView).center().sizeToFit()
-        refreshButton.pin(to: contentView).below(of: errorLabel).center().sizeToFit()
+        refreshButton.pin(to: contentView).below(of: errorLabel).hCenter().sizeToFit()
         indicator.pin(to: contentView).center()
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -168,21 +170,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         cell.refreshButton.addTarget(self, action: #selector(refresh(sender:)), for: .touchUpInside)
         if self.presenter.films[indexPath.section]!.count < 2 && self.presenter.loadIndicator[indexPath.section] == 1 {
             cell.refreshButton.isHidden = false
-            cell.errorLabel.text = "Произошла ошибка"
-            cell.refreshButton.setTitle("Обновить", for: .normal)
-            print(cell.refreshButton.frame)
+            cell.errorLabel.isHidden = false
         }
         else {
-            cell.errorLabel.text = ""
-            cell.refreshButton.setTitle("", for: .normal)
+            cell.errorLabel.isHidden = true
             cell.refreshButton.isHidden = true
-            print(cell.refreshButton.frame)
         }
         
         if self.presenter.loadIndicator[indexPath.section] == 0 && self.presenter.films[indexPath.section]!.count < 2 {
             cell.indicator.startAnimating()
-            cell.errorLabel.text = ""
-            cell.refreshButton.setTitle("", for: .normal)
+            cell.errorLabel.isHidden = true
             cell.refreshButton.isHidden = true
         }
         else {
