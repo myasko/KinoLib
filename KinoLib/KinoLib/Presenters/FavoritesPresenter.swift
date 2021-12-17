@@ -17,32 +17,35 @@ protocol FavoritesPresenterOutput: AnyObject {
 protocol FavoritesPresenterProtocol{
     var output: FavoritesPresenterOutput? { get set }
     var films: [Film] {get set}
+    var filmFavorites: [FilmFavorite] { get set }
+    
     func getFilms()
-    var filmsCount: Int {get set}
-    var filmsId: [FilmFavorite] {get set}
+    
+    func loadFilms(callback: @escaping(Error?) -> ())
 }
 
 class FavoritesPresenter: FilmManagerOutput, FavoritesPresenterProtocol {
-    
-    var filmsId: [FilmFavorite] = {
-        var arr: [FilmFavorite] = []
-        
-            FirestoreManager.getFavoriteFilms() {
-                filmsArr, err in
-                if (err != nil) {
-                    print(err)
-                    return
-                }
-                arr = filmsArr
-            }
-        return arr
-    }()
-    
     var films = [Film]()
-    var filmsCount: Int = 0
+    var filmFavorites: [FilmFavorite] = []
+    
     weak var view: FavoritesViewController!
     weak var output:  FavoritesPresenterOutput?
     var filmManager: FilmManagerProtocol = FilmManager.shared
+    
+    func loadFilms(callback: @escaping(Error?) -> ()) {
+        FirestoreManager.getFavoriteFilms() {
+            filmsArr, err in
+            
+            if (err != nil) {
+                callback(err)
+                return
+            }
+            
+            self.filmFavorites = filmsArr
+            
+            callback(err)
+        }
+    }
     
     
     func success<T>(result: T, iter: Int) {
@@ -62,11 +65,10 @@ class FavoritesPresenter: FilmManagerOutput, FavoritesPresenterProtocol {
     }
     
     func getFilms() {
-        for film in filmsId {
-            let url = "https://api.themoviedb.org/3/movie/\(film)?language=ru"
+        for film in filmFavorites {
+            let url = "https://api.themoviedb.org/3/movie/\(film.id)?language=ru"
             self.filmManager.load(ofType: Film.self, url: url, iter: 0)
             self.filmManager.output = self
         }
     }
-    
 }

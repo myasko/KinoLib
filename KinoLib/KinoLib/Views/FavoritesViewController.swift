@@ -12,6 +12,9 @@ protocol FavoritesViewControllerProtocol: AnyObject{
 }
 
 class FavoritesViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, FavoritesViewControllerProtocol, FavoritesPresenterOutput {
+    
+    var presenter: FavoritesPresenterProtocol!
+    
     func success() {
         return
     }
@@ -20,9 +23,17 @@ class FavoritesViewController: UIViewController , UITableViewDataSource, UITable
         return
     }
     
-    var presenter: FavoritesPresenterProtocol!
-    
     var filmsTableView = UITableView()
+    
+    required init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.presenter = FavoritesPresenter(view: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +43,26 @@ class FavoritesViewController: UIViewController , UITableViewDataSource, UITable
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         filmsTableView.frame = view.bounds
-  
+    }
+    
+    func updateData() {
+        presenter.loadFilms() {
+            err in
+            
+            self.presenter.getFilms()
+            
+            self.filmsTableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateData()
     }
     
     func setUpUI() {
-       
-        presenter = FavoritesPresenter(view: self)
         presenter.output = self
-        //presenter.getFilms()
-
         
         view.backgroundColor = Colors.background2
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Colors.text]
@@ -53,20 +75,21 @@ class FavoritesViewController: UIViewController , UITableViewDataSource, UITable
         
         filmsTableView.backgroundColor = Colors.background2
         filmsTableView.separatorColor = Colors.highlight
-        
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.filmsId.count
+        return presenter.filmFavorites.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = filmsTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let film = presenter.filmsId[indexPath.row]
-        cell.textLabel?.text = " \(film.title ?? "избранное")"
+        
+        let film = presenter.filmFavorites[indexPath.row]
+        
+        cell.textLabel?.text = film.title
         cell.textLabel?.textAlignment = .center
         cell.backgroundColor = Colors.background2
+        
         return cell
         
 //        let cell = tableView.create(cell: ListTableViewCell.self, at: indexPath)
@@ -86,15 +109,15 @@ class FavoritesViewController: UIViewController , UITableViewDataSource, UITable
         
         filmsTableView.deselectRow(at: indexPath, animated: true)
         
-//        let clickedFilm = self.presenter.films[indexPath.row]
-//        let detailsVC = DetailsViewController(film: clickedFilm, genres: self.presenter.genres)
-//
-//        let backItem = UIBarButtonItem()
-//        backItem.title = "Назад"
-//        backItem.tintColor = Colors.highlight
-//        navigationItem.backBarButtonItem = backItem
-//
-//        self.navigationController?.pushViewController(detailsVC, animated: true)
+        let clickedFilm = self.presenter.films[indexPath.row]
+        let detailsVC = DetailsViewController(film: clickedFilm, genres: [""])
+
+        let backItem = UIBarButtonItem()
+        backItem.title = "Назад"
+        backItem.tintColor = Colors.highlight
+        navigationItem.backBarButtonItem = backItem
+
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 
