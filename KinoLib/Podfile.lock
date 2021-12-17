@@ -424,18 +424,22 @@ PODS:
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.7.0)
   - Hex (6.1.0)
+  - Kingfisher (7.1.2)
   - leveldb-library (1.22.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - PinLayout (1.10.0)
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Hex
+  - Kingfisher (~> 7.1)
+  - PinLayout (~> 1.10)
 
 SPEC REPOS:
   trunk:
@@ -452,8 +456,10 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - Hex
+    - Kingfisher
     - leveldb-library
     - nanopb
+    - PinLayout
     - PromisesObjC
 
 SPEC CHECKSUMS:
@@ -470,10 +476,12 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   Hex: 2f67dd0cbb178cb24992e7529b025b8d16ff0bdc
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PinLayout: e50e9a748b632905fca6e67043ea4b05d6c92186
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: f7a08746530396d45024d01e41b0212721e12391
+PODFILE CHECKSUM: 2da9967b8c33e630926438b7d9d41078b70d1559
 
 COCOAPODS: 1.11.2

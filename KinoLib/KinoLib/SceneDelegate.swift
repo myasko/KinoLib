@@ -43,12 +43,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let iconSearch = UITabBarItem(tabBarSystemItem: .search, tag: 1)
         navSearch.tabBarItem = iconSearch
         
-        let userProfileVC = UserProfileViewController()
-        let navProfile = UINavigationController(rootViewController: userProfileVC)
+        let profileVC = ProfileViewController()
+        let navProfile = UINavigationController(rootViewController: profileVC)
         let iconProfile = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
         navProfile.tabBarItem = iconProfile
         
-        tabBar.viewControllers = [navMain, navProfile, navSearch]
+        tabBar.viewControllers = [navMain, navSearch, navProfile]
         
         self.window = window
         window.makeKeyAndVisible()

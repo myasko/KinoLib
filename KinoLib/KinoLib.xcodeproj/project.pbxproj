@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		57C2EC6062B1D320315BB10C /* Pods_KinoLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */; };
+		686774E9276C80D5007250F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686774E8276C80D5007250F6 /* ProfileViewController.swift */; };
+		686774EB276C80F1007250F6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686774EA276C80F1007250F6 /* FavoritesViewController.swift */; };
+		686774ED276C816A007250F6 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686774EC276C816A007250F6 /* FavoritesPresenter.swift */; };
 		A801AC86273D814300962793 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801AC85273D814300962793 /* FilmManager.swift */; };
 		A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148AF27270FB40073EB7B /* AppDelegate.swift */; };
 		A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148B127270FB40073EB7B /* SceneDelegate.swift */; };
 		A85148B927270FB60073EB7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85148B827270FB60073EB7B /* Assets.xcassets */; };
-		A85148C527274CB90073EB7B /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A85148C427274CB90073EB7B /* PinLayout */; };
 		A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85148C62727558E0073EB7B /* MainPresenter.swift */; };
 		A879414D2768E31A00D1012C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A879414C2768E31A00D1012C /* SearchViewController.swift */; };
 		A879414F2769126A00D1012C /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A879414E2769126A00D1012C /* SearchPresenter.swift */; };
-		A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A88FC7B92730623700DF7C4A /* Kingfisher */; };
 		A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */; };
 		A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93927457C6D00331E9B /* DataManager.swift */; };
 		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
@@ -45,6 +46,9 @@
 /* Begin PBXFileReference section */
 		3886EA53E483FA12422B8B98 /* Pods_KinoLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABCE0A420C15BACB27B99E7 /* Pods-KinoLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoLib.release.xcconfig"; path = "Target Support Files/Pods-KinoLib/Pods-KinoLib.release.xcconfig"; sourceTree = "<group>"; };
+		686774E8276C80D5007250F6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		686774EA276C80F1007250F6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		686774EC276C816A007250F6 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		9F6EE1F37BDE353A16BC8897 /* Pods-KinoLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoLib.debug.xcconfig"; path = "Target Support Files/Pods-KinoLib/Pods-KinoLib.debug.xcconfig"; sourceTree = "<group>"; };
 		A801AC85273D814300962793 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
 		A85148AC27270FB40073EB7B /* KinoLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,8 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A88FC7BA2730623700DF7C4A /* Kingfisher in Frameworks */,
-				A85148C527274CB90073EB7B /* PinLayout in Frameworks */,
 				57C2EC6062B1D320315BB10C /* Pods_KinoLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +169,8 @@
 				A879414C2768E31A00D1012C /* SearchViewController.swift */,
 				C3A65BC72761612900A51675 /* FilmDetailsViewController.swift */,
 				C31CF65F276C114E00808DA9 /* UserProfile.swift */,
+				686774E8276C80D5007250F6 /* ProfileViewController.swift */,
+				686774EA276C80F1007250F6 /* FavoritesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +184,7 @@
 				A8CDC93727457B9B00331E9B /* FilmDetailsPresenter.swift */,
 				C34C5ED427441AE2004EF682 /* AuthPresenter.swift */,
 				A879414E2769126A00D1012C /* SearchPresenter.swift */,
+				686774EC276C816A007250F6 /* FavoritesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -250,8 +255,6 @@
 			);
 			name = KinoLib;
 			packageProductDependencies = (
-				A85148C427274CB90073EB7B /* PinLayout */,
-				A88FC7B92730623700DF7C4A /* Kingfisher */,
 			);
 			productName = KinoLib;
 			productReference = A85148AC27270FB40073EB7B /* KinoLib.app */;
@@ -282,8 +285,6 @@
 			);
 			mainGroup = A85148A327270FB40073EB7B;
 			packageReferences = (
-				A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */,
-				A88FC7B82730623700DF7C4A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A85148AD27270FB40073EB7B /* Products */;
 			projectDirPath = "";
@@ -366,10 +367,12 @@
 				C3A8C8782766319500506276 /* ListPresenter.swift in Sources */,
 				A801AC86273D814300962793 /* FilmManager.swift in Sources */,
 				C3A8C87127662F8B00506276 /* MainTableViewCell.swift in Sources */,
+				686774E9276C80D5007250F6 /* ProfileViewController.swift in Sources */,
 				C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */,
 				C3A8C86F27662F8B00506276 /* MainCollectionViewCell.swift in Sources */,
 				A879414D2768E31A00D1012C /* SearchViewController.swift in Sources */,
 				C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */,
+				686774ED276C816A007250F6 /* FavoritesPresenter.swift in Sources */,
 				C31CF660276C114E00808DA9 /* UserProfile.swift in Sources */,
 				C31CF662276C21E600808DA9 /* Settings.swift in Sources */,
 				A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */,
@@ -380,6 +383,7 @@
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,
 				A85148C72727558E0073EB7B /* MainPresenter.swift in Sources */,
+				686774EB276C80F1007250F6 /* FavoritesViewController.swift in Sources */,
 				C3A8C87027662F8B00506276 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,38 +585,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/layoutBox/PinLayout";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		A88FC7B82730623700DF7C4A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A85148C427274CB90073EB7B /* PinLayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A85148C327274CB90073EB7B /* XCRemoteSwiftPackageReference "PinLayout" */;
-			productName = PinLayout;
-		};
-		A88FC7B92730623700DF7C4A /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A88FC7B82730623700DF7C4A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A85148A427270FB40073EB7B /* Project object */;
 }

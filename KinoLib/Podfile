@@ -11,4 +11,7 @@ target 'KinoLib' do
 
   pod 'Hex'
 
+  pod 'PinLayout', '~> 1.10'
+  pod 'Kingfisher', '~> 7.1'
+
 end
