@@ -82,7 +82,7 @@ class SearchPresenter: SearchPresenterProtocol, FilmManagerOutput{
     }
     
     func getGenres() {
-        let url: String = "https://api.themoviedb.org/3/genre/movie/list?language=ru"
+        let url: String = "https://api.themoviedb.org/3/genre/movie/list?language=ru-RU"
         filmManager.load(ofType: Genres.self, url: url, iter: -1)
         filmManager.output = self
     }
