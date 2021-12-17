@@ -28,31 +28,19 @@ class CustomTextField: UITextField {
 }
 
 class BaseViewController: UIViewController {
-    var backgroundColor1: UIColor!
-    var backgroundColor2: UIColor!
-    var highlightColor: UIColor!
-    var textColor: UIColor!
-    var placeholderColor: UIColor!
-    
     var scrollView: UIScrollView!
     var contentView: UIView!
     
     override func loadView() {
         super.loadView()
         
-        backgroundColor1 = Colors.background1
-        backgroundColor2 = Colors.background2
-        highlightColor =  Colors.highlight
-        textColor = Colors.text
-        placeholderColor = Colors.placeholder
-        
         scrollView = UIScrollView()
-        scrollView.backgroundColor = backgroundColor1
+        scrollView.backgroundColor = Colors.background1
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         
         contentView = UIView()
-        contentView.backgroundColor = backgroundColor1
+        contentView.backgroundColor = Colors.background1
         contentView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(contentView)
         
@@ -73,7 +61,7 @@ class BaseViewController: UIViewController {
     func createLabel(text: String) -> UILabel {
         let label = UILabel()
         label.text = text
-        label.textColor = textColor
+        label.textColor = Colors.text
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -87,17 +75,17 @@ class BaseViewController: UIViewController {
         field.isUserInteractionEnabled = true
         field.translatesAutoresizingMaskIntoConstraints = false
         
-        field.textColor = textColor
+        field.textColor = Colors.text
         
         field.layer.borderWidth = 1.0
         field.layer.masksToBounds = true
         field.layer.cornerRadius = 4.0
-        field.layer.borderColor = highlightColor.cgColor
+        field.layer.borderColor = Colors.highlight.cgColor
         
-        field.backgroundColor = backgroundColor2
+        field.backgroundColor = Colors.background2
         field.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: placeholderColor]
+            attributes: [NSAttributedString.Key.foregroundColor: Colors.placeholder]
         )
         
         if (secure) {
@@ -111,15 +99,15 @@ class BaseViewController: UIViewController {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle(title, for: .normal)
-        btn.setTitleColor(highlightColor, for: .normal)
-        btn.setTitleColor(textColor, for: .highlighted)
+        btn.setTitleColor(Colors.highlight, for: .normal)
+        btn.setTitleColor(Colors.text, for: .highlighted)
         
         if (!asLabel) {
-            btn.setTitleColor(textColor, for: .normal)
-            btn.backgroundColor = highlightColor
+            btn.setTitleColor(Colors.text, for: .normal)
+            btn.backgroundColor = Colors.highlight
             btn.layer.borderWidth = 1.0
             btn.layer.cornerRadius = 4.0
-            btn.layer.borderColor = highlightColor.cgColor
+            btn.layer.borderColor = Colors.highlight.cgColor
         }
         
         return btn

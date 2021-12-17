@@ -39,7 +39,7 @@
 		C3A8C8752766312200506276 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C8732766312200506276 /* ListViewController.swift */; };
 		C3A8C8762766312200506276 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C8742766312200506276 /* ListTableViewCell.swift */; };
 		C3A8C8782766319500506276 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C8772766319500506276 /* ListPresenter.swift */; };
-		C3A8C87C276972DD00506276 /* Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C87B276972DD00506276 /* Firestore.swift */; };
+		C3A8C87C276972DD00506276 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C87B276972DD00506276 /* FirestoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +77,7 @@
 		C3A8C8732766312200506276 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C3A8C8742766312200506276 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		C3A8C8772766319500506276 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
-		C3A8C87B276972DD00506276 /* Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore.swift; sourceTree = "<group>"; };
+		C3A8C87B276972DD00506276 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,7 @@
 		A8E2DEDE272C37FF00810C11 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C3A8C87B276972DD00506276 /* Firestore.swift */,
+				C3A8C87B276972DD00506276 /* FirestoreManager.swift */,
 				A8CDC93927457C6D00331E9B /* DataManager.swift */,
 				A8E2DEDF272C381100810C11 /* NetworkManager.swift */,
 			);
@@ -375,7 +375,7 @@
 				A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */,
 				A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */,
 				C3A8C8752766312200506276 /* ListViewController.swift in Sources */,
-				C3A8C87C276972DD00506276 /* Firestore.swift in Sources */,
+				C3A8C87C276972DD00506276 /* FirestoreManager.swift in Sources */,
 				C3A65BCB2761612900A51675 /* FilmDetailsViewController.swift in Sources */,
 				A85148B027270FB40073EB7B /* AppDelegate.swift in Sources */,
 				A85148B227270FB40073EB7B /* SceneDelegate.swift in Sources */,

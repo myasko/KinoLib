@@ -13,23 +13,21 @@ import FirebaseFirestore
 
 class FilmDetailsPresenter {
     let view: DetailsViewController!
-    let film: Film!
-    let genres: [Int:String]!
+    var film: FilmDetails!
     
     required init(view: DetailsViewController, film: Film, genres: [Int:String]) {
         self.view = view
-        self.film = film
-        self.genres = genres
+        self.film = self.createFilmDetails(film, genres)
     }
     
-    func getFilmDetails() -> FilmDetails {
+    private func createFilmDetails(_ film: Film, _ genres: [Int:String]) -> FilmDetails {
         var genresArr: [String] = []
-        var amount = self.genres.count
+        var amount = genres.count
         if (amount > 5) {
             amount = 5
         }
         
-        for (_, genre) in self.genres {
+        for (_, genre) in genres {
             genresArr.append(genre)
             amount -= 1
             if (amount == 0) {
@@ -38,41 +36,65 @@ class FilmDetailsPresenter {
         }
         
         return FilmDetails(
+            id: film.id,
             posterPath: film.posterPath ?? "",
             title: film.title ?? "",
             genres: genresArr,
             voteAverage: film.voteAverage ?? 0,
             voteCount: film.voteCount ?? 0,
-            favorite: false,
             overview: film.overview ?? ""
         )
     }
     
+    func getFilmDetails() -> FilmDetails {
+        return self.film
+    }
+    
     func isFavorite(_ callback: @escaping(Bool) -> ()) {
-        guard let user = Auth.auth().currentUser else {
-            callback(false)
-            return
-        }
-        
-        DB.getFavoritesArr(user.uid) {
-            (film_ids, err) in
+        FirestoreManager.isFavoriteFilm(filmId: self.film.id) {
+            favorite, err in
             
             if (err != nil) {
-                print(err)
                 callback(false)
                 return
             }
             
-            callback(film_ids.contains(self.film.id))
+            self.film.favorite = favorite
+            callback(favorite)
         }
     }
     
-    func toggleFavoriteStatus(_ callback: @escaping(Bool, String?) -> ()) {
-        guard let user = Auth.auth().currentUser else {
+    func toggleFavoriteStatus(_ callback: @escaping(Bool?, Error?) -> ()) {
+        guard let favorite = self.film.favorite else {
+            print("You need to call isFavorite first!")
             return
         }
         
-        DB.toggleFavorite(user.uid, self.film.id, callback)
+        if favorite {
+            FirestoreManager.removeFavoriteFilm(filmId: self.film.id) {
+                err in
+                
+                if (err == nil) {
+                    self.film.favorite = !favorite
+                }
+                
+                callback(self.film.favorite, err)
+            }
+        } else {
+            FirestoreManager.addFavoriteFilm(film: FilmFavorite(
+                id: self.film.id,
+                title: self.film.title,
+                posterUrl: Settings.POSTER_BASE_URL + self.film.posterPath
+            )) {
+                err in
+                
+                if (err == nil) {
+                    self.film.favorite = !favorite
+                }
+                
+                callback(self.film.favorite, err)
+            }
+        }
     }
     
 }

@@ -7,4 +7,5 @@
 
 class Settings {
     static let API_KEY = "3eb9f76abfcf6dfa4ac87f43b1f2bdb9"
+    static let POSTER_BASE_URL = "https://image.tmdb.org/t/p/w185"
 }

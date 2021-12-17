@@ -53,18 +53,21 @@ class UserProfileViewController: BaseViewController {
         
         title = user.email
         
-        DB.getFavoritesArr(user.uid) {
-            arr, err in
+        FirestoreManager.getFavoriteFilms() {
+            filmsArr, err in
             
             if (err != nil) {
+                print(err)
                 return
             }
             
             var newText = "Избранное: "
-            for filmId in arr {
-                newText += String(filmId) + ", "
+            for film in filmsArr {
+                newText += film.title + ", "
             }
-            newText = String(newText.dropLast(2))
+            if filmsArr.count > 0 {
+                newText = String(newText.dropLast(2))
+            }
             
             self.favoritesLabel.text = newText
             self.favoritesLabel.sizeToFit()

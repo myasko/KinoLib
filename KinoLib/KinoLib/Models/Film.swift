@@ -26,14 +26,22 @@ struct Film: Codable {
     let voteCount: Int?
 }
 
+struct FilmFavorite {
+    let id: Int
+    let title: String
+    let posterUrl: String
+}
+
 struct FilmDetails {
+    let id: Int
     let posterPath: String
     let title: String
     let genres: [String]
     let voteAverage: Double
     let voteCount: Int
-    let favorite: Bool
     let overview: String
+    
+    var favorite: Bool?
 }
 
 struct Genres: Codable {

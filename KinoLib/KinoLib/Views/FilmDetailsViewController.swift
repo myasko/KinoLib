@@ -89,7 +89,7 @@ class DetailsViewController: UIViewController {
             if (self.film.posterPath.isEmpty) {
                 imageT.image = UIImage(named: "noposter")
             } else {
-                imageT.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(self.film.posterPath)"))
+                imageT.setURL(URL(string: "\(Settings.POSTER_BASE_URL)\(self.film.posterPath)"))
             }
             return imageT
         }()
@@ -195,7 +195,6 @@ class DetailsViewController: UIViewController {
         
         vStack.addArrangedSubview(genresLabel)
         vStack.addArrangedSubview(descrLabel)
-        // descrLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         vStack.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 8).isActive = true
         vStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
@@ -208,13 +207,12 @@ class DetailsViewController: UIViewController {
     @objc func favoriteButtonAction(sender: UIButton!) {
         self.favoriteButton.isEnabled = false
         
-        presenter.toggleFavoriteStatus() {
-            (favorite, err) in
+        self.presenter.toggleFavoriteStatus() {
+            favorite, err in
             
             self.favoriteButton.isEnabled = true
             
-            if (err != nil) {
-                print(err!)
+            guard let favorite = favorite else {
                 return
             }
             
