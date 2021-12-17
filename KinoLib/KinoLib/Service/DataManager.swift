@@ -7,18 +7,14 @@
 
 import Foundation
 
-class DataManager {
-    static let shared = DataManager()
+class DataManager {    
+    static private let userDefaults = UserDefaults.standard
     
-    private let userDefaults = UserDefaults()
-    
-    private init() {}
-    
-    func setFavoriteStatus(for filmName: String, with status: Bool) {
-        userDefaults.set(status, forKey: filmName)
+    static func setLastEmail(_ email: String) {
+        userDefaults.set(email, forKey: "lastEmail")
     }
     
-    func getFavoriteStatus(for filmName: String) -> Bool {
-        userDefaults.bool(forKey: filmName)
+    static func getLastEmail() -> String {
+        return userDefaults.string(forKey: "lastEmail") ?? ""
     }
 }

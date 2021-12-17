@@ -132,7 +132,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         btn.tag = section
         btn.addTarget(self, action: #selector(didTapBuuton(sender:)), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
-        btn.setTitleColor(Colors.placeholder, for: .normal)
+        btn.setTitleColor(Colors.highlight, for: .normal)
         switch section{
         case 0:
             lbl.text = Headers.upcoming.rawValue

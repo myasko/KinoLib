@@ -190,6 +190,7 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
         let detailsVC = DetailsViewController(film: clickedFilm, genres: self.presenter.genres)
         let backItem = UIBarButtonItem()
         backItem.title = "Назад"
+        backItem.tintColor = Colors.highlight
         navigationItem.backBarButtonItem = backItem
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }

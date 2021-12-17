@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupViewController: FormViewController {
+class SignupViewController: BaseViewController {
     let presenter = SignupPresenter()
     
     var titleLabel: UILabel!

@@ -27,7 +27,7 @@ class CustomTextField: UITextField {
     }
 }
 
-class FormViewController: UIViewController {
+class BaseViewController: UIViewController {
     var backgroundColor1: UIColor!
     var backgroundColor2: UIColor!
     var highlightColor: UIColor!

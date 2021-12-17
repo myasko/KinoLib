@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthViewController: FormViewController {
+class AuthViewController: BaseViewController {
     let presenter = AuthPresenter()
     
     var titleLabel: UILabel!
@@ -43,6 +43,7 @@ class AuthViewController: FormViewController {
         contentView.addSubview(emailLabel)
         
         emailInput = createTextField(placeholder: "email")
+        emailInput.text = DataManager.getLastEmail()
         contentView.addSubview(emailInput)
         
         passwordLabel = createLabel(text: "Пароль:")
@@ -95,6 +96,8 @@ class AuthViewController: FormViewController {
             email: emailInput.text ?? "",
             password: passwordInput.text ?? ""
         )
+        
+        DataManager.setLastEmail(user.email)
         
         presenter.authenticate(user, callback: {
             err in

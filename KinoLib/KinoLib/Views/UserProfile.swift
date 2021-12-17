@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 
-class UserProfileViewController: FormViewController {
+class UserProfileViewController: BaseViewController {
     let margin = 15.0
     let bottomMargin = 50.0
     
@@ -17,11 +17,16 @@ class UserProfileViewController: FormViewController {
     
     override func loadView() {
         super.loadView()
+        
         setupView()
     }
     
     func setupView() {
-        title = "KinoLib"
+        guard let user = Auth.auth().currentUser else {
+              return
+        }
+        
+        title = user.email
         
         logoutButton = createButton(title: "Выйти")
         logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)

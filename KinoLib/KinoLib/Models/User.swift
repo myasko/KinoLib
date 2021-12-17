@@ -20,6 +20,4 @@ struct UserSignup {
 
 struct User {
     let email: String
-    
-    let favoriteFilms: [String]
 }
