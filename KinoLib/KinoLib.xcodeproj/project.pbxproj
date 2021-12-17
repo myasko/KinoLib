@@ -22,7 +22,6 @@
 		A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDC93927457C6D00331E9B /* DataManager.swift */; };
 		A8E2DEDD272C2CA100810C11 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDC272C2CA100810C11 /* Film.swift */; };
 		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
-		C31CF660276C114E00808DA9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31CF65F276C114E00808DA9 /* UserProfile.swift */; };
 		C31CF662276C21E600808DA9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31CF661276C21E600808DA9 /* Settings.swift */; };
 		C31CF664276C276D00808DA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C31CF663276C276C00808DA9 /* GoogleService-Info.plist */; };
 		C3417C38275E702D00D0763A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3417C37275E702D00D0763A /* Colors.swift */; };
@@ -63,7 +62,6 @@
 		A8CDC93927457C6D00331E9B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A8E2DEDC272C2CA100810C11 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		C31CF65F276C114E00808DA9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C31CF661276C21E600808DA9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C31CF663276C276C00808DA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3417C37275E702D00D0763A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				C34C5ED027441AC8004EF682 /* SignupViewController.swift */,
 				A879414C2768E31A00D1012C /* SearchViewController.swift */,
 				C3A65BC72761612900A51675 /* FilmDetailsViewController.swift */,
-				C31CF65F276C114E00808DA9 /* UserProfile.swift */,
 				686774E8276C80D5007250F6 /* ProfileViewController.swift */,
 				686774EA276C80F1007250F6 /* FavoritesViewController.swift */,
 			);
@@ -373,7 +370,6 @@
 				A879414D2768E31A00D1012C /* SearchViewController.swift in Sources */,
 				C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */,
 				686774ED276C816A007250F6 /* FavoritesPresenter.swift in Sources */,
-				C31CF660276C114E00808DA9 /* UserProfile.swift in Sources */,
 				C31CF662276C21E600808DA9 /* Settings.swift in Sources */,
 				A8CDC93827457B9B00331E9B /* FilmDetailsPresenter.swift in Sources */,
 				A8CDC93A27457C6D00331E9B /* DataManager.swift in Sources */,

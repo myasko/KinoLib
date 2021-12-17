@@ -10,7 +10,6 @@ import Firebase
 
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
     var userEmailLabel: UILabel! = {
         let label = UILabel()
         label.text = ""
@@ -22,52 +21,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return label
     }()
     
-
-    var userFullNameLabel: UILabel! = {
-        let label = UILabel()
-        label.text = "BBB"
-        label.numberOfLines = 0
-        label.sizeToFit()
-        label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     var logoutButton: UIButton!
     
     let buttonsTableView = UITableView()
     
-//    func creatElements() {
-//
-//        self.userFullNameLabel = {
-//            let label = UILabel()
-//            label.text = "AAA"
-//            label.textAlignment = .center
-//            label.numberOfLines = 0
-//            label.sizeToFit()
-//            label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize) // Сделать жирным и выделяющимся
-//            label.textColor = Colors.text // поменять на Colors.text
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            return label
-//        }()
-//
-//        self.userEmailLabel = {
-//            let label = UILabel()
-//            label.text = "BBB"
-//            label.textAlignment = .center
-//            label.numberOfLines = 0
-//            label.sizeToFit()
-//            label.font = UIFont(name: "HelveticaNeue", size: label.font.pointSize)
-//            label.textColor = Colors.text
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            return label
-//        }()
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "Профиль"
         
         view.addSubview(buttonsTableView)
         buttonsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -123,8 +85,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func setUpView() {
-        guard let user = Auth.auth().currentUser else { return }
-        
         view.backgroundColor = Colors.background2
         
         view.addSubview(userEmailLabel)
@@ -132,7 +92,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         userEmailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 //        userEmailLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 120).isActive = true
 //        userEmailLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -100).isActive = true
-        userEmailLabel.text = "\(user.email ?? "user email")"
         
         logoutButton = createButton(title: "Выйти")
         logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
@@ -142,6 +101,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         logoutButton.topAnchor.constraint(equalTo: userEmailLabel.bottomAnchor, constant: 20).isActive = true
         logoutButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         logoutButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        
+        userEmailLabel.text = "\(user.email ?? "failed to load email")"
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
