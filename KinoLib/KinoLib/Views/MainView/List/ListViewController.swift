@@ -121,7 +121,13 @@ final class ListViewController: UIViewController, ListViewControllerProtocol, UI
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let clickedFilm = self.presenter.films[indexPath.row]
-        let detailsVC = DetailsViewController(film: clickedFilm, genres: self.presenter.genres)
+        
+        var genres: [String] = []
+        clickedFilm.genreIds?.forEach{
+            genres.append(presenter.genres[$0] ?? "")
+        }
+        
+        let detailsVC = DetailsViewController(film: clickedFilm, genres: genres)
         let backItem = UIBarButtonItem()
         backItem.title = "Назад"
         navigationItem.backBarButtonItem = backItem

@@ -15,31 +15,17 @@ class FilmDetailsPresenter {
     let view: DetailsViewController!
     var film: FilmDetails!
     
-    required init(view: DetailsViewController, film: Film, genres: [Int:String]) {
+    required init(view: DetailsViewController, film: Film, genres: [String]) {
         self.view = view
         self.film = self.createFilmDetails(film, genres)
     }
     
-    private func createFilmDetails(_ film: Film, _ genres: [Int:String]) -> FilmDetails {
-        var genresArr: [String] = []
-        var amount = genres.count
-        if (amount > 5) {
-            amount = 5
-        }
-        
-        for (_, genre) in genres {
-            genresArr.append(genre)
-            amount -= 1
-            if (amount == 0) {
-                break
-            }
-        }
-        
+    private func createFilmDetails(_ film: Film, _ genres: [String]) -> FilmDetails {
         return FilmDetails(
             id: film.id,
             posterPath: film.posterPath ?? "",
             title: film.title ?? "",
-            genres: genresArr,
+            genres: genres,
             voteAverage: film.voteAverage ?? 0,
             voteCount: film.voteCount ?? 0,
             overview: film.overview ?? ""

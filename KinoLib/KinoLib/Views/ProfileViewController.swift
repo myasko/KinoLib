@@ -115,10 +115,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let favoriteListVC = FavoritesViewController()
+        
         let backItem = UIBarButtonItem()
         backItem.title = "Назад"
         backItem.tintColor = Colors.highlight
         navigationItem.backBarButtonItem = backItem
+        
         buttonsTableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(favoriteListVC, animated: true)
     }

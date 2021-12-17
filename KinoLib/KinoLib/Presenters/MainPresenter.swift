@@ -33,7 +33,7 @@ final class MainPresenter: MainPresenterProtocol {
         case inCinema = "https://api.themoviedb.org/3/movie/now_playing?language=ru&page=1&region=ru"
         case popularNow = "https://api.themoviedb.org/3/movie/popular?language=ru&page=1&region=ru"
         case bestFilms = "https://api.themoviedb.org/3/movie/top_rated?language=ru&page=1&region=ru"
-        case genres = "https://api.themoviedb.org/3/genre/movie/list?language=ru"
+        case genres = "https://api.themoviedb.org/3/genre/movie/list?language=ru&region=ru"
     }
     var totalPages: [Int] = Array(repeating: 0, count: 4)
     private var filmManager: FilmManagerProtocol = FilmManager.shared

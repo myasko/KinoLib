@@ -22,7 +22,7 @@ class DetailsViewController: UIViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     
-    required init(film: Film, genres: [Int:String]) {
+    required init(film: Film, genres: [String]) {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = FilmDetailsPresenter(view: self, film: film, genres: genres)
