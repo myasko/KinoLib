@@ -64,12 +64,14 @@ class FavoritesViewController: UIViewController , UITableViewDataSource, UITable
     func setUpUI() {
         presenter.output = self
         
+        self.presenter.getGenres()
+        
         view.backgroundColor = Colors.background2
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Colors.text]
         self.title = "Избранное"
         
         view.addSubview(filmsTableView)
-        filmsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        filmsTableView.register(classCell: ListTableViewCell.self)
         filmsTableView.delegate = self
         filmsTableView.dataSource = self
         
@@ -77,32 +79,31 @@ class FavoritesViewController: UIViewController , UITableViewDataSource, UITable
         filmsTableView.separatorColor = Colors.highlight
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.filmFavorites.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = filmsTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let filmFavorite = presenter.filmFavorites[indexPath.row]
         
-        let film = presenter.filmFavorites[indexPath.row]
+        let cell = tableView.create(cell: ListTableViewCell.self, at: indexPath)
         
-        cell.textLabel?.text = film.title
-        cell.textLabel?.textAlignment = .center
         cell.backgroundColor = Colors.background2
+        cell.selectionStyle = .none
+        
+        cell.title.text = filmFavorite.title
+        
+        if !filmFavorite.posterUrl.isEmpty {
+            cell.poster.setURL(URL(string: filmFavorite.posterUrl))
+        } else {
+            cell.poster.image = UIImage(named: "noposter")
+        }
         
         return cell
-        
-//        let cell = tableView.create(cell: ListTableViewCell.self, at: indexPath)
-//        cell.selectionStyle = .none
-//        let film = presenter.films[indexPath.row]
-//        if let poster = film.posterPath {
-//            cell.poster.setURL(URL(string: "https://image.tmdb.org/t/p/w185\(poster)"))
-//        }
-//        else {
-//            cell.poster.image = UIImage(named: "noposter")
-//        }
-//        cell.title.text = film.title
-//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -110,7 +111,12 @@ class FavoritesViewController: UIViewController , UITableViewDataSource, UITable
         filmsTableView.deselectRow(at: indexPath, animated: true)
         
         let clickedFilm = self.presenter.films[indexPath.row]
-        let detailsVC = DetailsViewController(film: clickedFilm, genres: [""])
+        
+        var genres: [String] = []
+        clickedFilm.genres?.forEach {
+            genres.append($0.name)
+        }
+        let detailsVC = DetailsViewController(film: clickedFilm, genres: genres)
 
         let backItem = UIBarButtonItem()
         backItem.title = "Назад"

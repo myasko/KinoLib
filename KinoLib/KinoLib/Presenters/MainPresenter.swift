@@ -50,7 +50,8 @@ final class MainPresenter: MainPresenterProtocol {
             genreIds: [0],
             popularity: 0,
             voteAverage: 0,
-            voteCount: 0
+            voteCount: 0,
+            genres: []
         )
     ], count: 4)
     

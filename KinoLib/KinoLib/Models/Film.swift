@@ -24,6 +24,8 @@ struct Film: Codable {
     let popularity: Double?
     let voteAverage: Double?
     let voteCount: Int?
+    
+    let genres: [Genre]?
 }
 
 struct FilmFavorite {
