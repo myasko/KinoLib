@@ -127,14 +127,4 @@ class BaseViewController: UIViewController {
     func showAlert(_ alert: UIAlertController) {
         self.present(alert, animated: true, completion: nil)
     }
-    
-    func navigateToMain() {
-        let mainViewController = MainViewController()
-        self.navigationController?.setViewControllers([mainViewController], animated: true)
-    }
-    
-    func navigateToAuth() {
-        let authViewController = AuthViewController()
-        self.navigationController?.setViewControllers([authViewController], animated: true)
-    }
 }

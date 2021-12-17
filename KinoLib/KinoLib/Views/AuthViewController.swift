@@ -28,6 +28,9 @@ class AuthViewController: BaseViewController {
     
     override func loadView() {
         super.loadView()
+        
+        navigationItem.hidesBackButton = true
+        
         setupView()
     }
     
@@ -111,7 +114,9 @@ class AuthViewController: BaseViewController {
             }
             
             self.passwordInput.text = ""
-            self.navigateToMain()
+            
+            self.tabBarController?.tabBar.isHidden = false
+            self.navigationController?.popViewController(animated: true)
         })
     }
     

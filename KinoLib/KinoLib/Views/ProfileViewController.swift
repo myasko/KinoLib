@@ -154,15 +154,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.pushViewController(favoriteListVC, animated: true)
     }
     
-    func navigateToAuth() {
-        let authViewController = AuthViewController()
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     @objc func logoutButtonAction(sender: UIButton!) {
         do {
             try Auth.auth().signOut()
-            self.navigateToAuth()
+            
+            let authVC = AuthViewController()
+            authVC.navigationItem.hidesBackButton = true
+            self.navigationController?.pushViewController(authVC, animated: true)
         } catch {
             print("Unable to logout!")
         }

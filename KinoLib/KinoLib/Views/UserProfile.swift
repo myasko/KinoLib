@@ -77,7 +77,11 @@ class UserProfileViewController: BaseViewController {
     @objc func logoutButtonAction(sender: UIButton!) {
         do {
             try Auth.auth().signOut()
-            self.navigateToAuth()
+            
+            navigationItem.hidesBackButton = true
+            
+            let authVC = AuthViewController()
+            self.navigationController?.pushViewController(authVC, animated: true)
         } catch {
             print("Unable to logout!")
         }

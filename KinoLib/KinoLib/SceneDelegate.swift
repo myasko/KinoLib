@@ -21,18 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.overrideUserInterfaceStyle = .dark
         }
         
-        let rootVC: UIViewController!
-        if Auth.auth().currentUser == nil {
-            rootVC = AuthViewController()
-        } else {
-            rootVC = MainViewController()
-        }
+        let mainVC = MainViewController()
         
         UITabBar.appearance().tintColor = Colors.highlight
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Colors.highlight], for: .normal)
         
         let tabBar = UITabBarController()
-        let navMain = UINavigationController(rootViewController: rootVC)
+        let navMain = UINavigationController(rootViewController: mainVC)
         navMain.navigationBar.tintColor = Colors.highlight
         
         let iconMain = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
@@ -49,6 +44,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navProfile.tabBarItem = iconProfile
         
         tabBar.viewControllers = [navMain, navSearch, navProfile]
+        
+        if Auth.auth().currentUser == nil {
+            let authVC = AuthViewController()
+            navMain.pushViewController(authVC, animated: false)
+        }
         
         self.window = window
         window.makeKeyAndVisible()

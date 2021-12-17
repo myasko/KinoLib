@@ -131,8 +131,9 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.film.title
         self.tabBarController?.tabBar.isHidden = true
+        
+        self.title = self.film.title
         setUpScrollView()
         setUpPoster()
         setUpViews()

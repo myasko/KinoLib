@@ -188,10 +188,12 @@ extension MainViewController: UICollectionViewDataSource & UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let clickedFilm = self.presenter.films[collectionView.tag]![indexPath.row]
         let detailsVC = DetailsViewController(film: clickedFilm, genres: self.presenter.genres)
+        
         let backItem = UIBarButtonItem()
         backItem.title = "Назад"
         backItem.tintColor = Colors.highlight
         navigationItem.backBarButtonItem = backItem
+        
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
