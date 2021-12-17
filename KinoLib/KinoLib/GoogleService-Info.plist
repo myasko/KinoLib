@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1031900527669-07j669k84ojea5m66f8v4cuv55s7ppgc.apps.googleusercontent.com</string>
+	<string>1031900527669-4hfdi8etlqp2dr1vbva4dd6gvr4lia9o.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1031900527669-07j669k84ojea5m66f8v4cuv55s7ppgc</string>
+	<string>com.googleusercontent.apps.1031900527669-4hfdi8etlqp2dr1vbva4dd6gvr4lia9o</string>
 	<key>API_KEY</key>
 	<string>AIzaSyA8qF7gkEaxWijtSMc27XMqJcLAyoJNC40</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.KinoLib</string>
+	<string>com.KinoLib.KoroLion</string>
 	<key>PROJECT_ID</key>
 	<string>kinolib-1ce6a</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1031900527669:ios:b0733f3d2becf4d573057c</string>
+	<string>1:1031900527669:ios:b55fa171f857660d73057c</string>
 </dict>
 </plist>

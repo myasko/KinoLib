@@ -23,6 +23,7 @@
 		A8E2DEE0272C381100810C11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E2DEDF272C381100810C11 /* NetworkManager.swift */; };
 		C31CF660276C114E00808DA9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31CF65F276C114E00808DA9 /* UserProfile.swift */; };
 		C31CF662276C21E600808DA9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31CF661276C21E600808DA9 /* Settings.swift */; };
+		C31CF664276C276D00808DA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C31CF663276C276C00808DA9 /* GoogleService-Info.plist */; };
 		C3417C38275E702D00D0763A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3417C37275E702D00D0763A /* Colors.swift */; };
 		C34C5ECF27441AB6004EF682 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ECE27441AB6004EF682 /* AuthViewController.swift */; };
 		C34C5ED127441AC8004EF682 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED027441AC8004EF682 /* SignupViewController.swift */; };
@@ -30,7 +31,6 @@
 		C34C5ED527441AE2004EF682 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED427441AE2004EF682 /* AuthPresenter.swift */; };
 		C34C5ED727441AF2004EF682 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED627441AF2004EF682 /* SignupPresenter.swift */; };
 		C34C5ED927441B0C004EF682 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C5ED827441B0C004EF682 /* BaseViewController.swift */; };
-		C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */; };
 		C3A65BCB2761612900A51675 /* FilmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BC72761612900A51675 /* FilmDetailsViewController.swift */; };
 		C3A65BD2276164B600A51675 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A65BD1276164B600A51675 /* NetworkImageView.swift */; };
 		C3A8C86F27662F8B00506276 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8C86C27662F8B00506276 /* MainCollectionViewCell.swift */; };
@@ -61,6 +61,7 @@
 		A8E2DEDF272C381100810C11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C31CF65F276C114E00808DA9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C31CF661276C21E600808DA9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C31CF663276C276C00808DA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3417C37275E702D00D0763A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C34C5ECE27441AB6004EF682 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C34C5ED027441AC8004EF682 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		C34C5ED427441AE2004EF682 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		C34C5ED627441AF2004EF682 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		C34C5ED827441B0C004EF682 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3A65BC72761612900A51675 /* FilmDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailsViewController.swift; sourceTree = "<group>"; };
 		C3A65BD1276164B600A51675 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 		C3A8C86C27662F8B00506276 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				A8E2DED9272C2BEB00810C11 /* Models */,
 				A85148AF27270FB40073EB7B /* AppDelegate.swift */,
 				A85148B127270FB40073EB7B /* SceneDelegate.swift */,
-				C34C5EDD2745A42D004EF682 /* GoogleService-Info.plist */,
+				C31CF663276C276C00808DA9 /* GoogleService-Info.plist */,
 				A85148B827270FB60073EB7B /* Assets.xcassets */,
 				A85148BD27270FB60073EB7B /* Info.plist */,
 			);
@@ -299,8 +299,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31CF664276C276D00808DA9 /* GoogleService-Info.plist in Resources */,
 				A85148B927270FB60073EB7B /* Assets.xcassets in Resources */,
-				C34C5EDE2745A42D004EF682 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +523,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KoroLion.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib.KoroLion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -551,7 +551,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KoroLion.KinoLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KinoLib.KoroLion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
