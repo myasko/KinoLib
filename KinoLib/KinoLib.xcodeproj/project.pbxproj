@@ -217,7 +217,6 @@
 		C3A8C86B27662F8B00506276 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C3A8C8742766312200506276 /* ListTableViewCell.swift */,
 				C3A8C86D27662F8B00506276 /* MainViewController.swift */,
 				C3A8C86C27662F8B00506276 /* MainCollectionViewCell.swift */,
 				C3A8C86E27662F8B00506276 /* MainTableViewCell.swift */,
@@ -229,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				C3A8C8732766312200506276 /* ListViewController.swift */,
+				C3A8C8742766312200506276 /* ListTableViewCell.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
