@@ -165,7 +165,6 @@ class DetailsViewController: UIViewController {
         
         plotLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
         plotLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
-        plotLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
     func setUpPoster() {

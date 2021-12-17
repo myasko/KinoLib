@@ -21,8 +21,7 @@ class AuthPresenter {
         }
         
         Auth.auth().signIn(withEmail: user.email, password: user.password) {
-            [weak self] authResult, error in
-            guard let strongSelf = self else { return }
+            authResult, error in
             
             if (error == nil) {
                 callback("")

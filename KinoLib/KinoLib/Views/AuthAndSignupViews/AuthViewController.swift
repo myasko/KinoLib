@@ -34,6 +34,7 @@ class AuthViewController: FormViewController {
     func setupView() {
         title = "KinoLib"
         self.tabBarController?.tabBar.isHidden = true
+        
         titleLabel = createLabel(text: "Авторизация")
         titleLabel.font = titleLabel.font.withSize(titleLabel.font.pointSize * 1.25)
         contentView.addSubview(titleLabel)

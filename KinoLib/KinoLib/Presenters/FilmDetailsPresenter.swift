@@ -11,14 +11,7 @@ import Firebase
 import FirebaseFirestore
 
 
-/*protocol FilmDetailsPresenterProtocol: AnyObject {
-    init(view: DetailsViewController, film: Film)
-    
-    func showDetails()
-    func toggleFavoriteStatus()
-}*/
-
-class FilmDetailsPresenter/*: FilmDetailsPresenterProtocol*/ {
+class FilmDetailsPresenter {
     let view: DetailsViewController!
     let film: Film!
     let genres: [Int:String]!
@@ -55,14 +48,6 @@ class FilmDetailsPresenter/*: FilmDetailsPresenterProtocol*/ {
         )
     }
     
-    func showDetails() {
-        // view.nameLabel.text = film.name
-        //view.plotLabel.text = film.plot
-//        film.genres.forEach { genre in
-//            view.genresLable.text?.append(genre)
-//        }
-    }
-    
     func isFavorite(_ callback: @escaping(Bool) -> ()) {
         guard let user = Auth.auth().currentUser else {
             callback(false)
@@ -73,6 +58,7 @@ class FilmDetailsPresenter/*: FilmDetailsPresenterProtocol*/ {
             (film_ids, err) in
             
             if (err != nil) {
+                print(err)
                 callback(false)
                 return
             }

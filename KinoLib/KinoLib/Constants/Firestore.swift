@@ -18,6 +18,7 @@ class DB {
             (document, error) in
             
             if (error != nil) {
+                print(error)
                 callback([], error?.localizedDescription)
                 return
             }
@@ -29,6 +30,8 @@ class DB {
                 }
                 
                 callback(id_list, nil)
+            } else {
+                callback([], nil)
             }
         }
     }
@@ -44,11 +47,9 @@ class DB {
                     err in
                     
                     if (err != nil) {
-                        callback(false, err?.localizedDescription)
-                        return
+                        callback(true, err?.localizedDescription)
                     } else {
                         callback(false, nil)
-                        return
                     }
                 }
             } else {
@@ -58,11 +59,19 @@ class DB {
                     err in
                     
                     if (err != nil) {
-                        callback(false, err?.localizedDescription)
-                        return
+                        self.favoriteFilmsRef.document("\(uid)").setData([
+                            "id_list": [filmId],
+                        ]) {
+                            err in
+                            
+                            if (err != nil) {
+                                callback(false, err?.localizedDescription)
+                            } else {
+                                callback(true, nil)
+                            }
+                        }
                     } else {
                         callback(true, nil)
-                        return
                     }
                 }
             }

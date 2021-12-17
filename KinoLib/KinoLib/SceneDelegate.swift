@@ -32,18 +32,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Colors.highlight], for: .normal)
         
         let tabBar = UITabBarController()
-        let nav1 = UINavigationController(rootViewController: rootVC)
-        nav1.navigationBar.tintColor = Colors.highlight
+        let navMain = UINavigationController(rootViewController: rootVC)
+        navMain.navigationBar.tintColor = Colors.highlight
         
-        let iconMain = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
-        nav1.tabBarItem = iconMain
+        let iconMain = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+        navMain.tabBarItem = iconMain
         
         let searchVC = SearchViewController()
-        let nav2 = UINavigationController(rootViewController: searchVC)
+        let navSearch = UINavigationController(rootViewController: searchVC)
         let iconSearch = UITabBarItem(tabBarSystemItem: .search, tag: 1)
-        nav2.tabBarItem = iconSearch
+        navSearch.tabBarItem = iconSearch
         
-        tabBar.viewControllers = [nav1, nav2]
+        let userProfileVC = UserProfileViewController()
+        let navProfile = UINavigationController(rootViewController: userProfileVC)
+        let iconProfile = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        navProfile.tabBarItem = iconProfile
+        
+        tabBar.viewControllers = [navMain, navProfile, navSearch]
         
         self.window = window
         window.makeKeyAndVisible()
